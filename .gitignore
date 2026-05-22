@@ -1,0 +1,47 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.egg-info/
+dist/
+build/
+.eggs/
+
+# Virtual environments
+.venv/
+venv/
+env/
+
+# Environment & secrets
+.env
+*.env
+
+# Cache
+.cache/
+*.cache
+
+# Test artifacts
+.pytest_cache/
+.coverage
+htmlcov/
+coverage.xml
+
+# IDE / editor
+.vscode/
+.idea/
+
+# Claude Code local settings
+**/.claude/
+.claude/
+
+# Database
+*.db
+
+# Logs
+*.log
+warnings.log
+
+# OS
+.DS_Store
+Thumbs.db
