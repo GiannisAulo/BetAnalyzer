@@ -13,7 +13,7 @@ LOG_FILE = "bets_log.csv"
 # v1: post-Phase-1 thresholds, per-league DC_RHO, xG proxy, momentum, streaks,
 #     winter under-scoring proxy, cross-fixture accumulators. The acca release
 #     (2026-05-24) is additive — same single-pick logic, so stays in v1.
-MODEL_VERSION = "v1"
+MODEL_VERSION = "v2"
 
 FIELDS = [
     "match_id", "date", "home", "away", "league",

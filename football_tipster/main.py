@@ -950,6 +950,7 @@ def _run_analysis(leagues: list, use_cache: bool, min_edge: float,
 
     # Highest edge first — that is the ranking that matters
     value_picks.sort(key=lambda p: p.get("edge", 0), reverse=True)
+    value_picks = value_picks[:3]
 
     # Build cross-fixture accumulators from the qualifying short-odds picks
     # collected per fixture above. These don't compete with the single picks

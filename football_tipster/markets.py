@@ -26,19 +26,19 @@ MIN_FAIR_ODDS = 1.60
 
 # Absolute probability floor used in value-sweep mode.
 # Below this nothing is worth recommending regardless of edge.
-_LOW_FLOOR = 0.35
+_LOW_FLOOR = 0.52
 
 # Absolute minimum model probability to consider a pick, even with positive edge.
 # Prevents the model from recommending longshots with tiny win probability
 # (e.g. Away Win at 11% or Home Win at 25%) where edge is just noise.
 # Applied to BOTH odds-based and no-odds paths.
 MIN_PROB = {
-    "Home Win":  0.62,   # raised: live WR 44% at avg model_prob 0.55 — need stronger conviction
-    "Away Win":  0.65,   # raised: 0W/6L live WR at 0.52 — model has no edge on away picks below 0.65
+    "Home Win":  0.60,   # raised: live WR 44% at avg model_prob 0.55 — need stronger conviction
+    "Away Win":  0.62,   # raised: 0W/6L live WR at 0.52 — model has no edge on away picks below 0.65
     "Draw":      0.45,
-    "Over 2.5":  0.65,   # raised: 52% live WR at 0.64 avg model_prob — 12pp calibration gap
-    "Under 2.5": 0.65,   # raised: 46% live WR at 0.61 avg — model cannot pick Under 2.5 below 0.65
-    "Over 3.5":  0.65,   # raised: backtest 44% WR at 0.45 — losing market
+    "Over 2.5":  0.58,   # raised: 52% live WR at 0.64 avg model_prob — 12pp calibration gap
+    "Under 2.5": 0.58,   # raised: 46% live WR at 0.61 avg — model cannot pick Under 2.5 below 0.65
+    "Over 3.5":  0.72,   # raised: backtest 44% WR at 0.45 — losing market
     "Under 3.5": 0.50,
 }
 
@@ -50,9 +50,9 @@ _MIN_PROB_NO_ODDS = {
     "Draw":      0.52,
     "Over 1.5":  0.75,
     "Under 1.5": 0.70,
-    "Over 2.5":  0.67,
-    "Under 2.5": 0.67,
-    "Over 3.5":  0.65,
+    "Over 2.5":  0.63,
+    "Under 2.5": 0.63,
+    "Over 3.5":  0.72,
     "Under 3.5": 0.58,
 }
 
@@ -440,11 +440,11 @@ def evaluate_combos(all_picks, probs=None):
 
 _ACCA_LEG_ODDS_MIN  = 1.15
 _ACCA_LEG_ODDS_MAX  = 1.45
-_ACCA_LEG_PROB_MIN  = 0.70   # was 0.75 — relaxed so high-confidence DC picks (75–80%) qualify
+_ACCA_LEG_PROB_MIN  = 0.67   # was 0.75 — relaxed so high-confidence DC picks (75–80%) qualify
 
 # Combined-odds target — accas should land in the same value-betting zone as singles.
-_ACCA_COMBO_ODDS_MIN = 1.60
-_ACCA_COMBO_ODDS_MAX = 2.50
+_ACCA_COMBO_ODDS_MIN = 1.40
+_ACCA_COMBO_ODDS_MAX = 3.00
 
 # Verified (real-odds) accumulators must show meaningful joint edge.
 _ACCA_VERIFIED_MIN_JOINT_PROB = 0.55
@@ -453,10 +453,10 @@ _ACCA_VERIFIED_MIN_JOINT_EDGE = 8.0
 # Inferred (model-fair-odds) accumulators are informational. The edge field is
 # always 0 by construction (joint_prob = 1/joint_odds when odds are fair), so we
 # require only that the joint probability is high enough to be worth a look.
-_ACCA_INFERRED_MIN_JOINT_PROB = 0.45
+_ACCA_INFERRED_MIN_JOINT_PROB = 0.42
 
-_ACCA_MAX_RESULTS_VERIFIED = 3
-_ACCA_MAX_RESULTS_INFERRED = 3
+_ACCA_MAX_RESULTS_VERIFIED = 2
+_ACCA_MAX_RESULTS_INFERRED = 2
 
 
 def collect_acca_candidates(probs, fx_odds, league=None):

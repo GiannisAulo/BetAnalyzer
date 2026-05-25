@@ -42,22 +42,22 @@ class TestMinProbConstant:
     """Verify the MIN_PROB dict is defined with expected values."""
 
     def test_home_win_floor(self):
-        assert MIN_PROB["Home Win"] == 0.62   # raised: live WR 44% at avg 0.55 — need stronger conviction
+        assert MIN_PROB["Home Win"] == 0.60   # raised: live WR 44% at avg 0.55 — need stronger conviction
 
     def test_away_win_floor(self):
-        assert MIN_PROB["Away Win"] == 0.65   # raised: 0W/6L live at 0.52 — no edge below 0.65
+        assert MIN_PROB["Away Win"] == 0.62   # raised: 0W/6L live at 0.52 — no edge below 0.65
 
     def test_draw_floor(self):
         assert MIN_PROB["Draw"] == 0.45
 
     def test_over25_floor(self):
-        assert MIN_PROB["Over 2.5"] == 0.65   # raised: 52% live WR at avg 0.64 — 12pp calibration gap
+        assert MIN_PROB["Over 2.5"] == 0.58   # raised: 52% live WR at avg 0.64 — 12pp calibration gap
 
     def test_under25_floor(self):
-        assert MIN_PROB["Under 2.5"] == 0.65  # raised: 46% live WR at avg 0.61
+        assert MIN_PROB["Under 2.5"] == 0.58  # raised: 46% live WR at avg 0.61
 
     def test_over35_floor(self):
-        assert MIN_PROB["Over 3.5"] == 0.65   # raised: backtest 44% WR at 0.45
+        assert MIN_PROB["Over 3.5"] == 0.72   # raised: backtest 44% WR at 0.45
 
     def test_under35_floor(self):
         assert MIN_PROB["Under 3.5"] == 0.50
@@ -198,8 +198,8 @@ class TestOver25RaisedThreshold:
         assert o25 == []
 
     def test_over25_at_064_rejected(self):
-        """Over 2.5 at 0.64 -> still below new 0.65 threshold."""
-        probs = _base_probs(over_2_5=0.64)
+        """Over 2.5 at 0.62 -> still below current 0.63 no-odds threshold."""
+        probs = _base_probs(over_2_5=0.62)
         picks = markets.evaluate_over_under(probs)
         o25 = [p for p in picks if p["pick"] == "Over 2.5"]
         assert o25 == []
@@ -267,8 +267,8 @@ class TestExpectedTotalGates:
         assert len(u25) == 1
 
     def test_over35_high_xg_passes(self):
-        """Over 3.5 with expected_total=4.0 (>= 3.5 gate) and prob >= 0.65 -> allowed."""
-        probs = _base_probs(over_3_5=0.70)
+        """Over 3.5 with expected_total=4.0 (>= 3.5 gate) and prob >= 0.72 -> allowed."""
+        probs = _base_probs(over_3_5=0.75)
         picks = markets.evaluate_over_under(probs, expected_total=4.0)
         o35 = [p for p in picks if p["pick"] == "Over 3.5"]
         assert len(o35) == 1
@@ -297,8 +297,8 @@ class TestExpectedTotalGates:
         assert len(u25) == 1
 
     def test_over35_exactly_at_gate(self):
-        """Over 3.5 with expected_total=3.50 exactly and prob >= 0.65 -> passes."""
-        probs = _base_probs(over_3_5=0.70)
+        """Over 3.5 with expected_total=3.50 exactly and prob >= 0.72 -> passes."""
+        probs = _base_probs(over_3_5=0.75)
         picks = markets.evaluate_over_under(probs, expected_total=3.50)
         o35 = [p for p in picks if p["pick"] == "Over 3.5"]
         assert len(o35) == 1
