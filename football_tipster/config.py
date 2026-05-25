@@ -161,6 +161,14 @@ STREAK_MAX_LENGTH      = 6     # cap — beyond 6 the signal is already saturate
 STREAK_CS_DEFENCE_BOOST  = 0.05  # per-match defence reduction (lower expected_total)
 STREAK_DROUGHT_ATK_PENALTY = 0.04  # per-match attack reduction
 
+# Winter under-scoring proxy (POTENTIAL-04).
+# Northern European leagues play through cold/wet conditions Nov–Feb.
+# Research consensus: goal scoring drops ~5% in winter months due to pitch
+# and weather conditions. Applied after H2H blend, before knockout suppression.
+WINTER_LEAGUES = frozenset({"PL", "BL1", "FL1", "ELC", "DED"})
+WINTER_MONTHS  = frozenset({11, 12, 1, 2})   # November – February
+WINTER_UNDER_FACTOR = 0.95                    # 5% expected-goals reduction
+
 
 def validate_config():
     """Assert critical constants are within sane ranges. Raises ValueError on bad values."""
@@ -187,6 +195,8 @@ def validate_config():
         errors.append(f"STREAK_CS_DEFENCE_BOOST={STREAK_CS_DEFENCE_BOOST} must be in (0, 0.3)")
     if not (0 < STREAK_DROUGHT_ATK_PENALTY < 0.3):
         errors.append(f"STREAK_DROUGHT_ATK_PENALTY={STREAK_DROUGHT_ATK_PENALTY} must be in (0, 0.3)")
+    if not (0.5 <= WINTER_UNDER_FACTOR <= 1.0):
+        errors.append(f"WINTER_UNDER_FACTOR={WINTER_UNDER_FACTOR} must be in [0.5, 1.0]")
     if errors:
         raise ValueError("config.py validation failed:\n" + "\n".join(f"  - {e}" for e in errors))
 

@@ -48,14 +48,6 @@ def get_cache_age_hours(key: str) -> float | None:
     return (time.time() - os.path.getmtime(path)) / 3600
 
 
-def clear_cache():
-    if not os.path.exists(CACHE_DIR):
-        return
-    for fname in os.listdir(CACHE_DIR):
-        if fname.endswith(".json"):
-            os.remove(os.path.join(CACHE_DIR, fname))
-
-
 def evict_stale_cache(max_age_seconds: int = 48 * 3600) -> int:
     """
     Delete cache files older than max_age_seconds (default 48 h = 2× longest TTL).

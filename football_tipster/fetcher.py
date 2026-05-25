@@ -3,6 +3,7 @@ import requests
 from config import API_KEY, BASE_URL, RATE_LIMIT_SLEEP, CACHE_VERSION
 from cache import get_cached, set_cache, TTL_FIXTURES, TTL_STANDINGS, TTL_TEAM, TTL_H2H
 import match_store
+import warn_log
 
 HEADERS = {"X-Auth-Token": API_KEY}
 
@@ -78,11 +79,18 @@ def get_team_matches(team_id, use_cache=True, league=""):
         ttl=TTL_TEAM,
     )
     # Persist to SQLite (no-op on cache hits since we only write fresh data when
-    # the API was actually called — store_matches deduplicates via INSERT OR IGNORE)
+    # the API was actually called — store_matches deduplicates via INSERT OR IGNORE).
+    # Persistence is best-effort: we never break the main pipeline if SQLite is
+    # locked or the schema is in flux, but we DO log so silent corruption can be
+    # diagnosed from warnings.log later.
     try:
         match_store.store_matches(data, league=league)
-    except Exception:
-        pass   # never let persistence errors break the main pipeline
+    except Exception as exc:
+        warn_log.fallback(
+            f"store_matches failed: {exc.__class__.__name__}: {exc}",
+            "match history not persisted for this team",
+            league=league, match_id=str(team_id),
+        )
     return data
 
 
@@ -113,8 +121,15 @@ def get_last_match_date(team_id, use_cache=True):
         matches = data.get("matches", [])
         if matches:
             return matches[-1].get("utcDate")
-    except Exception:
-        pass
+    except Exception as exc:
+        # Surface the failure rather than silently returning None — fatigue
+        # detection silently disables when this happens; the warning lets us
+        # see how often it's firing.
+        warn_log.fallback(
+            f"get_last_match_date failed: {exc.__class__.__name__}: {exc}",
+            "fatigue check disabled for team",
+            match_id=str(team_id),
+        )
     return None
 
 

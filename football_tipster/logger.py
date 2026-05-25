@@ -5,16 +5,22 @@ from datetime import datetime
 import warn_log
 
 LOG_FILE = "bets_log.csv"
-# Increment this string whenever thresholds or model logic change significantly.
-# Logged with every new pick so analysis can filter by model version.
-MODEL_VERSION = "v2026-04-27"
+# Sequential model version. Bump (v1 -> v2 -> v3) whenever thresholds or model
+# logic change significantly enough that the previous cohort's stats no longer
+# represent the live model. Stamped on every new pick so analysis can filter by
+# version (see logger.compute_roi_summary(model_version=...)).
+#
+# v1: post-Phase-1 thresholds, per-league DC_RHO, xG proxy, momentum, streaks,
+#     winter under-scoring proxy, cross-fixture accumulators. The acca release
+#     (2026-05-24) is additive — same single-pick logic, so stays in v1.
+MODEL_VERSION = "v1"
 
 FIELDS = [
     "match_id", "date", "home", "away", "league",
     "market", "pick", "model_prob", "odds_taken", "edge", "result", "roi",
     "settle_attempts",
     "home_position", "away_position", "form_adv", "expected_total",
-    "model_version",
+    "model_version", "stake_units",
 ]
 # odds_taken:      bookmaker decimal odds at pick time (blank when no odds available)
 # roi:             realised return per unit staked = (odds_taken - 1) on W, -1 on L
@@ -26,6 +32,17 @@ _MAX_SETTLE_ATTEMPTS = 10
 
 # API statuses that mean the match is fully over
 _FINISHED_STATUSES = {"FINISHED"}
+
+# Cross-fixture accumulator support.
+# Rows with a match_id starting with this prefix are multi-leg accumulators
+# whose match_id encodes the constituent fixture ids as "ACC:id1+id2+id3"
+# and whose pick string encodes each leg as "<team>: <pick_name> @<odds>"
+# joined with " + " (same separator already used for same-fixture combos).
+_ACC_PREFIX = "ACC:"
+# Statuses that cause a leg to be dropped from the acca (skip and settle on the rest)
+_ACC_VOID_STATUSES = {"POSTPONED", "CANCELLED", "SUSPENDED"}
+# Statuses that mean the leg has a final result we can grade
+_ACC_FINAL_STATUSES = {"FINISHED", "AWARDED"}
 
 
 def _load_rows():
@@ -158,6 +175,92 @@ def _evaluate_leg(leg_name, home_goals, away_goals, winner, total_goals):
     return None
 
 
+def _settle_acca(row, fetcher_mod):
+    """Settle a cross-fixture accumulator row.
+
+    Returns a tuple (outcome, roi_str, retry):
+        outcome  : "W" | "L" | "VOID" | None
+        roi_str  : string ROI value (positive on W, "-1.000" on L, "" on VOID)
+        retry    : True when the acca should stay pending (some leg still in play
+                   or transient API error) — caller should bump settle_attempts.
+
+    Postponed/cancelled/suspended legs are skipped and the acca settles on the
+    surviving legs. The payout odds in that case are the product of only the
+    surviving legs' odds — matching the standard bookmaker rule for void legs.
+    """
+    mid_field  = (row.get("match_id") or "").strip()
+    pick_field = (row.get("pick") or "").strip()
+    if not mid_field.startswith(_ACC_PREFIX) or not pick_field:
+        return None, "", True
+
+    leg_ids  = mid_field[len(_ACC_PREFIX):].split("+")
+    leg_strs = pick_field.split(" + ")
+    if len(leg_ids) != len(leg_strs) or not leg_ids:
+        # malformed — don't corrupt; keep retrying so a fix can be applied later
+        return None, "", True
+
+    surviving_odds = 1.0
+    surviving_any  = False
+    all_wins       = True
+
+    for leg_id, leg_str in zip(leg_ids, leg_strs):
+        # Parse "<team>: <pick_name> @<odds>"
+        try:
+            pick_part, odds_part = leg_str.rsplit(" @", 1)
+            leg_odds = float(odds_part)
+            _team, leg_pick_name = pick_part.split(": ", 1)
+            leg_pick_name = leg_pick_name.strip()
+        except (ValueError, AttributeError):
+            return None, "", True   # malformed leg encoding — retry
+
+        try:
+            data = fetcher_mod.get_match(leg_id)
+        except Exception:
+            return None, "", True   # API error — stay pending
+
+        match  = data.get("match") or data
+        status = match.get("status", "")
+
+        if status in _ACC_VOID_STATUSES:
+            continue   # void leg — skip but keep rest
+
+        if status not in _ACC_FINAL_STATUSES:
+            return None, "", True   # still pending — wait
+
+        score = match.get("score", {})
+        ft    = score.get("fullTime", {})
+        hg    = ft.get("home")
+        ag    = ft.get("away")
+        if hg is None or ag is None:
+            return None, "", True
+
+        total_g = hg + ag
+        winner  = score.get("winner", "")
+        leg_res = _evaluate_leg(leg_pick_name, hg, ag, winner, total_g)
+        if leg_res is None:
+            # unrecognised leg type — log and treat as ERR so it settles
+            warn_log.fallback(
+                f"unrecognised acca leg '{leg_pick_name}' — cannot evaluate",
+                "acca settled as ERR",
+                match_id=str(leg_id),
+            )
+            return "ERR", "", False
+
+        surviving_any = True
+        surviving_odds *= leg_odds
+        if leg_res == "L":
+            all_wins = False
+        time.sleep(0.15)   # stay within free-tier rate limit
+
+    if not surviving_any:
+        # every leg voided — bet returns stake at the bookmaker
+        return "VOID", "", False
+
+    if all_wins:
+        return "W", f"{(surviving_odds - 1):.3f}", False
+    return "L", "-1.000", False
+
+
 def settle_bets(console=None):
     """
     Re-fetch every unsettled row (result == ""), evaluate the outcome, and
@@ -183,6 +286,18 @@ def settle_bets(console=None):
             if console:
                 console.print(f"  [dim]Skipping match {mid} — {attempts} failed attempts[/dim]")
             failed += 1
+            continue
+
+        # ── Cross-fixture accumulator ─────────────────────────────────────
+        if mid.startswith(_ACC_PREFIX):
+            outcome, roi_str, retry = _settle_acca(row, fetcher)
+            if retry:
+                row["settle_attempts"] = attempts + 1
+                failed += 1
+            else:
+                row["result"] = outcome
+                row["roi"]    = roi_str
+                settled += 1
             continue
 
         try:
@@ -245,24 +360,31 @@ def _has_header():
     return first == ",".join(FIELDS)
 
 
-def compute_roi_summary():
+def compute_roi_summary(model_version=None):
     """
     Return a dict with cumulative ROI stats from all settled bets that have
     an odds_taken value recorded.
 
+    model_version: when set, only rows whose `model_version` column matches the
+                   given value are counted. Use this to isolate the current model
+                   cohort from older pre-threshold history that drags averages
+                   down. When None (default), all settled rows are included.
+
     Returns:
         {
-          "total":   int,    # settled bets with odds
+          "total":   int,    # settled bets with odds (after filter)
           "wins":    int,
           "losses":  int,
           "roi_pct": float,  # cumulative ROI as a percentage (sum(roi) / n * 100)
-          "yield_pct": float # yield = total_profit / total_staked * 100
         }
     Returns None when fewer than 5 qualifying bets exist.
     """
     rows = _load_rows()
     roi_values = []
     for r in rows:
+        if model_version is not None:
+            if (r.get("model_version") or "").strip() != model_version:
+                continue
         result = (r.get("result") or "").strip().upper()
         if result not in {"W", "L"}:
             continue
@@ -320,6 +442,7 @@ def log_bets(picks):
             away_pos = pick.get("away_position")
             form_adv = pick.get("form_adv")
             exp_tot  = pick.get("expected_total")
+            stake_u  = pick.get("stake_units")
             writer.writerow({
                 "match_id":        mid,
                 "date":            date_str,
@@ -339,5 +462,6 @@ def log_bets(picks):
                 "form_adv":        f"{form_adv:.3f}" if form_adv is not None else "",
                 "expected_total":  f"{exp_tot:.3f}" if exp_tot is not None else "",
                 "model_version":   MODEL_VERSION,
+                "stake_units":     str(stake_u) if stake_u is not None else "",
             })
             already_logged.add(key)

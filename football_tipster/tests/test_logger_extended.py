@@ -180,6 +180,42 @@ class TestROISummary:
         summary = compute_roi_summary()
         assert summary["total"] == 5
 
+    def test_filter_by_model_version(self, tmp_path, monkeypatch):
+        """Only rows tagged with the requested model_version should be counted."""
+        monkeypatch.chdir(tmp_path)
+        rows = (
+            # Old cohort: 5 losses
+            [{"result": "L", "odds_taken": "2.00", "roi": "-1.000", "model_version": "v2026-01-01"}] * 5 +
+            # New cohort: 6 wins
+            [{"result": "W", "odds_taken": "2.00", "roi": "1.000",  "model_version": "v2026-05-24"}] * 6
+        )
+        _write_csv(tmp_path / "bets_log.csv", rows)
+
+        # Lifetime sees all 11
+        lifetime = compute_roi_summary()
+        assert lifetime["total"] == 11
+        assert lifetime["wins"] == 6 and lifetime["losses"] == 5
+
+        # Filter to new cohort only
+        current = compute_roi_summary(model_version="v2026-05-24")
+        assert current["total"] == 6
+        assert current["wins"] == 6 and current["losses"] == 0
+        assert current["roi_pct"] > 0
+
+        # Filter to old cohort only
+        old = compute_roi_summary(model_version="v2026-01-01")
+        assert old["total"] == 5
+        assert old["losses"] == 5
+        assert old["roi_pct"] < 0
+
+    def test_filter_unknown_version_returns_none(self, tmp_path, monkeypatch):
+        """Requesting a version with fewer than 5 matching bets → None."""
+        monkeypatch.chdir(tmp_path)
+        rows = [{"result": "W", "odds_taken": "2.00", "roi": "1.000",
+                 "model_version": "v2026-05-24"}] * 6
+        _write_csv(tmp_path / "bets_log.csv", rows)
+        assert compute_roi_summary(model_version="v9999-99-99") is None
+
 
 # ── log_bets deduplication ────────────────────────────────────────────────────
 

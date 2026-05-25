@@ -9,7 +9,8 @@ from config import (BASELINES, FORM_WEIGHTS, HOME_ADV,
                     XG_CONV_BY_LEAGUE,
                     MOMENTUM_THRESHOLD, MOMENTUM_BOOST, MOMENTUM_PENALTY,
                     STREAK_MIN_LENGTH, STREAK_MAX_LENGTH,
-                    STREAK_CS_DEFENCE_BOOST, STREAK_DROUGHT_ATK_PENALTY)
+                    STREAK_CS_DEFENCE_BOOST, STREAK_DROUGHT_ATK_PENALTY,
+                    WINTER_LEAGUES, WINTER_MONTHS, WINTER_UNDER_FACTOR)
 import warn_log
 
 # Decay constants are defined in config.py — see FORM_DECAY_K and H2H_DECAY_K.
@@ -930,7 +931,8 @@ def compute_match_probabilities(league_code, home_standing, away_standing,
                                  home_last_match_date=None,
                                  is_knockout=False,
                                  referee_factor=1.0,
-                                 total_teams=20):
+                                 total_teams=20,
+                                 fixture_date=None):
     """Compute 1X2 and goals market probabilities for a fixture.
 
     strength_factors:       output of _compute_strength_factors(standings).
@@ -1302,6 +1304,20 @@ def compute_match_probabilities(league_code, home_standing, away_standing,
             exp_home *= ratio
             exp_away *= ratio
         exp_total = exp_total_new
+
+    # Winter under-scoring proxy (POTENTIAL-04).
+    # Nov–Feb in northern European leagues: cold/wet pitches suppress goal scoring
+    # by ~5% versus the annual average. Applied after H2H blend so the adjustment
+    # sits on top of all other xG signals without distorting the H2H ratio logic.
+    if fixture_date and league_code in WINTER_LEAGUES:
+        try:
+            month = int(fixture_date[5:7])   # "2026-11-22T..." → 11
+            if month in WINTER_MONTHS:
+                exp_home  *= WINTER_UNDER_FACTOR
+                exp_away  *= WINTER_UNDER_FACTOR
+                exp_total  = exp_home + exp_away
+        except (ValueError, IndexError):
+            pass   # malformed date — skip silently
 
     # --- Knockout stage adjustment ---
     # CL/cup knockout legs: teams play conservatively (defend first, play for draw).

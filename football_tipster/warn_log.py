@@ -8,7 +8,6 @@ Import and call `fallback()` at each site where the model degrades silently.
 Thread-safe (file-level append with no shared state).
 """
 import datetime
-import os
 
 _LOG_FILE = "warnings.log"
 

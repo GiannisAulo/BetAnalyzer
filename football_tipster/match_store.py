@@ -76,11 +76,14 @@ def init_db(db_path=None):
     conn = _connect(db_path)
     conn.executescript(_CREATE_SQL)
     # Migrate existing databases: add shot stats columns if missing.
+    # OperationalError "duplicate column name" is expected after the first run;
+    # any other error is a real schema problem and should propagate.
     for sql in _MIGRATE_SHOTS_SQL:
         try:
             conn.execute(sql)
-        except Exception:
-            pass  # column already exists — expected on subsequent runs
+        except sqlite3.OperationalError as exc:
+            if "duplicate column name" not in str(exc).lower():
+                raise
     conn.commit()
     conn.close()
     prune_old_matches(db_path)

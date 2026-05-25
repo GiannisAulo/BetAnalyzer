@@ -78,10 +78,12 @@ class TestEvaluate1X2:
         assert home_picks[0]["model_prob"] >= 0.70
 
     def test_picks_with_real_odds(self, confident_probs):
-        """When odds are supplied, edge-based filtering takes over."""
+        """When odds are supplied, edge-based filtering takes over.
+        Override home to 0.65 so it clears the current 0.62 MIN_PROB floor."""
+        probs = {**confident_probs, "home": 0.65}
         picks = markets.evaluate_1x2(
-            confident_probs,
-            odds_home=1.80,   # implied 0.556 vs model 0.60 → edge +4.4%
+            probs,
+            odds_home=1.80,   # implied 0.556 vs model 0.65 → edge +9.4%
             min_edge=3.0,
         )
         home_picks = [p for p in picks if p["pick"] == "Home Win"]
@@ -126,16 +128,19 @@ class TestEvaluateDoubleChance:
         x2 = [p for p in picks if "X2" in p["pick"]]
         assert x2 == []
 
-    def test_12_suppressed_when_fair_odds_below_min(self):
-        """12 = home+away = 0.75+0.15 = 0.90 → fair odds 1.11 < MIN_FAIR_ODDS (1.60).
-        Should be suppressed even though model_prob >= 0.60."""
+    def test_12_suppressed_when_real_odds_below_min(self):
+        """12 = home+away = 0.75+0.15 = 0.90.
+        When real bookmaker odds are below MIN_FAIR_ODDS (1.60), the pick is
+        suppressed regardless of model probability. The no-odds path no longer
+        enforces this cap (it's a market-price filter, not a confidence one)."""
         probs = {"home": 0.75, "draw": 0.10, "away": 0.15,
                  "over_2_5": 0.5, "under_2_5": 0.5, "over_3_5": 0.3,
                  "under_3_5": 0.7, "btts_yes": 0.5, "btts_no": 0.5,
                  "home_cs_rate": 0.3, "away_cs_rate": 0.2}
-        picks = markets.evaluate_double_chance(probs)
+        # Real odds 1.10 → below MIN_FAIR_ODDS 1.60 → suppressed
+        picks = markets.evaluate_double_chance(probs, odds_12=1.10, min_edge=3.0)
         dc12 = [p for p in picks if "12" in p["pick"]]
-        assert dc12 == [], "12 at 0.90 (fair odds 1.11) must be suppressed"
+        assert dc12 == [], "12 with real odds 1.10 must be suppressed by MIN_FAIR_ODDS"
 
     def test_12_shown_when_fair_odds_sufficient(self):
         """12 = home+away = 0.40+0.20 = 0.60 → fair odds 1.67 >= MIN_FAIR_ODDS → shown."""
@@ -171,9 +176,9 @@ class TestEvaluateOverUnder:
         assert picks == []
 
     def test_pick_in_valid_band(self):
-        """over_2_5=0.65 is exactly at the raised threshold (Phase 1: raised from 0.58 to 0.65)."""
+        """over_2_5=0.67 is exactly at the no-odds threshold."""
         probs = {"over_1_5": 0.60, "under_1_5": 0.40,
-                 "over_2_5": 0.65, "under_2_5": 0.35,
+                 "over_2_5": 0.67, "under_2_5": 0.33,
                  "over_3_5": 0.30, "under_3_5": 0.70,
                  "home_cs_rate": 0.3, "away_cs_rate": 0.2}
         picks = markets.evaluate_over_under(probs)
@@ -193,11 +198,11 @@ class TestEvaluateOverUnder:
 
     def test_with_real_odds_positive_edge(self):
         probs = {"over_1_5": 0.60, "under_1_5": 0.40,
-                 "over_2_5": 0.62, "under_2_5": 0.38,
+                 "over_2_5": 0.65, "under_2_5": 0.35,
                  "over_3_5": 0.30, "under_3_5": 0.70,
                  "home_cs_rate": 0.3, "away_cs_rate": 0.2}
         picks = markets.evaluate_over_under(probs, odds_over25=1.90, min_edge=3.0)
-        # implied = 1/1.90 = 0.526, edge = (0.62-0.526)*100 = 9.4%
+        # implied = 1/1.90 = 0.526, edge = (0.65-0.526)*100 = 12.4%
         o25 = [p for p in picks if p["pick"] == "Over 2.5" and p.get("odds")]
         assert len(o25) == 1
         assert o25[0]["edge"] > 0
@@ -212,7 +217,8 @@ class TestEvaluateBtts:
         assert picks == []
 
     def test_btts_yes_at_threshold(self):
-        probs = {"btts_yes": 0.58, "btts_no": 0.42,
+        """BTTS Yes no-odds threshold is currently 0.62 (in evaluate_btts)."""
+        probs = {"btts_yes": 0.62, "btts_no": 0.38,
                  "home_cs_rate": 0.20, "away_cs_rate": 0.25}
         picks = markets.evaluate_btts(probs)
         yes_picks = [p for p in picks if p["pick"] == "BTTS Yes"]
@@ -626,8 +632,8 @@ class TestEvaluate1X2EdgeCases:
             assert p["odds"] is None
 
     def test_real_odds_exact_edge_value(self):
-        """Edge = (model_prob - implied) * 100, precisely."""
-        probs = {"home": 0.60, "draw": 0.25, "away": 0.15,
+        """Edge = (model_prob - implied) * 100, precisely. home raised to 0.65 to clear MIN_PROB floor."""
+        probs = {"home": 0.65, "draw": 0.20, "away": 0.15,
                  "over_1_5": 0.65, "under_1_5": 0.35,
                  "over_2_5": 0.50, "under_2_5": 0.50,
                  "over_3_5": 0.20, "under_3_5": 0.80,
@@ -636,7 +642,7 @@ class TestEvaluate1X2EdgeCases:
         picks = markets.evaluate_1x2(probs, odds_home=odds, min_edge=3.0)
         home = [p for p in picks if p["pick"] == "Home Win"]
         assert len(home) == 1
-        expected_edge = (0.60 - 1/odds) * 100
+        expected_edge = (0.65 - 1/odds) * 100
         assert home[0]["edge"] == pytest.approx(expected_edge, abs=0.01)
 
 

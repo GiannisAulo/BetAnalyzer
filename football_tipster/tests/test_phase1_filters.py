@@ -42,19 +42,19 @@ class TestMinProbConstant:
     """Verify the MIN_PROB dict is defined with expected values."""
 
     def test_home_win_floor(self):
-        assert MIN_PROB["Home Win"] == 0.58   # raised from 0.55 — live data
+        assert MIN_PROB["Home Win"] == 0.62   # raised: live WR 44% at avg 0.55 — need stronger conviction
 
     def test_away_win_floor(self):
-        assert MIN_PROB["Away Win"] == 0.52   # raised from 0.50 — 0% WR below threshold
+        assert MIN_PROB["Away Win"] == 0.65   # raised: 0W/6L live at 0.52 — no edge below 0.65
 
     def test_draw_floor(self):
         assert MIN_PROB["Draw"] == 0.45
 
     def test_over25_floor(self):
-        assert MIN_PROB["Over 2.5"] == 0.62   # raised from 0.55 — 7pp over-prediction bias
+        assert MIN_PROB["Over 2.5"] == 0.65   # raised: 52% live WR at avg 0.64 — 12pp calibration gap
 
     def test_under25_floor(self):
-        assert MIN_PROB["Under 2.5"] == 0.55  # raised from 0.50 — symmetric tightening
+        assert MIN_PROB["Under 2.5"] == 0.65  # raised: 46% live WR at avg 0.61
 
     def test_over35_floor(self):
         assert MIN_PROB["Over 3.5"] == 0.65   # raised: backtest 44% WR at 0.45
@@ -71,8 +71,8 @@ class TestMinProb1X2:
     # -- Happy path --
 
     def test_home_win_above_floor_with_odds(self):
-        """Home Win at 0.60 (above 0.30 floor) with positive edge -> pick shown."""
-        probs = _base_probs(home=0.60)
+        """Home Win at 0.65 (above 0.62 floor) with positive edge -> pick shown."""
+        probs = _base_probs(home=0.65)
         picks = markets.evaluate_1x2(probs, odds_home=2.00, min_edge=3.0)
         home = [p for p in picks if p["pick"] == "Home Win"]
         assert len(home) == 1
@@ -94,19 +94,19 @@ class TestMinProb1X2:
     # -- Edge cases: exactly at MIN_PROB boundary --
 
     def test_away_win_exactly_at_floor_with_edge(self):
-        """Away Win at 0.52 exactly (new floor boundary) with positive edge -> pick shown."""
-        probs = _base_probs(away=0.52)
-        # odds 2.50 -> implied 0.40, edge = (0.52 - 0.40)*100 = 12.0
+        """Away Win at 0.65 exactly (current floor boundary) with positive edge -> pick shown."""
+        probs = _base_probs(away=0.65)
+        # odds 2.50 -> implied 0.40, edge = (0.65 - 0.40)*100 = 25.0
         picks = markets.evaluate_1x2(probs, odds_away=2.50, min_edge=3.0)
         away = [p for p in picks if p["pick"] == "Away Win"]
         assert len(away) == 1
-        assert away[0]["model_prob"] == 0.52
+        assert away[0]["model_prob"] == 0.65
 
     def test_home_win_exactly_at_floor(self):
-        """Home Win at 0.58 exactly -> passes MIN_PROB (>= not >)."""
-        probs = _base_probs(home=0.58)
+        """Home Win at 0.62 exactly (current floor) -> passes MIN_PROB (>= not >)."""
+        probs = _base_probs(home=0.62)
         picks = markets.evaluate_1x2(probs, odds_home=2.00, min_edge=3.0)
-        # implied = 0.50, edge = (0.58-0.50)*100 = 8.0
+        # implied = 0.50, edge = (0.62-0.50)*100 = 12.0
         home = [p for p in picks if p["pick"] == "Home Win"]
         assert len(home) == 1
 
@@ -163,9 +163,9 @@ class TestMinProbOverUnder:
         assert o25 == []
 
     def test_over25_at_floor_accepted_with_odds(self):
-        """Over 2.5 at 0.62 (new floor) with positive edge -> pick shown."""
-        probs = _base_probs(over_2_5=0.62)
-        # implied = 1/1.80 = 0.556, edge = (0.62-0.556)*100 = 6.4
+        """Over 2.5 at 0.65 (current floor) with positive edge -> pick shown."""
+        probs = _base_probs(over_2_5=0.65)
+        # implied = 1/1.80 = 0.556, edge = (0.65-0.556)*100 = 9.4
         picks = markets.evaluate_over_under(probs, odds_over25=1.80, min_edge=3.0)
         o25 = [p for p in picks if p["pick"] == "Over 2.5"]
         assert len(o25) == 1
@@ -205,8 +205,8 @@ class TestOver25RaisedThreshold:
         assert o25 == []
 
     def test_over25_at_new_threshold_shown(self):
-        """Over 2.5 at 0.65 -> exactly at new threshold, shown."""
-        probs = _base_probs(over_2_5=0.65)
+        """Over 2.5 at 0.67 -> exactly at no-odds threshold, shown."""
+        probs = _base_probs(over_2_5=0.67)
         picks = markets.evaluate_over_under(probs)
         o25 = [p for p in picks if p["pick"] == "Over 2.5"]
         assert len(o25) == 1
@@ -220,8 +220,8 @@ class TestOver25RaisedThreshold:
         assert o25[0]["model_prob"] >= 0.70
 
     def test_under25_threshold_unchanged(self):
-        """Under 2.5 at 0.58 -> still uses the standard 0.58 threshold."""
-        probs = _base_probs(under_2_5=0.58)
+        """Under 2.5 at 0.67 -> exactly at no-odds threshold, shown."""
+        probs = _base_probs(under_2_5=0.67)
         picks = markets.evaluate_over_under(probs)
         u25 = [p for p in picks if p["pick"] == "Under 2.5"]
         assert len(u25) == 1
@@ -259,8 +259,9 @@ class TestExpectedTotalGates:
         assert len(o25) == 1
 
     def test_under25_low_xg_passes(self):
-        """Under 2.5 with expected_total=2.0 (<= 2.6 cap) -> allowed."""
-        probs = _base_probs(under_2_5=0.65)
+        """Under 2.5 with expected_total=2.0 (<= 2.50 cap) -> allowed."""
+        # No-odds floor for Under 2.5 is 0.67; use that to clear the gate.
+        probs = _base_probs(under_2_5=0.67)
         picks = markets.evaluate_over_under(probs, expected_total=2.0)
         u25 = [p for p in picks if p["pick"] == "Under 2.5"]
         assert len(u25) == 1
@@ -290,7 +291,7 @@ class TestExpectedTotalGates:
 
     def test_under25_exactly_at_cap(self):
         """Under 2.5 with expected_total=2.50 exactly -> passes (<= cap)."""
-        probs = _base_probs(under_2_5=0.65)
+        probs = _base_probs(under_2_5=0.67)   # at no-odds floor
         picks = markets.evaluate_over_under(probs, expected_total=2.50)
         u25 = [p for p in picks if p["pick"] == "Under 2.5"]
         assert len(u25) == 1
@@ -506,20 +507,20 @@ class TestFilterInteractions:
         assert len(o25) == 1
 
     def test_under25_passes_all_filters_no_odds(self):
-        """Under 2.5 at 0.62 with xG 2.1 -> passes MIN_PROB, gate, and threshold."""
-        probs = _base_probs(under_2_5=0.62)
+        """Under 2.5 at 0.67 (no-odds floor) with xG 2.1 -> passes MIN_PROB, gate, threshold."""
+        probs = _base_probs(under_2_5=0.67)
         picks = markets.evaluate_over_under(probs, expected_total=2.1)
         u25 = [p for p in picks if p["pick"] == "Under 2.5"]
         assert len(u25) == 1
 
     def test_multiple_picks_filtered_independently(self):
         """Over 2.5 blocked by gate but Under 2.5 passes independently."""
-        probs = _base_probs(over_2_5=0.70, under_2_5=0.62)
+        probs = _base_probs(over_2_5=0.70, under_2_5=0.67)
         picks = markets.evaluate_over_under(probs, expected_total=2.3)
         o25 = [p for p in picks if p["pick"] == "Over 2.5"]
         u25 = [p for p in picks if p["pick"] == "Under 2.5"]
-        assert o25 == []     # blocked by gate (2.3 < 2.8)
-        assert len(u25) == 1  # passes gate (2.3 <= 2.6)
+        assert o25 == []      # blocked by Over 2.5 gate (2.3 < 2.90)
+        assert len(u25) == 1  # passes Under 2.5 cap (2.3 <= 2.50)
 
 
 # =============================================================================

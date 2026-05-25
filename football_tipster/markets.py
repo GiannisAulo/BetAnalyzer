@@ -430,9 +430,221 @@ def evaluate_combos(all_picks, probs=None):
 
 
 # ---------------------------------------------------------------------------
+# Cross-fixture accumulators
+# ---------------------------------------------------------------------------
+# These build "safe parlays" from short-odds high-confidence picks across
+# different fixtures. Each leg is itself low-value as a single (odds 1.15–1.45),
+# but combined 2–3 legs produce a 1.70–2.50 combo where the model's per-leg edge
+# stacks into visible joint value. Independence is approximated multiplicatively;
+# we enforce one leg per league to keep that assumption defensible.
+
+_ACCA_LEG_ODDS_MIN  = 1.15
+_ACCA_LEG_ODDS_MAX  = 1.45
+_ACCA_LEG_PROB_MIN  = 0.70   # was 0.75 — relaxed so high-confidence DC picks (75–80%) qualify
+
+# Combined-odds target — accas should land in the same value-betting zone as singles.
+_ACCA_COMBO_ODDS_MIN = 1.60
+_ACCA_COMBO_ODDS_MAX = 2.50
+
+# Verified (real-odds) accumulators must show meaningful joint edge.
+_ACCA_VERIFIED_MIN_JOINT_PROB = 0.55
+_ACCA_VERIFIED_MIN_JOINT_EDGE = 8.0
+
+# Inferred (model-fair-odds) accumulators are informational. The edge field is
+# always 0 by construction (joint_prob = 1/joint_odds when odds are fair), so we
+# require only that the joint probability is high enough to be worth a look.
+_ACCA_INFERRED_MIN_JOINT_PROB = 0.45
+
+_ACCA_MAX_RESULTS_VERIFIED = 3
+_ACCA_MAX_RESULTS_INFERRED = 3
+
+
+def collect_acca_candidates(probs, fx_odds, league=None):
+    """Return the picks on a single fixture that qualify as accumulator legs.
+
+    A leg must have:
+      - probability >= _ACCA_LEG_PROB_MIN
+      - odds in [_ACCA_LEG_ODDS_MIN, _ACCA_LEG_ODDS_MAX]
+        (real bookmaker odds when available; otherwise model fair odds = 1/prob)
+      - if real bookmaker odds: positive solo edge vs implied probability
+
+    Picks where odds are model-derived are marked `inferred_odds: True` so the
+    coupon and logger can distinguish them from verified-edge legs.
+    """
+    sweep = []
+    sweep += evaluate_1x2(
+        probs,
+        odds_home=fx_odds.get("home_odds"),
+        odds_draw=fx_odds.get("draw_odds"),
+        odds_away=fx_odds.get("away_odds"),
+        min_edge=0, _value_sweep=True,
+    )
+    sweep += evaluate_double_chance(
+        probs,
+        min_edge=0, _value_sweep=True,
+    )
+    sweep += evaluate_over_under(
+        probs,
+        odds_over15=fx_odds.get("over_1.5"),
+        odds_under15=fx_odds.get("under_1.5"),
+        odds_over25=fx_odds.get("over_2.5"),
+        odds_under25=fx_odds.get("under_2.5"),
+        odds_over35=fx_odds.get("over_3.5"),
+        odds_under35=fx_odds.get("under_3.5"),
+        min_edge=0, expected_total=probs.get("expected_total"),
+        league=league, _value_sweep=True,
+    )
+
+    out = []
+    for p in sweep:
+        mp = p.get("model_prob") or 0.0
+        if mp < _ACCA_LEG_PROB_MIN:
+            continue
+
+        real_odds = p.get("odds")
+        if real_odds is not None:
+            if not (_ACCA_LEG_ODDS_MIN <= real_odds <= _ACCA_LEG_ODDS_MAX):
+                continue
+            if mp <= (1.0 / real_odds):   # positive solo edge required
+                continue
+            out.append({**p, "inferred_odds": False})
+        else:
+            # No bookmaker price — fall back to model fair odds.
+            if mp <= 0:
+                continue
+            fair_odds = 1.0 / mp
+            if not (_ACCA_LEG_ODDS_MIN <= fair_odds <= _ACCA_LEG_ODDS_MAX):
+                continue
+            out.append({**p, "odds": fair_odds, "implied_prob": mp, "inferred_odds": True})
+
+    # Per fixture, keep only the strongest leg per market group so one match
+    # can't contribute two near-equivalent legs (e.g. "Home Win" and "1X").
+    # Best = highest model_prob.
+    best_per_group = {}
+    _GROUP_OF = {
+        "Home Win": "1x2_home", "1X (Home or Draw)": "1x2_home",
+        "Away Win": "1x2_away", "X2 (Draw or Away)": "1x2_away",
+        "Draw":     "1x2_draw",
+        "12 (Home or Away)": "1x2_12",
+        "Over 1.5": "ou_15",   "Under 1.5": "ou_15",
+        "Over 2.5": "ou_25",   "Under 2.5": "ou_25",
+        "Over 3.5": "ou_35",   "Under 3.5": "ou_35",
+    }
+    for p in out:
+        g = _GROUP_OF.get(p["pick"], p["pick"])
+        if g not in best_per_group or p["model_prob"] > best_per_group[g]["model_prob"]:
+            best_per_group[g] = p
+    return list(best_per_group.values())
+
+
+def build_cross_fixture_accas(fixtures):
+    """Build 2- and 3-leg accumulators across DIFFERENT fixtures.
+
+    Two tiers are produced:
+      - VERIFIED accas: every leg has real bookmaker odds, combined joint edge
+        is at least _ACCA_VERIFIED_MIN_JOINT_EDGE percent. These are tracked as
+        real bets in bets_log.csv.
+      - INFERRED accas: at least one leg uses model fair odds. These are shown
+        in the coupon for reference but NOT logged for ROI tracking (the user's
+        real bet odds will differ from the model's fair odds).
+
+    One leg per match and one leg per league (independence safeguard).
+    Overlapping accas are de-duplicated so the user never sees two suggestions
+    sharing the same match.
+    """
+    from itertools import combinations
+
+    flat = []
+    for fx in fixtures:
+        for p in fx.get("acca_candidates", []):
+            flat.append((fx, p))
+    if len(flat) < 2:
+        return []
+
+    verified_raw = []
+    inferred_raw = []
+
+    for size in (2, 3):
+        if len(flat) < size:
+            continue
+        for combo in combinations(flat, size):
+            mids = {fx["match_id"] for fx, _ in combo}
+            if len(mids) != size:
+                continue
+            leagues = {fx["league"] for fx, _ in combo}
+            if len(leagues) != size:
+                continue
+
+            joint_odds = 1.0
+            joint_prob = 1.0
+            all_real_odds = True
+            for _fx, p in combo:
+                joint_odds *= p["odds"]
+                joint_prob *= p["model_prob"]
+                if p.get("inferred_odds"):
+                    all_real_odds = False
+
+            if not (_ACCA_COMBO_ODDS_MIN <= joint_odds <= _ACCA_COMBO_ODDS_MAX):
+                continue
+
+            implied = 1.0 / joint_odds
+            edge    = (joint_prob - implied) * 100
+
+            acca = {
+                "size":           size,
+                "joint_odds":     joint_odds,
+                "joint_prob":     joint_prob,
+                "edge":           edge,
+                "verified_edge":  all_real_odds,
+                "legs": [
+                    {
+                        "match_id":     fx["match_id"],
+                        "home":         fx["home_name"],
+                        "away":         fx["away_name"],
+                        "league":       fx["league"],
+                        "pick":         p["pick"],
+                        "market":       p["market"],
+                        "model_prob":   p["model_prob"],
+                        "odds":         p["odds"],
+                        "inferred_odds": p.get("inferred_odds", False),
+                    }
+                    for fx, p in combo
+                ],
+            }
+
+            if all_real_odds:
+                if joint_prob >= _ACCA_VERIFIED_MIN_JOINT_PROB and edge >= _ACCA_VERIFIED_MIN_JOINT_EDGE:
+                    verified_raw.append(acca)
+            else:
+                if joint_prob >= _ACCA_INFERRED_MIN_JOINT_PROB:
+                    inferred_raw.append(acca)
+
+    verified_raw.sort(key=lambda a: a["edge"] * a["joint_prob"], reverse=True)
+    inferred_raw.sort(key=lambda a: a["joint_prob"], reverse=True)
+
+    final = []
+    used = set()
+
+    def _take(pool, limit):
+        added = 0
+        for acca in pool:
+            leg_mids = {leg["match_id"] for leg in acca["legs"]}
+            if leg_mids & used:
+                continue
+            final.append(acca)
+            used.update(leg_mids)
+            added += 1
+            if added >= limit:
+                break
+
+    _take(verified_raw, _ACCA_MAX_RESULTS_VERIFIED)
+    _take(inferred_raw, _ACCA_MAX_RESULTS_INFERRED)
+    return final
+
+
+# ---------------------------------------------------------------------------
 # Helpers
 # ---------------------------------------------------------------------------
-
 
 
 def _devig_prob(own_price: float, *other_prices: float) -> float | None:

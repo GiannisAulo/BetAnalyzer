@@ -41,6 +41,9 @@ import logger
 import ml_calibrator
 import odds_fetcher
 import match_store
+import staking
+import drift
+import corrections
 import warn_log
 from config import LEAGUES, DEFAULT_MIN_EDGE, ODDS_API_KEY, CL_KNOCKOUT_STAGES, CACHE_VERSION
 from cache import get_cache_age_hours, evict_stale_cache
@@ -90,6 +93,134 @@ def _today_unplayed(raw_fixtures):
 
 def _default_standing():
     return {"form_score": 0.5, "position": 10, "avg_scored": 1.2, "avg_conceded": 1.2}
+
+
+def _safe_prob_pct(raw) -> str:
+    """Render a CSV cell as 'NN%' or '-'.
+
+    Guards against blank/whitespace cells and malformed numerics (e.g. a hand-
+    edited 'n/a' value) so the bet-history table never crashes on bad data.
+    """
+    if raw is None:
+        return "-"
+    s = str(raw).strip()
+    if not s:
+        return "-"
+    try:
+        return f"{float(s) * 100:.0f}%"
+    except ValueError:
+        return "-"
+
+
+def _maybe_apply_corrections(drift_rows):
+    """Interactive prompt: for each actionable drift row, offer to fit and
+    persist an isotonic correction.
+
+    Called only in interactive (menu) mode so batch CLI runs never block on
+    input(). Skips rows where a correction already exists and was fitted from
+    fewer than 20 bets behind the current count (avoids constant re-fitting on
+    every coupon run).
+    """
+    actionable = [d for d in drift_rows if d["severity"] in ("yellow", "red")]
+    if not actionable:
+        return
+
+    existing = {(c["market"], c["pick"]): c for c in corrections.list_corrections()}
+
+    candidates = []
+    for d in actionable:
+        prev = existing.get((d["market"], d["pick"]))
+        # Skip re-prompting until at least 20 new bets accumulated since the
+        # last fit — avoids prompt fatigue on every run.
+        if prev and (d["n"] - (prev.get("n_samples") or 0)) < 20:
+            continue
+        candidates.append(d)
+
+    if not candidates:
+        return
+
+    status.print()
+    status.print(
+        "  [bold magenta]Correction available[/bold magenta] for "
+        f"{len(candidates)} market(s). Applying writes to "
+        "[dim]data/isotonic_corrections.json[/dim] and takes effect on the next run."
+    )
+
+    for d in candidates:
+        prompt = (
+            f"  Apply isotonic correction for "
+            f"[bold]{d['market']} / {d['pick']}[/bold]  "
+            f"(n={d['n']}, gap {d['gap_pp']:+.1f}pp)? [y/N]: "
+        )
+        status.print(prompt, end="")
+        try:
+            answer = input().strip().lower()
+        except (EOFError, KeyboardInterrupt):
+            status.print()
+            return
+        if answer != "y":
+            continue
+        entry = corrections.fit_correction(d["market"], d["pick"])
+        if entry is None:
+            status.print(
+                f"  [yellow]Skipped — could not fit (need {corrections._MIN_FIT_SAMPLE}+ "
+                f"bets or sklearn unavailable).[/yellow]"
+            )
+            continue
+        corrections.save_correction(entry)
+        # Reset the calibrator so the new correction is picked up on the next call
+        ml_calibrator.reset_calibrator()
+        status.print(
+            f"  [green]Saved.[/green] Future picks for "
+            f"{d['market']} / {d['pick']} will use the calibrated probability."
+        )
+
+
+def _accas_to_log_rows(accas):
+    """Convert acca dicts (from markets.build_cross_fixture_accas) to bets_log
+    row dicts that logger.log_bets can write.
+
+    Schema (uses existing columns — no migration):
+      match_id   = "ACC:<id1>+<id2>+<id3>"  (settle_bets detects this prefix)
+      home       = "Team1 / Team2 / Team3"  (display label)
+      away       = "(N-leg acca)"
+      league     = "MULTI"
+      market     = "AccaCross"
+      pick       = "<team>: <pick> @<odds> + <team>: <pick> @<odds> + ..."
+      model_prob = joint probability
+      odds       = combined decimal odds
+      edge       = joint edge in percent
+
+    The per-leg odds are embedded in the pick string so settle_bets can
+    recompute the effective payout odds if any leg is voided (postponed).
+
+    Only accas where every leg has real bookmaker odds are logged. Inferred-odds
+    accas are display-only — the user's real bet odds will differ from the
+    model's fair odds, so any ROI computed on inferred odds would be misleading.
+    """
+    rows = []
+    for acca in accas:
+        if not acca.get("verified_edge"):
+            continue   # informational only — don't track
+        leg_ids  = [str(leg["match_id"]) for leg in acca["legs"]]
+        leg_strs = [
+            f"{leg['home']}: {leg['pick']} @{leg['odds']:.2f}"
+            for leg in acca["legs"]
+        ]
+        home_label = " / ".join(leg["home"] for leg in acca["legs"])
+        rows.append({
+            "match_id":   "ACC:" + "+".join(leg_ids),
+            "home":       home_label,
+            "away":       f"({acca['size']}-leg acca)",
+            "league":     "MULTI",
+            "market":     "AccaCross",
+            "pick":       " + ".join(leg_strs),
+            "model_prob": acca["joint_prob"],
+            "odds":       acca["joint_odds"],
+            "edge":       acca["edge"],
+            "stake_units": acca.get("stake_units"),
+        })
+    return rows
 
 
 # ---------------------------------------------------------------------------
@@ -218,6 +349,7 @@ def process_league(league_code, today_str, use_cache, progress, task):
             is_knockout=is_knockout,
             referee_factor=referee_factor,
             total_teams=total_teams_n,
+            fixture_date=match.get("utcDate", ""),
         )
 
         # ── Live odds lookup for this fixture ───────────────────────────
@@ -279,11 +411,24 @@ def process_league(league_code, today_str, use_cache, progress, task):
             else:
                 pick["uncertainty"] = None
 
+        # ── Refresh edge from calibrated probability ────────────────────
+        # Edge was first computed in the market evaluators using the raw
+        # model_prob. After calibration shifts the probability, the displayed
+        # edge, post-cal filter, and Kelly stake math would diverge unless we
+        # recompute here, BEFORE the filter runs.
+        for pick in all_picks:
+            o = pick.get("odds")
+            if o is not None and o > 1.0:
+                pick["edge"] = (pick["model_prob"] - 1.0 / o) * 100
+
         # ── Post-calibration filter ─────────────────────────────────────
-        # When the LR calibrator pulls a pick's probability below its floor,
-        # suppress it. For verified-edge picks the floor is very low (0.35) —
-        # the bookmaker price already validates the bet. For no-edge picks we
-        # apply the usual conservative floors so probability alone is credible.
+        # Two checks for a pick to survive:
+        #   1. model_prob ≥ market floor (no calibration nuke)
+        #   2. for verified-edge picks (real bookmaker odds present), edge
+        #      must STILL be positive after the calibration-driven refresh.
+        #      Otherwise the bet is no longer a value bet and shouldn't be
+        #      shown as a single — even if the original pre-calibration edge
+        #      was positive when best_value_pick chose it.
         _POSTCAL_FLOOR = {
             **markets.MIN_PROB,
             "BTTS Yes": 0.62,
@@ -297,6 +442,9 @@ def process_league(league_code, today_str, use_cache, progress, task):
         for p in all_picks:
             if p.get("verified_edge"):
                 floor = markets._LOW_FLOOR
+                # Edge sanity: calibration may have erased the value.
+                if (p.get("edge") or 0) <= 0:
+                    continue
             elif p["market"] == "Combo":
                 floor = _COMBO_FLOOR
             else:
@@ -304,6 +452,14 @@ def process_league(league_code, today_str, use_cache, progress, task):
             if p["model_prob"] >= floor:
                 filtered.append(p)
         all_picks = filtered
+
+        # ── Stake sizing (quarter Kelly) ────────────────────────────────
+        # Computed after the filter so stake recommendations always agree
+        # with the (now-positive) calibrated edge.
+        for pick in all_picks:
+            pick["stake_units"] = staking.compute_stake_units(
+                pick.get("model_prob"), pick.get("odds"),
+            )
 
         # ── Reason strings ──────────────────────────────────────────────
         for pick in all_picks:
@@ -315,6 +471,11 @@ def process_league(league_code, today_str, use_cache, progress, task):
 
         all_picks.sort(key=_pick_sort_key, reverse=True)
 
+        # Accumulator candidates: short-odds high-confidence picks usable as legs
+        # in cross-fixture parlays. Pool is built per fixture; combination across
+        # fixtures happens once after every league is processed.
+        acca_candidates = markets.collect_acca_candidates(probs, fx_odds, league=league_code)
+
         result.append({
             "league":    league_code,
             "match_id":  match_id,
@@ -323,6 +484,7 @@ def process_league(league_code, today_str, use_cache, progress, task):
             "utc_date":  match.get("utcDate", ""),
             "probs":     probs,
             "picks":     all_picks,
+            "acca_candidates": acca_candidates,
         })
 
         progress.advance(task)
@@ -360,14 +522,25 @@ def _menu_prompt(n_options: int) -> str:
 
 
 def _menu_quick_stats():
-    roi = logger.compute_roi_summary()
+    """Render compact ROI line. Shows current-model ROI when available so the
+    user sees the live cohort's performance, not the lifetime average pulled
+    down by retired pre-threshold picks."""
+    current = logger.compute_roi_summary(model_version=logger.MODEL_VERSION)
+    lifetime = logger.compute_roi_summary()
     parts = []
-    if roi:
-        color = "green" if roi["roi_pct"] >= 0 else "red"
-        sign  = "+" if roi["roi_pct"] >= 0 else ""
+    if current:
+        color = "green" if current["roi_pct"] >= 0 else "red"
+        sign  = "+" if current["roi_pct"] >= 0 else ""
         parts.append(
-            f"[dim]ROI:[/dim] [{color}]{sign}{roi['roi_pct']:.1f}%[/{color}]"
-            f" [dim]({roi['wins']}W/{roi['losses']}L, {roi['total']} bets)[/dim]"
+            f"[dim]ROI ({logger.MODEL_VERSION}):[/dim] [{color}]{sign}{current['roi_pct']:.1f}%[/{color}]"
+            f" [dim]({current['wins']}W/{current['losses']}L, {current['total']} bets)[/dim]"
+        )
+    elif lifetime:
+        color = "green" if lifetime["roi_pct"] >= 0 else "red"
+        sign  = "+" if lifetime["roi_pct"] >= 0 else ""
+        parts.append(
+            f"[dim]ROI (lifetime):[/dim] [{color}]{sign}{lifetime['roi_pct']:.1f}%[/{color}]"
+            f" [dim]({lifetime['wins']}W/{lifetime['losses']}L, {lifetime['total']} bets)[/dim]"
         )
     else:
         parts.append("[dim]No settled bets yet[/dim]")
@@ -389,20 +562,28 @@ def _show_bet_history():
     settled_rows   = [r for r in rows if r.get("result", "").strip() in ("W", "L")]
     unsettled_rows = [r for r in rows if not r.get("result", "").strip()]
 
-    roi = logger.compute_roi_summary()
+    roi_lifetime = logger.compute_roi_summary()
+    roi_current  = logger.compute_roi_summary(model_version=logger.MODEL_VERSION)
     summary_lines = []
     summary_lines.append(
         f"[bold]Total logged:[/bold] {len(rows)}   "
         f"[green]Settled: {len(settled_rows)}[/green]   "
         f"[yellow]Pending: {len(unsettled_rows)}[/yellow]"
     )
-    if roi:
+
+    def _roi_line(label, roi):
+        if not roi:
+            return f"[dim]{label}: not enough settled bets yet (need 5+)[/dim]"
         color = "green" if roi["roi_pct"] >= 0 else "red"
         sign  = "+" if roi["roi_pct"] >= 0 else ""
-        summary_lines.append(
-            f"[bold]Win rate:[/bold] {roi['wins']}W / {roi['losses']}L   "
-            f"[bold]ROI:[/bold] [{color}]{sign}{roi['roi_pct']:.1f}%[/{color}]"
+        return (
+            f"[bold]{label}:[/bold] {roi['wins']}W / {roi['losses']}L   "
+            f"ROI [{color}]{sign}{roi['roi_pct']:.1f}%[/{color}]   "
+            f"[dim]({roi['total']} bets)[/dim]"
         )
+
+    summary_lines.append(_roi_line(f"Current model ({logger.MODEL_VERSION})", roi_current))
+    summary_lines.append(_roi_line("Lifetime (all model versions)", roi_lifetime))
     status.print(Panel("\n".join(summary_lines), title="Performance", border_style="yellow"))
     status.print()
 
@@ -431,7 +612,7 @@ def _show_bet_history():
                 roi_str = roi_val
         else:
             roi_str = "[dim]-[/dim]"
-        prob_str = f"{float(r.get('model_prob', 0)) * 100:.0f}%" if r.get("model_prob") else "-"
+        prob_str = _safe_prob_pct(r.get("model_prob"))
         odds_str = r.get("odds_taken", "").strip() or "[dim]-[/dim]"
         match_str = f"{r.get('home','')[:13]} v {r.get('away','')[:13]}"
         table.add_row(
@@ -499,7 +680,7 @@ def _show_pending_bets(unsettled_rows: list):
     table.add_column("Prob",  justify="right", width=6)
     status.print()
     for r in unsettled_rows:
-        prob_str = f"{float(r.get('model_prob', 0)) * 100:.0f}%" if r.get("model_prob") else "-"
+        prob_str = _safe_prob_pct(r.get("model_prob"))
         match_str = f"{r.get('home','')[:13]} v {r.get('away','')[:13]}"
         table.add_row(r.get("date", ""), match_str, r.get("league", ""), r.get("pick", ""), prob_str)
     status.print(table)
@@ -619,7 +800,8 @@ def _warnings_menu():
 
 def _run_analysis(leagues: list, use_cache: bool, min_edge: float,
                   mode_full: bool, mode_over25: bool,
-                  output_file: str = None, update_baselines: bool = False):
+                  output_file: str = None, update_baselines: bool = False,
+                  interactive: bool = False):
     today_str    = datetime.now().strftime("%Y-%m-%d")
     date_display = datetime.now().strftime("%A %d %B %Y")
 
@@ -676,7 +858,9 @@ def _run_analysis(leagues: list, use_cache: bool, min_edge: float,
             parts.append(f"[yellow]{failed} still pending[/yellow]")
         status.print(f"  [dim]Bet results:[/dim]  {',  '.join(parts)}")
 
-    roi_data = logger.compute_roi_summary()
+    # Prefer the current-model cohort; fall back to lifetime if too few bets exist yet.
+    roi_data = (logger.compute_roi_summary(model_version=logger.MODEL_VERSION)
+                or logger.compute_roi_summary())
     if roi_data:
         roi_color = "green" if roi_data["roi_pct"] >= 0 else "red"
         roi_sign  = "+" if roi_data["roi_pct"] >= 0 else ""
@@ -745,35 +929,62 @@ def _run_analysis(leagues: list, use_cache: bool, min_edge: float,
         status.print(f"[yellow]No unplayed fixtures found for today ({today_str}). Check back on a matchday.[/yellow]")
         return
 
-    # Each fixture now carries exactly one pick (the best-value from the sweep).
-    # Split into two tiers for display: verified edge vs best-available (no odds).
-    value_picks   = []
-    no_odds_picks = []
+    # Only verified-edge singles count as value picks. Picks without real
+    # bookmaker odds are dropped from the singles surface — their useful form
+    # is as an acca leg (Tier 2), not as a standalone bet.
+    value_picks = []
     for fixture in all_fixtures:
         if not fixture["picks"]:
             continue
-        chosen = fixture["picks"][0]   # already the best-value pick per fixture
-        entry = {
+        chosen = fixture["picks"][0]
+        if not chosen.get("verified_edge"):
+            continue
+        value_picks.append({
             **chosen,
             "match_id": fixture["match_id"],
             "home":     fixture["home_name"],
             "away":     fixture["away_name"],
             "league":   fixture["league"],
             "utc_date": fixture.get("utc_date", ""),
-        }
-        if chosen.get("verified_edge"):
-            value_picks.append(entry)
-        else:
-            no_odds_picks.append(entry)
+        })
 
-    # Value picks: highest edge first — that is the ranking that matters
+    # Highest edge first — that is the ranking that matters
     value_picks.sort(key=lambda p: p.get("edge", 0), reverse=True)
-    # No-odds picks: highest model_prob first
-    no_odds_picks.sort(key=_pick_sort_key, reverse=True)
+
+    # Build cross-fixture accumulators from the qualifying short-odds picks
+    # collected per fixture above. These don't compete with the single picks
+    # — they're an additional bet type the user can choose to stake.
+    accas = markets.build_cross_fixture_accas(all_fixtures)
+
+    # Stake-size verified accas (real odds on every leg). MODEL accas use
+    # inferred prices so we can't recommend a stake reliably.
+    for acca in accas:
+        if acca.get("verified_edge"):
+            acca["stake_units"] = staking.compute_stake_units(
+                acca["joint_prob"], acca["joint_odds"], acca["edge"],
+            )
+        else:
+            acca["stake_units"] = None
+
+    acca_log_rows = _accas_to_log_rows(accas)
 
     if mode_full:
-        coupon.render_coupon(value_picks, no_odds_picks, date_str=date_display)
-        logger.log_bets(value_picks + no_odds_picks)
+        # No-odds singles are deliberately not rendered or logged — they're not
+        # value bets. Useful no-odds picks surface only as acca legs in Tier 2.
+        coupon.render_coupon(value_picks, accas=accas, date_str=date_display)
+        logger.log_bets(value_picks + acca_log_rows)
+        from telegram_notifier import build_telegram_message, send_telegram_message
+        msg = build_telegram_message(value_picks, accas)
+        send_telegram_message(msg)
+
+        # Drift detector — surface any (market, pick) buckets where the model's
+        # average predicted probability has drifted from the actual win rate.
+        # When run inside the interactive menu (interactive=True), offer to fit
+        # and save an isotonic correction for each actionable bucket.
+        drift_rows = drift.compute_drift()
+        coupon.render_drift_block(drift_rows)
+        if interactive:
+            _maybe_apply_corrections(drift_rows)
 
     if mode_over25:
         coupon.render_over25(all_fixtures, date_str=date_display)
@@ -810,7 +1021,48 @@ def _picks_menu(leagues: list, use_cache: bool, min_edge: float):
     mode_full   = choice in ("1", "3")
     mode_over25 = choice in ("2", "3")
     status.print()
-    _run_analysis(leagues, use_cache, min_edge, mode_full, mode_over25)
+    _run_analysis(leagues, use_cache, min_edge, mode_full, mode_over25, interactive=True)
+    status.print()
+    input("  Press Enter to return to the menu...")
+
+
+def _bankroll_menu():
+    """Set the user's bankroll. Persisted to data/user_settings.json."""
+    _menu_clear()
+    _menu_header()
+    status.print("  [bold]Bankroll[/bold]")
+    status.print()
+    status.print(
+        f"  [dim]Current bankroll:[/dim] [bold]€{staking.BANKROLL_EUR:.2f}[/bold]   "
+        f"[dim]1 unit ({staking.UNIT_PCT*100:.1f}%) = €{staking.UNIT_EUR:.2f}[/dim]"
+    )
+    status.print(
+        f"  [dim]Stakes scale linearly with bankroll. Quarter-Kelly capped at "
+        f"{staking.MAX_STAKE_UNITS} units per pick.[/dim]"
+    )
+    status.print()
+    status.print("  Enter a new bankroll in euros, or press Enter to keep current.")
+    status.print("  [dim](Press 0 + Enter to return to the menu.)[/dim]")
+    status.print()
+    try:
+        raw = input("  New bankroll €: ").strip()
+    except (EOFError, KeyboardInterrupt):
+        status.print()
+        return
+    if not raw or raw == "0":
+        return
+    raw = raw.replace(",", ".")
+    try:
+        staking.set_bankroll(raw)
+    except ValueError as exc:
+        status.print(f"  [red]{exc}[/red]")
+        status.print()
+        input("  Press Enter to return to the menu...")
+        return
+    status.print(
+        f"  [green]Saved.[/green] Bankroll now [bold]€{staking.BANKROLL_EUR:.2f}[/bold]   "
+        f"1 unit = €{staking.UNIT_EUR:.2f}"
+    )
     status.print()
     input("  Press Enter to return to the menu...")
 
@@ -894,10 +1146,11 @@ def main():
         status.print("  [cyan]5[/cyan]  Run backtest      [dim]Replay a historical season through the model[/dim]")
         status.print("  [cyan]6[/cyan]  Data warnings     [dim]Check if model fell back to defaults[/dim]")
         status.print("  [cyan]7[/cyan]  Calibration       [dim]Predicted vs actual WR per market[/dim]")
+        status.print(f"  [cyan]8[/cyan]  Set bankroll      [dim]Currently €{staking.BANKROLL_EUR:.2f} · 1 unit = €{staking.UNIT_EUR:.2f}[/dim]")
         status.print()
         status.print("  [cyan]0[/cyan]  Exit")
         status.print()
-        choice = _menu_prompt(7)
+        choice = _menu_prompt(8)
         if choice == "0":
             status.print("\n  [dim]Goodbye.[/dim]\n")
             sys.exit(0)
@@ -917,6 +1170,8 @@ def main():
             _warnings_menu()
         elif choice == "7":
             _calibration_menu()
+        elif choice == "8":
+            _bankroll_menu()
 
 
 if __name__ == "__main__":

@@ -299,15 +299,36 @@ class CalibrationModel:
         Return a calibrated probability.
         Blends model_prob with historical signal — never moves it
         more than ±15 pp to avoid extreme over-correction.
+
+        Tier 0 — isotonic correction (when a saved correction map exists for
+        this (market, pick), it is applied first to fix systematic over/under-
+        confidence detected by drift.compute_drift()). The downstream LR/segment
+        tiers still receive the *original* model_prob as input — they were
+        trained on raw probabilities, so feeding them corrected values would
+        double-correct. Only the final return value combines both.
         """
+        # Tier 0: per-(market, pick) isotonic correction. No-op when no
+        # correction file exists for this bucket.
+        try:
+            import corrections as _corrections
+            corrected = _corrections.apply_correction(model_prob, market, pick)
+        except ImportError:
+            corrected = model_prob
+
         adjusted = self._league_lr_calibrate(model_prob, market, league, extra)
         if adjusted is None:
             adjusted = self._lr_calibrate(model_prob, market, league, extra)
         if adjusted is None:
             adjusted = self._segment_calibrate(model_prob, market, league, pick)
 
-        # Hard clamp: never drift too far from raw model
-        delta = adjusted - model_prob
+        # Combine: isotonic fixes systematic bias; LR/segment delta on top
+        # captures context features (edge, position, etc.) that the isotonic
+        # curve doesn't see.
+        lr_delta = adjusted - model_prob
+        final    = corrected + lr_delta
+
+        # Hard clamp: never drift too far from raw model.
+        delta = final - model_prob
         delta = max(-0.15, min(0.15, delta))
         return max(0.01, min(0.99, model_prob + delta))
 

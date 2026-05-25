@@ -15,7 +15,6 @@ Usage
     # odds_map: { normalised_key: { "h2h": {...}, "totals": {...} }, ... }
 """
 
-import os
 import time
 import logging
 from datetime import datetime
@@ -225,8 +224,13 @@ def _best_h2h(bookmakers: list) -> dict:
             if len(outcomes) != 3:
                 continue
             for o in outcomes:
-                label = o["name"]
-                price = float(o["price"])
+                # Skip outcomes with missing/malformed fields rather than
+                # crashing the whole odds map on one bad bookmaker entry.
+                try:
+                    label = o["name"]
+                    price = float(o["price"])
+                except (KeyError, TypeError, ValueError):
+                    continue
                 if label not in best or price > best[label]:
                     best[label] = price
     return best
@@ -243,9 +247,14 @@ def _best_totals(bookmakers: list) -> dict:
             if mkt.get("key") != "totals":
                 continue
             for o in mkt.get("outcomes", []):
-                direction = o["name"].lower()    # "over" or "under"
-                point     = float(o.get("point", 0))
-                price     = float(o["price"])
+                # Defensive parsing: malformed outcomes from any single
+                # bookmaker should be skipped, not crash the whole odds fetch.
+                try:
+                    direction = o["name"].lower()    # "over" or "under"
+                    point     = float(o.get("point", 0))
+                    price     = float(o["price"])
+                except (KeyError, AttributeError, TypeError, ValueError):
+                    continue
                 key = f"{direction}_{point}"     # e.g. "over_2.5"
                 if key not in best or price > best[key]:
                     best[key] = price

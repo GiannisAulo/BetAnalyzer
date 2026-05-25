@@ -5,6 +5,8 @@ from rich.table import Table
 from rich.rule import Rule
 from rich import box
 
+import staking
+
 console = Console(record=True, legacy_windows=False, width=140)
 
 def _prob_color(prob):
@@ -46,16 +48,17 @@ def _build_picks_table(picks, show_edge=True):
         box=box.SIMPLE,
         show_header=True,
         header_style="bold dim",
-        padding=(0, 2),
+        padding=(0, 1),     # tightened from (0,2) so all columns fit in 140 chars
         show_edge=False,
     )
-    table.add_column("Match",  width=50, no_wrap=True)
+    table.add_column("Match",  width=40, no_wrap=True)
     table.add_column("Lg",     width=3,  justify="center")
-    table.add_column("Pick",   width=24, no_wrap=True)
+    table.add_column("Pick",   width=22, no_wrap=True)
     table.add_column("Market", width=10, no_wrap=True)
-    table.add_column("Conf",   width=10, justify="right")
+    table.add_column("Conf",   width=9,  justify="right")
     table.add_column("Odds",   width=6,  justify="right")
     table.add_column("Edge",   width=7,  justify="right")
+    table.add_column("Stake",  width=14, justify="right")   # widened so €X.XX never truncates
 
     # Sort by league, then by edge desc (value tier) / model_prob desc (prob tier)
     current_league = None
@@ -66,7 +69,7 @@ def _build_picks_table(picks, show_edge=True):
             league_name = _LEAGUE_NAMES.get(current_league, current_league)
             table.add_row(
                 f"[bold dim]{league_name}[/bold dim]",
-                "", "", "", "", "", "",
+                "", "", "", "", "", "", "",
             )
 
         c = _prob_color(pick.get("model_prob", 0))
@@ -102,6 +105,13 @@ def _build_picks_table(picks, show_edge=True):
         else:
             pick_display = f"[{c}]{pick_name}[/{c}]"
 
+        stake_u = pick.get("stake_units")
+        if stake_u is not None:
+            eur = staking.units_to_eur(stake_u)
+            stake_str = f"[bold]{stake_u}u[/bold] [dim](€{eur:.2f})[/dim]"
+        else:
+            stake_str = "[dim]—[/dim]"
+
         table.add_row(
             match_str,
             pick["league"],
@@ -110,29 +120,160 @@ def _build_picks_table(picks, show_edge=True):
             conf_str,
             odds_str,
             edge_str,
+            stake_str,
         )
         reason = pick.get("reason", "")
         if reason:
-            table.add_row(f"[dim italic]{reason}[/dim italic]", "", "", "", "", "", "")
+            table.add_row(f"[dim italic]{reason}[/dim italic]", "", "", "", "", "", "", "")
 
     return table
 
 
-def render_coupon(value_picks, no_odds_picks, date_str=None):
+def _render_accas(accas):
+    """Render the cross-fixture accumulator section.
+
+    Each acca is a dict with keys: size, joint_odds, joint_prob, edge, legs.
+    Each leg has: home, away, league, pick, market, model_prob, odds.
     """
-    Render a two-tier coupon.
+    console.print(
+        Rule("[bold cyan]SAFE ACCUMULATORS — LEG-STACKED VALUE[/bold cyan]", style="cyan")
+    )
+    console.print()
+    console.print(
+        "  [dim]Short-odds high-confidence picks combined into 2–3 leg accumulators "
+        "where the combined edge becomes visible.[/dim]"
+    )
+    console.print()
+
+    for idx, acca in enumerate(accas, 1):
+        joint_prob_pct = acca["joint_prob"] * 100
+        col = _prob_color(acca["joint_prob"])
+        verified = acca.get("verified_edge", False)
+        tag = "[green]VERIFIED[/green]" if verified else "[yellow]MODEL[/yellow]"
+        edge_part = (
+            f"  ·  Edge [green]+{acca['edge']:.1f}%[/green]"
+            if verified else "  ·  [dim]check live odds[/dim]"
+        )
+        stake_u = acca.get("stake_units")
+        if stake_u is not None:
+            eur = staking.units_to_eur(stake_u)
+            stake_part = f"  ·  Stake [bold]{stake_u}u[/bold] [dim](€{eur:.2f})[/dim]"
+        else:
+            stake_part = ""
+        header = (
+            f"[bold]Acca {idx}[/bold] {tag}  ·  {acca['size']} legs  ·  "
+            f"Combined [{col}]{acca['joint_odds']:.2f}[/{col}]  ·  "
+            f"Prob [{col}]{joint_prob_pct:.0f}%[/{col}]{edge_part}{stake_part}"
+        )
+        console.print(header)
+
+        table = Table(
+            box=box.SIMPLE, show_header=True, header_style="bold dim",
+            padding=(0, 2), show_edge=False,
+        )
+        table.add_column("Match",  width=40, no_wrap=True)
+        table.add_column("Lg",     width=4,  justify="center")
+        table.add_column("Pick",   width=22, no_wrap=True)
+        table.add_column("Market", width=10, no_wrap=True)
+        table.add_column("Prob",   width=7,  justify="right")
+        table.add_column("Odds",   width=7,  justify="right")
+        for leg in acca["legs"]:
+            leg_col   = _prob_color(leg["model_prob"])
+            match_str = f"{_shorten(leg['home'])} vs {_shorten(leg['away'])}"
+            # Tilde suffix marks an odds value derived from the model, not the bookmaker
+            odds_disp = (
+                f"[{leg_col}]{leg['odds']:.2f}~[/{leg_col}]"
+                if leg.get("inferred_odds")
+                else f"[{leg_col}]{leg['odds']:.2f}[/{leg_col}]"
+            )
+            table.add_row(
+                match_str,
+                leg["league"],
+                f"[{leg_col}]{leg['pick']}[/{leg_col}]",
+                f"[dim]{leg['market']}[/dim]",
+                f"[{leg_col}]{leg['model_prob']*100:.0f}%[/{leg_col}]",
+                odds_disp,
+            )
+        console.print(table)
+        console.print()
+
+    console.print(
+        "  [dim]VERIFIED = every leg has real bookmaker odds; edge confirmed.  "
+        "MODEL = at least one leg uses model fair odds (~); verify on the bookmaker before betting.[/dim]"
+    )
+    console.print()
+
+
+def render_drift_block(drift_rows):
+    """Render the per-market drift report (yellow/red only) at the foot of a coupon.
+
+    drift_rows: list of dicts produced by drift.compute_drift(). Green rows are
+    skipped — only actionable drift is surfaced to avoid noise.
+    """
+    actionable = [d for d in drift_rows if d["severity"] in ("yellow", "red")]
+    if not actionable:
+        return
+    console.print(
+        Rule("[bold magenta]MODEL CALIBRATION DRIFT[/bold magenta]", style="magenta")
+    )
+    console.print()
+    table = Table(box=box.SIMPLE, show_header=True, header_style="bold dim",
+                  padding=(0, 2), show_edge=False)
+    table.add_column("Market",    width=14, no_wrap=True)
+    table.add_column("Pick",      width=22, no_wrap=True)
+    table.add_column("n",         width=4, justify="right")
+    table.add_column("Predicted", width=10, justify="right")
+    table.add_column("Actual",    width=8, justify="right")
+    table.add_column("Gap",       width=8, justify="right")
+    table.add_column("Severity",  width=10, justify="center")
+    for d in actionable:
+        sev_col = "red" if d["severity"] == "red" else "yellow"
+        gap_sign = "+" if d["gap_pp"] >= 0 else ""
+        direction = "(over-confident)" if d["gap_pp"] > 0 else "(under-confident)"
+        table.add_row(
+            d["market"], d["pick"], str(d["n"]),
+            f"{d['predicted_pct']:.0f}%",
+            f"{d['actual_wr_pct']:.0f}%",
+            f"[{sev_col}]{gap_sign}{d['gap_pp']:.1f}pp[/{sev_col}]",
+            f"[{sev_col}]{d['severity'].upper()}[/{sev_col}]",
+        )
+    console.print(table)
+    console.print(
+        "  [dim]Positive gap = model over-confident (predicts more wins than reality).  "
+        "Negative gap = under-confident.[/dim]"
+    )
+    console.print()
+
+
+def render_coupon(value_picks, _no_odds_unused=None, accas=None, date_str=None):
+    """
+    Render the value-only coupon. Two tiers, both genuine value bets:
 
     Tier 1 — VALUE PICKS: fixtures where the model found positive edge against
-    bookmaker odds. Sorted by edge descending. These are the actionable bets.
+    real bookmaker odds. Sorted by edge descending. These are the actionable
+    single-bet recommendations.
 
-    Tier 2 — BEST AVAILABLE: fixtures with no bookmaker odds or no positive edge.
-    Sorted by model_prob. Shown for reference — check live prices before betting.
+    Tier 2 — SAFE ACCUMULATORS: cross-fixture combos that stack short-odds
+    high-confidence picks into 2–3 leg parlays with calculated joint edge.
+    Verified (real odds on every leg) and MODEL (at least one inferred leg)
+    are distinguished. Only shown when at least one qualifying acca exists.
+
+    Note: solo picks without real bookmaker odds are deliberately NOT shown.
+    Short-odds favourites (1.20–1.45) are not value bets as singles — they
+    only become value when combined into accumulators (Tier 2 handles that).
+    The `_no_odds_unused` parameter is retained for backward compatibility
+    with existing callers but its contents are ignored.
     """
     if date_str is None:
         date_str = datetime.now().strftime("%A %d %B %Y")
 
     console.print()
     console.print(Rule(f"[bold yellow]BETTING COUPON  —  {date_str}[/bold yellow]", style="yellow"))
+    console.print(
+        f"  [dim]Bankroll: €{staking.BANKROLL_EUR:.2f}  ·  "
+        f"1 unit = €{staking.UNIT_EUR:.2f} ({staking.UNIT_PCT*100:.1f}%)  ·  "
+        f"Stakes by quarter-Kelly (max {staking.MAX_STAKE_UNITS}u per pick)[/dim]"
+    )
     console.print()
 
     # ── Tier 1: Value picks ──────────────────────────────────────────────────
@@ -144,15 +285,9 @@ def render_coupon(value_picks, no_odds_picks, date_str=None):
         console.print("[yellow]  No positive-edge picks found today.[/yellow]")
         console.print()
 
-    # ── Tier 2: Best available (no verified edge) ────────────────────────────
-    if no_odds_picks:
-        console.print(Rule("[bold yellow]BEST AVAILABLE — NO BOOKMAKER ODDS[/bold yellow]", style="yellow"))
-        console.print()
-        console.print(_build_picks_table(no_odds_picks, show_edge=False))
-        console.print(
-            "  [dim]These picks have no verified edge. Check live odds before betting.[/dim]"
-        )
-        console.print()
+    # ── Tier 2: Safe accumulators ────────────────────────────────────────────
+    if accas:
+        _render_accas(accas)
     console.print()
 
 

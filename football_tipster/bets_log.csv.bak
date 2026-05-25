@@ -1,0 +1,397 @@
+match_id,date,home,away,league,market,pick,model_prob,odds_taken,edge,result,roi,settle_attempts,home_position,away_position,form_adv,expected_total,model_version
+537125,2026-04-13,ACF Fiorentina,SS Lazio,SA,BTTS,BTTS No,0.589,,,W,,2,,,,,
+544519,2026-04-13,Levante UD,Getafe CF,PD,1X2,Home Win,0.490,,11.7,W,,2,,,,,
+545953,2026-04-13,CD Tondela,Gil Vicente FC,PPL,1X2,Home Win,0.430,,20.8,L,,2,,,,,
+538102,2026-04-13,Manchester United FC,Leeds United FC,PL,1X2,Home Win,0.511,,,L,,2,,,,,
+556722,2026-04-14,Liverpool FC,Paris Saint-Germain FC,CL,Over/Under,Over 2.5,0.603,,,L,,2,,,,,
+556724,2026-04-14,Club Atlético de Madrid,FC Barcelona,CL,Over/Under,Over 3.5,0.608,,,L,,1,,,,,
+556723,2026-04-15,FC Bayern München,Real Madrid CF,CL,1X2,Home Win,0.766,1.57,12.9,W,0.570,2,,,,,
+556725,2026-04-15,Arsenal FC,Sporting Clube de Portugal,CL,1X2,Home Win,0.562,,,L,,2,,,,,
+537140,2026-04-17,US Sassuolo Calcio,Como 1907,SA,1X2,Home Win,0.254,6.80,10.6,W,5.800,7,,,,,
+545961,2026-04-17,Rio Ave FC,AVS,PPL,Over/Under,Under 2.5,0.584,1.96,7.4,L,-1.000,7,,,,,
+540673,2026-04-17,FC St. Pauli 1910,1. FC Köln,BL1,Over/Under,Under 2.5,0.551,2.00,5.1,W,1.000,7,,,,,
+542674,2026-04-17,Racing Club de Lens,Toulouse FC,FL1,Over/Under,Over 2.5,0.637,1.69,4.6,W,0.690,7,,,,,
+537137,2026-04-17,FC Internazionale Milano,Cagliari Calcio,SA,1X2,Away Win,0.112,15.50,4.8,L,-1.000,7,,,,,
+541216,2026-04-17,Blackburn Rovers FC,Coventry City FC,ELC,Over/Under,Under 2.5,0.620,1.85,7.9,W,0.850,6,,,,,
+538108,2026-04-18,Chelsea FC,Manchester United FC,PL,Over/Under,Under 3.5,0.817,1.67,21.8,W,0.670,6,,,,,
+541225,2026-04-18,Swansea City AFC,Southampton FC,ELC,Over/Under,Over 2.5,0.755,1.76,18.6,W,0.760,2,,,,,
+541226,2026-04-18,Watford FC,Sheffield United FC,ELC,Over/Under,Under 2.5,0.695,2.18,23.6,W,1.180,2,,,,,
+540669,2026-04-18,Eintracht Frankfurt,RB Leipzig,BL1,Over/Under,Under 3.5,0.690,1.91,16.7,L,-1.000,3,,,,,
+540667,2026-04-18,TSG 1899 Hoffenheim,Borussia Dortmund,BL1,Over/Under,Under 3.5,0.695,1.76,12.7,W,0.760,2,,,,,
+545964,2026-04-18,Casa Pia AC,CD Santa Clara,PPL,Over/Under,Over 2.5,0.643,2.52,24.6,L,-1.000,3,,,,,
+538112,2026-04-18,Newcastle United FC,AFC Bournemouth,PL,Over/Under,Under 3.5,0.674,1.70,8.6,W,0.700,2,,,,,
+537141,2026-04-18,SSC Napoli,SS Lazio,SA,Over/Under,Under 2.5,0.660,1.73,8.2,W,0.730,2,,,,,
+542671,2026-04-18,Lille OSC,OGC Nice,FL1,Over/Under,Over 2.5,0.630,1.77,6.5,L,-1.000,6,,,,,
+540671,2026-04-18,1. FC Union Berlin,VfL Wolfsburg,BL1,Over/Under,Over 2.5,0.628,1.81,7.5,W,0.810,0,,,,,
+554851,2026-04-18,Chapecoense AF,Botafogo FR,BSA,Over/Under,Over 2.5,0.611,2.10,13.5,W,1.100,7,,,,,
+545966,2026-04-18,Gil Vicente FC,Vitória SC,PPL,1X2,Home Win,0.607,2.16,15.5,L,-1.000,7,,,,,
+545963,2026-04-18,CD Nacional,FC Alverca,PPL,Over/Under,Over 2.5,0.611,1.95,9.8,L,-1.000,2,,,,,
+538110,2026-04-18,Leeds United FC,Wolverhampton Wanderers FC,PL,Over/Under,Under 2.5,0.589,2.12,11.8,L,-1.000,2,,,,,
+554853,2026-04-18,Cruzeiro EC,Grêmio FBPA,BSA,Combo,1X (Home or Draw) + Over 1.5,0.587,,,W,,4,,,,,
+541217,2026-04-18,Bristol City FC,Norwich City FC,ELC,Combo,X2 (Draw or Away) + Over 1.5,0.586,,,W,,4,,,,,
+537135,2026-04-18,AS Roma,Atalanta BC,SA,Over/Under,Under 2.5,0.566,2.04,7.5,W,1.040,5,,,,,
+541224,2026-04-18,Sheffield Wednesday FC,Charlton Athletic FC,ELC,Over/Under,Over 2.5,0.543,2.21,9.0,L,-1.000,2,,,,,
+541219,2026-04-18,Hull City AFC,Birmingham City FC,ELC,Combo,1X (Home or Draw) + Over 1.5,0.553,,,W,,4,,,,,
+538114,2026-04-18,Tottenham Hotspur FC,Brighton & Hove Albion FC,PL,Combo,X2 (Draw or Away) + Over 1.5,0.543,,,W,,4,,,,,
+542668,2026-04-18,FC Lorient,Olympique de Marseille,FL1,1X2,Home Win,0.485,5.20,29.8,W,4.200,2,,,,,
+554858,2026-04-18,CR Vasco da Gama,São Paulo FC,BSA,Combo,1X (Home or Draw) + Over 1.5,0.512,,,W,,4,,,,,
+541223,2026-04-18,Preston North End FC,West Bromwich Albion FC,ELC,1X2,Home Win,0.420,3.75,15.4,L,-1.000,2,,,,,
+540674,2026-04-18,SV Werder Bremen,Hamburger SV,BL1,1X2,Away Win,0.321,4.70,10.4,L,-1.000,1,,,,,
+554859,2026-04-18,EC Vitória,SC Corinthians Paulista,BSA,BTTS,BTTS No,0.600,,,W,,1,,,,,
+541227,2026-04-18,Wrexham AFC,Stoke City FC,ELC,1X2,Home Win,0.569,1.90,5.2,W,0.900,2,,,,,
+540675,2026-04-18,Bayer 04 Leverkusen,FC Augsburg,BL1,Combo,Home Win + Over 1.5,0.572,,,L,,4,,,,,
+542675,2026-04-18,Angers SCO,Le Havre AC,FL1,1X2,Away Win,0.459,2.46,5.5,L,-1.000,3,,,,,
+554854,2026-04-19,CR Flamengo,EC Bahia,BSA,Combo,Home Win + Over 2.5,0.912,2.95,57.3,L,,8,0.947,0.789,0.278,6.102,
+554856,2026-04-19,SE Palmeiras,CA Paranaense,BSA,Double Chance,1X (Home or Draw),0.945,,,W,,5,1.000,0.737,0.846,4.702,
+540670,2026-04-19,FC Bayern München,VfB Stuttgart,BL1,Over/Under,Over 3.5,0.808,1.67,26.4,W,0.670,5,1.000,0.882,0.397,8.270,
+545967,2026-04-19,FC Arouca,CF Estrela da Amadora,PPL,1X2,Home Win,0.761,2.12,33.6,W,1.120,5,0.353,0.235,0.540,4.330,
+545968,2026-04-19,FC Porto,CD Tondela,PPL,Over/Under,Over 2.5,0.766,1.71,22.7,L,-1.000,5,1.000,0.059,0.453,5.318,
+554855,2026-04-19,SC Internacional,Mirassol FC,BSA,Over/Under,Under 2.5,0.759,1.77,23.8,L,-1.000,5,0.316,0.000,0.317,1.422,
+542673,2026-04-19,RC Strasbourg Alsace,Stade Rennais FC 1901,FL1,Over/Under,Over 2.5,0.743,1.74,21.0,W,0.740,5,0.588,0.706,-0.137,4.512,
+538113,2026-04-19,Nottingham Forest FC,Burnley FC,PL,Over/Under,Under 2.5,0.694,2.14,25.7,L,-1.000,5,0.211,0.053,0.060,1.563,
+542669,2026-04-19,FC Metz,Paris FC,FL1,Over/Under,Under 2.5,0.651,2.00,17.2,L,-1.000,5,0.000,0.353,-0.247,1.682,
+538109,2026-04-19,Everton FC,Liverpool FC,PL,1X2,Home Win,0.606,3.30,32.9,L,-1.000,5,0.632,0.789,0.407,2.390,
+537136,2026-04-19,Hellas Verona FC,AC Milan,SA,Over/Under,Under 2.5,0.619,1.89,10.4,W,0.890,5,0.053,0.895,-0.390,2.005,
+554857,2026-04-19,Santos FC,Fluminense FC,BSA,1X2,Home Win,0.584,2.68,23.4,L,-1.000,5,0.263,0.842,0.360,2.078,
+538105,2026-04-19,Aston Villa FC,Sunderland AFC,PL,Over/Under,Under 2.5,0.612,1.95,11.1,L,-1.000,5,0.842,0.526,-0.090,2.151,
+545969,2026-04-19,Sporting Clube de Braga,FC Famalicão,PPL,1X2,Home Win,0.607,1.95,12.0,L,-1.000,5,0.824,0.765,0.210,2.838,
+540668,2026-04-19,Borussia Mönchengladbach,1. FSV Mainz 05,BL1,Over/Under,Over 2.5,0.599,1.94,9.3,L,-1.000,5,0.235,0.529,-0.067,3.278,
+542670,2026-04-19,FC Nantes,Stade Brestois 29,FL1,1X2,Home Win,0.567,2.46,18.1,L,-1.000,5,0.059,0.412,-0.077,2.724,
+541220,2026-04-19,Ipswich Town FC,Middlesbrough FC,ELC,Combo,1X (Home or Draw) + Over 1.5,0.559,,,W,,8,0.913,0.826,0.133,2.841,
+537143,2026-04-19,US Cremonese,Torino FC,SA,1X2,Away Win,0.443,2.74,8.2,L,-1.000,5,0.158,0.421,-0.267,2.403,
+537139,2026-04-19,AC Pisa 1909,Genoa CFC,SA,1X2,Home Win,0.415,3.35,11.7,L,-1.000,5,0.000,0.316,-0.043,1.795,
+538111,2026-04-19,Manchester City FC,Arsenal FC,PL,1X2,Away Win,0.342,4.60,11.4,L,-1.000,5,0.947,1.000,-0.187,2.566,
+545965,2026-04-19,Sporting Clube de Portugal,Sport Lisboa e Benfica,PPL,Over/Under,Under 3.5,0.620,,,W,,5,0.941,0.882,0.077,3.211,
+540672,2026-04-19,SC Freiburg,1. FC Heidenheim 1846,BL1,1X2,Home Win,0.611,1.72,5.6,W,0.720,5,0.588,0.000,0.237,3.193,
+554852,2026-04-19,Coritiba FBC,CA Mineiro,BSA,Double Chance,X2 (Draw or Away),0.616,,,L,,5,0.684,0.632,0.160,1.234,
+537138,2026-04-19,Juventus FC,Bologna FC 1909,SA,Over/Under,Under 3.5,0.608,,,W,,5,0.842,0.632,-0.193,3.425,
+542667,2026-04-19,AS Monaco FC,AJ Auxerre,FL1,Over/Under,Under 2.5,0.494,2.32,5.0,L,-1.000,5,0.647,0.118,0.547,2.762,
+554850,2026-04-19,RB Bragantino,Clube do Remo,BSA,Over/Under,Over 2.5,0.590,,,W,,5,0.579,0.105,0.343,3.571,
+542672,2026-04-19,Paris Saint-Germain FC,Olympique Lyonnais,FL1,BTTS,BTTS No,0.573,,,L,,5,1.000,0.765,0.460,3.667,
+537144,2026-04-20,US Lecce,ACF Fiorentina,SA,Over/Under,Over 2.5,0.639,2.34,14.8,L,-1.000,0,0.105,0.263,-0.337,3.277,
+545962,2026-04-20,Moreirense FC,GD Estoril Praia,PPL,Over/Under,Under 2.5,0.530,2.10,6.6,W,1.100,0,0.529,0.588,-0.260,2.233,
+538106,2026-04-20,Crystal Palace FC,West Ham United FC,PL,Combo,1X (Home or Draw) + Under 2.5,0.452,,,W,,2,0.368,0.158,0.157,2.447,
+538119,2026-04-22,Burnley FC,Manchester City FC,PL,Over/Under,Under 3.5,0.775,2.12,29.1,W,1.120,1,0.053,0.947,-0.497,2.376,
+541229,2026-04-22,Middlesbrough FC,Sheffield Wednesday FC,ELC,Over/Under,Under 3.5,0.717,2.00,36.7,W,1.000,1,0.826,0.000,0.017,1.497,
+541237,2026-04-22,Charlton Athletic FC,Ipswich Town FC,ELC,Over/Under,Under 2.5,0.679,1.98,17.2,L,-1.000,1,0.174,0.913,-0.343,1.899,
+541239,2026-04-22,Sheffield United FC,Blackburn Rovers FC,ELC,Over/Under,Over 2.5,0.592,1.95,10.2,W,0.950,1,0.478,0.130,0.103,3.592,
+541236,2026-04-22,Birmingham City FC,Preston North End FC,ELC,Combo,1X (Home or Draw) + Under 2.5,0.554,,,L,,2,0.435,0.348,0.107,2.167,
+544540,2026-04-22,Real Sociedad de Fútbol,Getafe CF,PD,Over/Under,Over 2.5,0.454,2.55,16.4,L,-1.000,1,0.684,0.632,0.240,3.084,
+538115,2026-04-22,AFC Bournemouth,Leeds United FC,PL,Over/Under,Under 2.5,0.453,2.25,10.2,L,-1.000,1,0.579,0.263,-0.063,2.318,
+542636,2026-04-22,Paris Saint-Germain FC,FC Nantes,FL1,BTTS,BTTS No,0.625,,,W,,1,1.000,0.059,0.310,2.951,
+537718,2026-04-22,Telstar 1963,Sparta Rotterdam,DED,Combo,Home Win + Over 1.5,0.599,,,W,,2,0.118,0.471,0.240,2.834,
+544532,2026-04-22,FC Barcelona,RC Celta de Vigo,PD,Combo,Home Win + BTTS Yes,0.485,,,L,,2,1.000,0.737,0.150,4.562,
+544537,2026-04-22,Elche CF,Club Atlético de Madrid,PD,BTTS,BTTS Yes,0.585,,,W,,1,0.105,0.842,0.303,3.424,
+544539,2026-04-23,Rayo Vallecano de Madrid,RCD Espanyol de Barcelona,PD,Combo,Home Win + Over 2.5,0.553,4.62,48.7,L,-1.000,0,0.211,0.421,0.580,3.870,
+544535,2026-04-23,Real Oviedo,Villarreal CF,PD,Over/Under,Under 2.5,0.571,1.93,20.2,W,0.930,0,0.000,0.895,0.183,1.332,
+544533,2026-04-23,Levante UD,Sevilla FC,PD,Combo,Home Win + Over 2.5,0.473,5.60,44.5,L,-1.000,0,0.053,0.158,0.497,3.748,
+537713,2026-04-23,Go Ahead Eagles,AZ,DED,Over/Under,Over 3.5,0.383,2.38,8.0,L,-1.000,0,0.412,0.706,0.443,4.053,
+537716,2026-04-23,PSV,PEC Zwolle,DED,Combo,BTTS Yes + Over 2.5,0.536,,,W,,0,1.000,0.294,0.553,4.341,
+545930,2026-04-23,Casa Pia AC,Sporting Clube de Braga,PPL,Over/Under,Under 2.5,0.533,1.93,4.9,W,0.930,0,0.118,0.824,-0.287,2.173,
+538116,2026-04-24,Sunderland AFC,Nottingham Forest FC,PL,Over/Under,Under 3.5,0.729,,,L,,0,0.474,0.211,-0.073,2.345,
+544522,2026-04-24,Real Betis Balompié,Real Madrid CF,PD,Over/Under,Under 3.5,0.663,1.77,13.0,W,0.770,0,0.789,0.947,0.067,2.862,
+541243,2026-04-24,Leicester City FC,Millwall FC,ELC,Over/Under,Under 3.5,0.606,,,W,,0,0.043,0.913,-0.507,3.298,
+545976,2026-04-24,FC Alverca,FC Arouca,PPL,1X2,Home Win,0.521,2.28,13.3,W,1.280,0,0.471,0.412,0.217,2.486,
+541244,2026-04-25,Middlesbrough FC,Watford FC,ELC,Over/Under,Under 3.5,0.800,1.65,25.8,L,-1.000,3,0.826,0.391,0.263,1.573,
+540677,2026-04-25,1. FC Köln,Bayer 04 Leverkusen,BL1,Over/Under,Over 1.5,0.806,,,W,,4,0.353,0.706,-0.030,3.498,
+541246,2026-04-25,Oxford United FC,Sheffield Wednesday FC,ELC,Over/Under,Under 2.5,0.746,2.02,30.2,L,-1.000,4,0.087,0.000,0.420,1.357,
+554868,2026-04-25,Clube do Remo,Cruzeiro EC,BSA,Combo,Home Win + Over 2.5,0.708,7.28,59.0,L,-1.000,4,0.053,0.211,0.093,4.241,
+554862,2026-04-25,EC Bahia,Santos FC,BSA,Combo,Home Win + Over 2.5,0.708,3.48,44.0,L,-1.000,4,0.789,0.263,0.323,4.244,
+541250,2026-04-25,Stoke City FC,Portsmouth FC,ELC,Combo,Home Win + Over 2.5,0.698,5.33,52.8,L,-1.000,4,0.304,0.174,0.173,4.445,
+540681,2026-04-25,VfL Wolfsburg,Borussia Mönchengladbach,BL1,Double Chance,1X (Home or Draw),0.722,,,W,,4,0.059,0.294,-0.073,2.479,
+540683,2026-04-25,1. FC Heidenheim 1846,FC St. Pauli 1910,BL1,Over/Under,Over 2.5,0.683,1.97,21.1,L,-1.000,4,0.000,0.118,0.137,3.926,
+537151,2026-04-25,Hellas Verona FC,US Lecce,SA,Over/Under,Under 1.5,0.649,2.52,27.9,W,1.520,4,0.053,0.158,-0.067,1.121,
+545977,2026-04-25,Sport Lisboa e Benfica,Moreirense FC,PPL,Over/Under,Under 3.5,0.673,1.85,16.5,L,-1.000,4,0.941,0.588,0.490,3.079,
+544521,2026-04-25,Deportivo Alavés,RCD Mallorca,PD,Over/Under,Over 2.5,0.650,2.06,19.2,W,1.060,3,0.105,0.263,0.283,3.417,
+541241,2026-04-25,Charlton Athletic FC,Hull City AFC,ELC,Over/Under,Under 2.5,0.655,1.93,16.6,L,-1.000,3,0.130,0.739,-0.160,1.748,
+541247,2026-04-25,Queens Park Rangers FC,Derby County FC,ELC,Over/Under,Over 2.5,0.646,2.04,18.1,W,1.040,4,0.478,0.696,0.253,3.770,
+541248,2026-04-25,Sheffield United FC,Preston North End FC,ELC,Over/Under,Over 2.5,0.647,1.67,7.4,W,0.670,4,0.435,0.348,0.010,3.759,
+545971,2026-04-25,CD Tondela,CD Nacional,PPL,Over/Under,Under 2.5,0.631,1.95,14.0,W,0.950,4,0.059,0.235,0.213,2.067,
+544527,2026-04-25,Getafe CF,FC Barcelona,PD,Over/Under,Under 2.5,0.627,2.00,14.8,W,1.000,4,0.737,1.000,-0.097,2.017,
+537712,2026-04-25,Feyenoord Rotterdam,FC Groningen,DED,Over/Under,Under 3.5,0.645,1.66,6.8,L,-1.000,4,0.941,0.529,0.287,3.182,
+538118,2026-04-25,Arsenal FC,Newcastle United FC,PL,Over/Under,Over 2.5,0.632,1.77,8.9,L,-1.000,4,0.947,0.316,0.230,3.392,
+541240,2026-04-25,Birmingham City FC,Bristol City FC,ELC,Over/Under,Under 2.5,0.609,2.10,15.0,L,-1.000,4,0.609,0.522,0.197,2.055,
+542680,2026-04-25,Olympique Lyonnais,AJ Auxerre,FL1,Combo,1X (Home or Draw) + Over 1.5,0.618,,,W,,4,0.824,0.118,0.320,2.639,
+540676,2026-04-25,1. FSV Mainz 05,FC Bayern München,BL1,Over/Under,Under 3.5,0.571,2.02,8.3,L,-1.000,4,0.471,1.000,-0.420,3.163,
+538123,2026-04-25,West Ham United FC,Everton FC,PL,Combo,Home Win + Over 1.5,0.585,,,W,,4,0.158,0.526,0.063,2.927,
+537719,2026-04-25,FC Twente '65,NEC,DED,Combo,1X (Home or Draw) + Over 1.5,0.578,,,W,,4,0.824,0.882,-0.060,2.873,
+541251,2026-04-25,West Bromwich Albion FC,Ipswich Town FC,ELC,Over/Under,Over 2.5,0.552,2.16,9.2,L,-1.000,3,0.261,0.913,-0.093,3.090,
+540678,2026-04-25,FC Augsburg,Eintracht Frankfurt,BL1,Combo,Home Win + Over 1.5,0.552,,,L,,4,0.529,0.588,0.140,3.875,
+541245,2026-04-25,Norwich City FC,Swansea City AFC,ELC,Over/Under,Under 2.5,0.524,2.24,7.3,W,1.240,4,0.652,0.565,-0.020,2.472,
+538124,2026-04-25,Wolverhampton Wanderers FC,Tottenham Hotspur FC,PL,Combo,Home Win + Over 1.5,0.515,,,L,,4,0.000,0.105,0.460,2.947,
+537717,2026-04-25,SC Heerenveen,Fortuna Sittard,DED,Combo,Home Win + Over 2.5,0.708,2.10,25.0,W,1.100,4,0.588,0.353,0.393,4.263,
+538120,2026-04-25,Fulham FC,Aston Villa FC,PL,1X2,Home Win,0.620,2.72,32.0,W,1.720,3,0.421,0.842,0.383,3.507,
+554863,2026-04-25,Botafogo FR,SC Internacional,BSA,Double Chance,X2 (Draw or Away),0.617,,,W,,4,0.579,0.316,-0.152,2.572,
+542682,2026-04-25,Angers SCO,Paris Saint-Germain FC,FL1,Combo,X2 (Draw or Away) + Under 2.5,0.612,,,L,,4,0.294,1.000,-0.587,2.068,
+537715,2026-04-25,NAC Breda,AFC Ajax,DED,Double Chance,1X (Home or Draw),0.606,,,L,,4,0.059,0.765,-0.087,2.678,
+537153,2026-04-25,Parma Calcio 1913,AC Pisa 1909,SA,1X2,Home Win,0.539,2.37,16.5,W,1.370,4,0.316,0.000,0.280,2.015,
+545978,2026-04-25,Vitória SC,Rio Ave FC,PPL,Combo,Home Win + Over 1.5,0.554,,,W,,4,0.647,0.353,-0.110,2.967,
+538121,2026-04-25,Liverpool FC,Crystal Palace FC,PL,Combo,Home Win + Over 2.5,0.589,2.48,18.4,W,1.480,4,0.789,0.368,0.020,3.979,
+544530,2026-04-25,Valencia CF,Girona FC,PD,BTTS,BTTS Yes,0.601,,,W,,4,0.316,0.474,0.287,2.740,
+544526,2026-04-25,Club Atlético de Madrid,Athletic Club,PD,BTTS,BTTS Yes,0.592,,,W,,4,0.842,0.579,0.220,4.237,
+542679,2026-04-25,Toulouse FC,AS Monaco FC,FL1,BTTS,BTTS Yes,0.576,,,W,,4,0.353,0.647,-0.200,2.597,
+554869,2026-04-25,São Paulo FC,Mirassol FC,BSA,Over/Under,Under 3.5,0.573,,,W,,4,0.842,0.105,0.440,3.971,
+537149,2026-04-25,Bologna FC 1909,AS Roma,SA,Over/Under,Under 2.5,0.569,1.82,2.6,W,0.820,4,0.632,0.737,0.317,2.371,
+540684,2026-04-25,Hamburger SV,TSG 1899 Hoffenheim,BL1,Over/Under,Over 3.5,0.480,2.30,3.0,L,-1.000,4,0.235,0.765,-0.097,3.518,
+554864,2026-04-26,RB Bragantino,SE Palmeiras,BSA,Double Chance,1X (Home or Draw),0.818,,,L,,6,0.632,1.000,0.070,3.324,
+537145,2026-04-26,ACF Fiorentina,US Sassuolo Calcio,SA,Double Chance,1X (Home or Draw),0.785,,,W,,1,0.263,0.526,0.293,2.561,
+544524,2026-04-26,CA Osasuna,Sevilla FC,PD,1X2,Home Win,0.725,2.04,31.6,W,1.040,6,0.526,0.105,0.470,3.776,
+544525,2026-04-26,Rayo Vallecano de Madrid,Real Sociedad de Fútbol,PD,1X2,Home Win,0.687,2.94,41.9,L,-1.000,1,0.421,0.632,0.530,2.936,
+542678,2026-04-26,Paris FC,Lille OSC,FL1,Over/Under,Over 2.5,0.695,1.89,20.9,L,-1.000,5,0.353,0.824,-0.107,4.564,
+554867,2026-04-26,Grêmio FBPA,Coritiba FBC,BSA,1X2,Home Win,0.674,2.02,24.8,W,1.020,6,0.211,0.684,0.143,4.180,
+542676,2026-04-26,Le Havre AC,FC Metz,FL1,Over/Under,Under 2.5,0.666,2.12,23.1,L,-1.000,5,0.235,0.000,0.353,1.689,
+537150,2026-04-26,Torino FC,FC Internazionale Milano,SA,Over/Under,Over 2.5,0.690,1.65,12.6,W,0.650,6,0.368,1.000,0.227,4.217,
+540679,2026-04-26,Borussia Dortmund,SC Freiburg,BL1,Over/Under,Under 3.5,0.688,1.65,12.4,L,-1.000,5,0.941,0.588,0.027,2.515,
+554866,2026-04-26,Fluminense FC,Chapecoense AF,BSA,Combo,Home Win + Over 2.5,0.648,2.25,22.7,W,1.250,6,0.895,0.000,0.428,3.673,
+537714,2026-04-26,Heracles Almelo,FC Volendam,DED,Over/Under,Under 2.5,0.638,2.34,23.9,W,1.340,5,0.000,0.176,0.103,1.534,
+545972,2026-04-26,CD Santa Clara,Sporting Clube de Braga,PPL,Over/Under,Under 2.5,0.655,1.60,6.3,L,-1.000,6,0.235,0.824,-0.470,1.582,
+544529,2026-04-26,Real Oviedo,Elche CF,PD,Over/Under,Under 2.5,0.638,1.90,14.1,L,-1.000,5,0.000,0.158,0.070,1.671,
+542681,2026-04-26,Olympique de Marseille,OGC Nice,FL1,1X2,Home Win,0.652,1.61,9.4,L,-1.000,6,0.706,0.176,0.363,3.338,
+545974,2026-04-26,GD Estoril Praia,FC Famalicão,PPL,Over/Under,Over 2.5,0.643,1.68,7.8,L,-1.000,5,0.471,0.765,-0.103,3.582,
+542684,2026-04-26,Stade Rennais FC 1901,FC Nantes,FL1,Over/Under,Under 2.5,0.586,2.43,19.1,L,-1.000,5,0.765,0.059,0.470,1.928,
+540680,2026-04-26,VfB Stuttgart,SV Werder Bremen,BL1,1X2,Home Win,0.620,1.60,5.0,L,-1.000,5,0.765,0.176,0.380,2.980,
+544528,2026-04-26,Villarreal CF,RC Celta de Vigo,PD,Combo,Home Win + Over 1.5,0.619,,,W,,6,0.895,0.684,0.363,3.786,
+542677,2026-04-26,FC Lorient,RC Strasbourg Alsace,FL1,Over/Under,Over 2.5,0.602,1.83,7.5,W,0.830,5,0.529,0.588,0.210,3.524,
+545975,2026-04-26,CF Estrela da Amadora,FC Porto,PPL,Over/Under,Over 2.5,0.599,1.83,7.2,W,0.830,6,0.176,1.000,-0.400,3.356,
+537146,2026-04-26,AC Milan,Juventus FC,SA,Combo,X2 (Draw or Away) + Over 1.5,0.606,,,L,,6,0.895,0.842,-0.147,2.868,
+541242,2026-04-26,Coventry City FC,Wrexham AFC,ELC,1X2,Home Win,0.579,2.17,16.4,W,1.170,1,1.000,0.783,0.163,2.924,
+554860,2026-04-26,CA Paranaense,EC Vitória,BSA,Over/Under,Under 3.5,0.605,,,L,,6,0.737,0.421,0.746,3.700,
+554861,2026-04-26,CA Mineiro,CR Flamengo,BSA,1X2,Home Win,0.605,,,L,,6,0.368,0.947,0.102,3.697,
+537711,2026-04-26,SBV Excelsior,FC Utrecht,DED,1X2,Away Win,0.562,2.20,14.8,L,-1.000,1,0.118,0.588,-0.477,2.566,
+545973,2026-04-26,AVS,Sporting Clube de Portugal,PPL,Over/Under,Under 2.5,0.578,,,W,,6,0.000,0.882,-0.313,1.997,
+554865,2026-04-26,SC Corinthians Paulista,CR Vasco da Gama,BSA,1X2,Home Win,0.539,2.22,12.4,W,1.220,6,0.158,0.526,0.236,2.371,
+537148,2026-04-26,Genoa CFC,Como 1907,SA,Combo,1X (Home or Draw) + Over 1.5,0.547,,,L,,5,0.316,0.737,0.193,2.762,
+545970,2026-04-27,Gil Vicente FC,Casa Pia AC,PPL,1X2,Home Win,0.739,1.74,24.6,W,0.740,3,0.706,0.118,0.357,3.510,v2026-04-26
+537152,2026-04-27,SS Lazio,Udinese Calcio,SA,Double Chance,X2 (Draw or Away),0.751,,,W,,3,0.579,0.474,-0.050,2.889,v2026-04-26
+537147,2026-04-27,Cagliari Calcio,Atalanta BC,SA,Over/Under,Under 2.5,0.618,2.00,14.8,L,-1.000,3,0.211,0.684,0.050,1.921,v2026-04-26
+544523,2026-04-27,RCD Espanyol de Barcelona,Levante UD,PD,Over/Under,Under 2.5,0.610,1.87,10.3,W,0.870,3,0.316,0.053,-0.010,2.063,v2026-04-26
+538122,2026-04-27,Manchester United FC,Brentford FC,PL,Combo,1X (Home or Draw) + Over 1.5,0.592,,,W,,3,0.895,0.579,0.117,3.092,v2026-04-26
+552092,2026-04-28,Paris Saint-Germain FC,FC Bayern München,CL,Over/Under,Over 1.5,0.809,,,W,,0,0.714,0.971,-0.223,4.266,v2026-04-27
+541189,2026-04-28,Southampton FC,Ipswich Town FC,ELC,1X2,Home Win,0.572,2.30,17.3,L,-1.000,0,0.826,0.957,0.227,2.993,v2026-04-27
+545933,2026-04-29,Sporting Clube de Portugal,CD Tondela,PPL,Double Chance,1X (Home or Draw),0.913,,,W,,2,0.882,0.059,0.257,3.905,v2026-04-27
+552093,2026-04-29,Club Atlético de Madrid,Arsenal FC,CL,Over/Under,Under 3.5,0.727,,,W,,2,0.629,1.000,0.067,2.200,v2026-04-27
+552093,2026-04-29,Club Atlético de Madrid,Arsenal FC,CL,Double Chance,X2 (Draw or Away),0.610,,,W,,0,0.629,1.000,0.067,2.222,v2026-04-27
+544546,2026-05-01,Girona FC,RCD Mallorca,PD,1X2,Home Win,0.652,2.12,23.9,L,-1.000,1,0.263,0.158,0.463,3.628,v2026-04-27
+537161,2026-05-01,AC Pisa 1909,US Lecce,SA,Double Chance,12 (Home or Away),0.617,,,W,,1,0.000,0.158,0.010,1.398,v2026-04-27
+544546,2026-05-01,Girona FC,RCD Mallorca,PD,Over/Under,Over 2.5,0.621,1.89,11.9,L,-1.000,0,0.263,0.158,0.463,3.394,v2026-04-27
+537163,2026-05-02,Udinese Calcio,Torino FC,SA,Over/Under,Under 2.5,0.650,1.79,12.7,W,0.790,3,0.474,0.368,-0.070,1.533,v2026-04-27
+544549,2026-05-02,Villarreal CF,Levante UD,PD,1X2,Home Win,0.631,1.74,11.3,W,0.740,3,0.895,0.053,0.770,2.392,v2026-04-27
+544548,2026-05-02,CA Osasuna,FC Barcelona,PD,Over/Under,Under 3.5,0.652,1.60,6.3,W,0.600,3,0.579,1.000,-0.123,2.852,v2026-04-27
+538133,2026-05-02,Newcastle United FC,Brighton & Hove Albion FC,PL,Over/Under,Over 2.5,0.600,1.73,4.5,W,0.730,3,0.263,0.737,-0.370,3.353,v2026-04-27
+540693,2026-05-02,Eintracht Frankfurt,Hamburger SV,BL1,Over/Under,Under 3.5,0.598,1.71,3.6,W,0.710,3,0.647,0.176,0.250,3.005,v2026-04-27
+537157,2026-05-02,Como 1907,SSC Napoli,SA,1X2,Home Win,0.621,,,L,,3,0.789,0.947,-0.047,3.887,v2026-04-27
+554873,2026-05-02,Cruzeiro EC,CA Mineiro,BSA,1X2,Home Win,0.619,,,L,,3,0.421,0.263,0.593,1.988,v2026-04-27
+541252,2026-05-02,Blackburn Rovers FC,Leicester City FC,ELC,Double Chance,X2 (Draw or Away),0.617,,,W,,3,0.174,0.043,0.113,1.070,v2026-04-27
+545979,2026-05-02,CD Nacional,AVS,PPL,1X2,Home Win,0.615,,,L,,3,0.235,0.000,0.340,1.687,v2026-04-27
+544541,2026-05-02,Deportivo Alavés,Athletic Club,PD,1X2,Home Win,0.608,,,L,,3,0.158,0.526,0.403,4.020,v2026-04-27
+545983,2026-05-02,FC Famalicão,Sport Lisboa e Benfica,PPL,Over/Under,Under 2.5,0.594,,,L,,3,0.765,0.941,0.047,1.887,v2026-04-27
+554877,2026-05-02,SE Palmeiras,Santos FC,BSA,BTTS,BTTS Yes,0.585,,,W,,3,1.000,0.158,0.797,3.714,v2026-04-27
+537726,2026-05-02,NEC,Telstar 1963,DED,Combo,BTTS Yes + Over 2.5,0.584,,,L,,3,0.882,0.118,0.210,3.880,v2026-04-27
+541255,2026-05-02,Hull City AFC,Norwich City FC,ELC,BTTS,BTTS Yes,0.584,,,W,,3,0.739,0.652,-0.417,2.993,v2026-04-27
+537720,2026-05-02,AFC Ajax,PSV,DED,BTTS,BTTS Yes,0.582,,,W,,3,0.824,1.000,-0.100,2.374,v2026-04-27
+542686,2026-05-02,FC Metz,AS Monaco FC,FL1,Combo,BTTS Yes + Over 2.5,0.564,,,W,,3,0.000,0.647,-0.417,3.622,v2026-04-27
+554871,2026-05-02,Botafogo FR,Clube do Remo,BSA,Combo,BTTS Yes + Over 2.5,0.561,,,W,,3,0.632,0.053,0.327,4.247,v2026-04-27
+542689,2026-05-02,OGC Nice,Racing Club de Lens,FL1,Combo,BTTS Yes + Over 2.5,0.554,,,L,,3,0.176,0.941,-0.043,3.534,v2026-04-27
+541259,2026-05-02,Preston North End FC,Southampton FC,ELC,Combo,BTTS Yes + Over 2.5,0.514,,,W,,3,0.522,0.826,-0.637,3.758,v2026-04-27
+554874,2026-05-03,CR Flamengo,CR Vasco da Gama,BSA,Over/Under,Over 2.5,0.637,1.93,14.8,W,0.930,3,0.947,0.368,0.777,3.703,v2026-04-27
+554875,2026-05-03,SC Internacional,Fluminense FC,BSA,Over/Under,Under 2.5,0.647,1.75,10.6,W,0.750,3,0.158,0.895,-0.130,1.769,v2026-04-27
+540686,2026-05-03,FC St. Pauli 1910,1. FSV Mainz 05,BL1,Over/Under,Under 2.5,0.605,1.91,10.3,L,-1.000,3,0.118,0.471,-0.300,1.953,v2026-04-27
+538132,2026-05-03,Manchester United FC,Liverpool FC,PL,Over/Under,Under 3.5,0.632,1.74,8.5,L,-1.000,3,0.895,0.842,0.410,3.068,v2026-04-27
+544543,2026-05-03,RC Celta de Vigo,Elche CF,PD,Over/Under,Over 2.5,0.625,1.76,8.2,W,0.760,3,0.737,0.316,-0.100,3.309,v2026-04-27
+540685,2026-05-03,Borussia Mönchengladbach,Borussia Dortmund,BL1,Over/Under,Under 3.5,0.659,1.60,6.9,W,0.600,3,0.235,0.941,0.013,2.696,v2026-04-27
+538126,2026-05-03,Aston Villa FC,Tottenham Hotspur FC,PL,Over/Under,Over 2.5,0.604,1.83,7.8,W,0.830,3,0.789,0.105,0.303,3.443,v2026-04-27
+554872,2026-05-03,Chapecoense AF,RB Bragantino,BSA,Over/Under,Under 2.5,0.588,1.89,7.6,L,-1.000,3,0.000,0.579,-0.160,2.268,v2026-04-27
+554878,2026-05-03,São Paulo FC,EC Bahia,BSA,Over/Under,Under 2.5,0.584,1.84,5.6,L,-1.000,3,0.842,0.737,0.400,2.251,v2026-04-27
+544542,2026-05-03,Real Betis Balompié,Real Oviedo,PD,BTTS,BTTS Yes,0.624,,,L,,3,0.789,0.000,-0.013,2.914,v2026-04-27
+537159,2026-05-03,FC Internazionale Milano,Parma Calcio 1913,SA,Combo,Home Win + Over 1.5,0.623,,,W,,3,1.000,0.421,0.193,3.223,v2026-04-27
+542693,2026-05-03,RC Strasbourg Alsace,Toulouse FC,FL1,Double Chance,X2 (Draw or Away),0.618,,,W,,3,0.588,0.471,0.243,3.128,v2026-04-27
+537727,2026-05-03,PEC Zwolle,Heracles Almelo,DED,BTTS,BTTS Yes,0.614,,,L,,3,0.235,0.000,-0.007,3.803,v2026-04-27
+545987,2026-05-03,Sporting Clube de Braga,GD Estoril Praia,PPL,Over/Under,Under 3.5,0.614,,,W,,3,0.824,0.471,0.283,2.967,v2026-04-27
+537725,2026-05-03,Fortuna Sittard,Feyenoord Rotterdam,DED,BTTS,BTTS Yes,0.611,,,W,,3,0.353,0.941,-0.070,2.058,v2026-04-27
+545982,2026-05-03,Rio Ave FC,Gil Vicente FC,PPL,BTTS,BTTS Yes,0.597,,,L,,3,0.353,0.706,0.063,2.344,v2026-04-27
+537160,2026-05-03,Juventus FC,Hellas Verona FC,SA,Over/Under,Under 3.5,0.593,,,W,,3,0.842,0.053,0.630,3.581,v2026-04-27
+537724,2026-05-03,FC Volendam,SC Heerenveen,DED,BTTS,BTTS Yes,0.591,,,L,,3,0.118,0.588,0.160,2.775,v2026-04-27
+537158,2026-05-03,Bologna FC 1909,Cagliari Calcio,SA,Combo,X2 (Draw or Away) + Under 2.5,0.549,,,W,,3,0.579,0.211,0.207,1.606,v2026-04-27
+538126,2026-05-03,Aston Villa FC,Tottenham Hotspur FC,PL,BTTS,BTTS Yes,0.619,,,W,,2,0.789,0.105,0.303,3.443,v2026-04-27
+544543,2026-05-03,RC Celta de Vigo,Elche CF,PD,Over/Under,Under 3.5,0.588,,,L,,1,0.737,0.316,-0.100,3.309,v2026-04-27
+554874,2026-05-03,CR Flamengo,CR Vasco da Gama,BSA,Over/Under,Under 3.5,0.584,,,L,,1,0.947,0.368,0.777,3.703,v2026-04-27
+538129,2026-05-04,Chelsea FC,Nottingham Forest FC,PL,Over/Under,Over 2.5,0.689,1.76,8.3,W,0.760,0,0.579,0.211,-0.593,3.379,v2026-04-27
+545984,2026-05-04,Sporting Clube de Portugal,Vitória SC,PPL,Combo,Home Win + Over 1.5,0.609,,,W,,0,0.882,0.647,0.027,2.709,v2026-04-27
+544550,2026-05-04,Sevilla FC,Real Sociedad de Fútbol,PD,Combo,X2 (Draw or Away) + Over 1.5,0.512,,,L,,0,0.105,0.579,0.253,3.655,v2026-04-27
+540696,2026-05-08,Borussia Dortmund,Eintracht Frankfurt,BL1,Over/Under,Under 3.5,0.533,1.88,11.9,L,-1.000,1,0.941,0.588,0.293,2.909,v2026-04-27
+542700,2026-05-08,Racing Club de Lens,FC Nantes,FL1,Double Chance,1X (Home or Draw),0.912,,,W,,0,0.941,0.059,0.767,3.670,v2026-04-27
+537168,2026-05-08,Torino FC,US Sassuolo Calcio,SA,Double Chance,1X (Home or Draw),0.838,,,W,,0,0.368,0.526,0.370,2.606,v2026-04-27
+544554,2026-05-08,Levante UD,CA Osasuna,PD,Double Chance,1X (Home or Draw),0.814,,,W,,0,0.053,0.526,0.667,2.342,v2026-04-27
+557841,2026-05-08,Hull City AFC,Millwall FC,ELC,Over/Under,Under 3.5,0.762,,,W,,3,0.783,0.913,0.020,2.320,v2026-04-27
+544556,2026-05-09,Elche CF,Deportivo Alavés,PD,Over/Under,Over 1.5,0.946,,,W,,2,0.316,0.105,0.500,4.999,v2026-04-27
+538140,2026-05-09,Liverpool FC,Chelsea FC,PL,Over/Under,Over 1.5,0.930,,,W,,2,0.842,0.579,0.513,4.473,v2026-04-27
+538136,2026-05-09,Brighton & Hove Albion FC,Wolverhampton Wanderers FC,PL,Double Chance,1X (Home or Draw),0.923,,,W,,2,0.632,0.000,0.580,2.497,v2026-04-27
+537167,2026-05-09,Cagliari Calcio,Udinese Calcio,SA,Over/Under,Over 1.5,0.916,,,W,,2,0.211,0.474,0.010,3.872,v2026-04-27
+554884,2026-05-09,Fluminense FC,EC Vitória,BSA,Double Chance,1X (Home or Draw),0.906,,,W,,2,0.895,0.579,0.493,4.060,v2026-04-27
+537170,2026-05-09,SS Lazio,FC Internazionale Milano,SA,Over/Under,Over 1.5,0.891,,,W,,2,0.632,1.000,0.073,3.588,v2026-04-27
+540701,2026-05-09,RB Leipzig,FC St. Pauli 1910,BL1,Double Chance,1X (Home or Draw),0.891,,,W,,2,0.882,0.059,0.683,3.173,v2026-04-27
+544557,2026-05-09,Real Sociedad de Fútbol,Real Betis Balompié,PD,Over/Under,Over 1.5,0.889,,,W,,2,0.579,0.789,-0.057,3.645,v2026-04-27
+554881,2026-05-09,EC Bahia,Cruzeiro EC,BSA,Double Chance,1X (Home or Draw),0.883,,,L,,2,0.737,0.263,-0.057,3.149,v2026-04-27
+540698,2026-05-09,TSG 1899 Hoffenheim,SV Werder Bremen,BL1,Over/Under,Under 3.5,0.507,1.97,7.3,W,0.970,2,0.706,0.176,0.023,3.290,v2026-04-27
+537174,2026-05-09,US Lecce,Juventus FC,SA,Over/Under,Under 3.5,0.866,,,W,,2,0.158,0.842,-0.140,1.829,v2026-04-27
+538135,2026-05-09,Sunderland AFC,Manchester United FC,PL,Double Chance,X2 (Draw or Away),0.865,,,W,,2,0.421,0.895,-0.317,2.523,v2026-04-27
+554883,2026-05-09,Coritiba FBC,SC Internacional,BSA,Over/Under,Under 3.5,0.863,,,L,,2,0.632,0.421,0.007,1.464,v2026-04-27
+540694,2026-05-09,VfL Wolfsburg,FC Bayern München,BL1,Over/Under,Over 1.5,0.862,,,L,,2,0.118,1.000,-0.553,3.683,v2026-04-27
+538141,2026-05-09,Manchester City FC,Brentford FC,PL,Double Chance,1X (Home or Draw),0.858,,,W,,2,0.947,0.684,0.227,2.809,v2026-04-27
+557840,2026-05-09,Middlesbrough FC,Southampton FC,ELC,Over/Under,Over 1.5,0.853,,,L,,2,0.826,0.870,-0.380,3.199,v2026-04-27
+544558,2026-05-09,Sevilla FC,RCD Espanyol de Barcelona,PD,Double Chance,1X (Home or Draw),0.816,,,W,,2,0.158,0.368,0.527,1.964,v2026-04-27
+544552,2026-05-09,Club Atlético de Madrid,RC Celta de Vigo,PD,Double Chance,1X (Home or Draw),0.813,,,L,,2,0.842,0.737,0.143,2.889,v2026-04-27
+540699,2026-05-09,FC Augsburg,Borussia Mönchengladbach,BL1,Double Chance,1X (Home or Draw),0.792,,,W,,2,0.529,0.412,0.313,2.501,v2026-04-27
+540695,2026-05-09,VfB Stuttgart,Bayer 04 Leverkusen,BL1,Double Chance,1X (Home or Draw),0.766,,,W,,2,0.765,0.824,-0.063,1.950,v2026-04-27
+538139,2026-05-09,Fulham FC,AFC Bournemouth,PL,Double Chance,12 (Home or Away),0.707,,,W,,2,0.474,0.737,-0.073,2.369,v2026-04-27
+538135,2026-05-09,Sunderland AFC,Manchester United FC,PL,1X2,Away Win,0.585,2.00,14.6,L,-1.000,1,0.421,0.895,-0.317,2.523,v2026-04-27
+538140,2026-05-09,Liverpool FC,Chelsea FC,PL,Over/Under,Over 3.5,0.475,2.41,13.7,L,-1.000,1,0.842,0.579,0.513,4.473,v2026-04-27
+557840,2026-05-09,Middlesbrough FC,Southampton FC,ELC,Over/Under,Over 2.5,0.577,1.98,13.2,L,-1.000,1,0.826,0.870,-0.380,3.199,v2026-04-27
+554881,2026-05-09,EC Bahia,Cruzeiro EC,BSA,Over/Under,Over 2.5,0.504,2.10,11.6,W,1.100,1,0.737,0.263,-0.057,3.149,v2026-04-27
+540699,2026-05-09,FC Augsburg,Borussia Mönchengladbach,BL1,1X2,Home Win,0.457,2.06,11.4,W,1.060,1,0.529,0.412,0.313,2.501,v2026-04-27
+538139,2026-05-09,Fulham FC,AFC Bournemouth,PL,Over/Under,Under 2.5,0.424,2.44,10.5,W,1.440,1,0.474,0.737,-0.073,2.369,v2026-04-27
+540695,2026-05-09,VfB Stuttgart,Bayer 04 Leverkusen,BL1,1X2,Home Win,0.384,2.32,9.0,W,1.320,1,0.765,0.824,-0.063,1.950,v2026-04-27
+540694,2026-05-09,VfL Wolfsburg,FC Bayern München,BL1,Over/Under,Under 3.5,0.375,2.41,7.4,W,1.410,1,0.118,1.000,-0.553,3.683,v2026-04-27
+540701,2026-05-09,RB Leipzig,FC St. Pauli 1910,BL1,Combo,Home Win + Over 2.5,0.482,1.94,7.1,W,0.940,1,0.882,0.059,0.683,3.173,v2026-04-27
+544557,2026-05-09,Real Sociedad de Fútbol,Real Betis Balompié,PD,Over/Under,Over 2.5,0.632,1.71,6.1,W,0.710,1,0.579,0.789,-0.057,3.645,v2026-04-27
+554886,2026-05-10,Mirassol FC,Chapecoense AF,BSA,Combo,Home Win + Over 2.5,0.392,2.85,17.3,L,-1.000,1,0.105,0.000,0.764,2.880,v2026-04-27
+544553,2026-05-10,FC Barcelona,Real Madrid CF,PD,Combo,Home Win + Over 2.5,0.529,2.19,14.1,L,-1.000,1,1.000,0.947,0.277,4.140,v2026-04-27
+540700,2026-05-10,1. FSV Mainz 05,1. FC Union Berlin,BL1,1X2,Home Win,0.590,1.74,13.8,L,-1.000,1,0.471,0.294,0.197,2.940,v2026-04-27
+537730,2026-05-10,SBV Excelsior,FC Volendam,DED,1X2,Home Win,0.584,1.82,12.4,L,-1.000,1,0.235,0.118,-0.047,2.600,v2026-04-27
+542695,2026-05-10,AJ Auxerre,OGC Nice,FL1,Over/Under,Under 2.5,0.539,1.96,12.1,L,-1.000,1,0.118,0.176,0.317,2.053,v2026-04-27
+538144,2026-05-10,West Ham United FC,Arsenal FC,PL,Over/Under,Under 2.5,0.458,2.24,11.3,W,1.240,1,0.105,1.000,0.233,2.354,v2026-04-27
+540702,2026-05-10,1. FC Köln,1. FC Heidenheim 1846,BL1,Over/Under,Over 3.5,0.530,2.07,11.2,W,1.070,1,0.235,0.000,0.153,4.354,v2026-04-27
+538142,2026-05-10,Nottingham Forest FC,Newcastle United FC,PL,Over/Under,Under 2.5,0.487,2.21,9.8,W,1.210,1,0.211,0.368,0.290,2.149,v2026-04-27
+554888,2026-05-10,Santos FC,RB Bragantino,BSA,1X2,Home Win,0.401,2.36,6.1,W,1.360,1,0.211,0.684,-0.010,2.632,v2026-04-27
+537729,2026-05-10,AFC Ajax,FC Utrecht,DED,Combo,Home Win + Over 2.5,0.427,2.47,5.4,L,-1.000,1,0.824,0.588,0.030,3.287,v2026-04-27
+544555,2026-05-10,RCD Mallorca,Villarreal CF,PD,Over/Under,Over 2.5,0.583,1.69,2.1,L,-1.000,1,0.211,0.895,0.197,3.038,v2026-04-27
+542699,2026-05-10,Paris Saint-Germain FC,Stade Brestois 29,FL1,Double Chance,1X (Home or Draw),0.883,,,W,,1,1.000,0.353,0.473,4.041,v2026-04-27
+537736,2026-05-10,Telstar 1963,Heracles Almelo,DED,Double Chance,1X (Home or Draw),0.860,,,W,,1,0.176,0.000,0.143,4.005,v2026-04-27
+544559,2026-05-10,Real Oviedo,Getafe CF,PD,Over/Under,Under 3.5,0.837,,,W,,1,0.000,0.684,-0.267,1.143,v2026-04-27
+537732,2026-05-10,Feyenoord Rotterdam,AZ,DED,Double Chance,1X (Home or Draw),0.824,,,W,,1,0.941,0.706,0.583,2.990,v2026-04-27
+537169,2026-05-10,Hellas Verona FC,Como 1907,SA,Over/Under,Under 3.5,0.823,,,W,,1,0.053,0.737,-0.490,1.350,v2026-04-27
+537173,2026-05-10,US Cremonese,AC Pisa 1909,SA,Over/Under,Under 3.5,0.821,,,W,,1,0.105,0.000,0.073,1.459,v2026-04-27
+554889,2026-05-10,CR Vasco da Gama,CA Paranaense,BSA,Double Chance,1X (Home or Draw),0.806,,,W,,1,0.316,0.789,0.607,3.376,v2026-04-27
+545993,2026-05-10,FC Alverca,GD Estoril Praia,PPL,Double Chance,1X (Home or Draw),0.803,,,W,,1,0.471,0.529,0.390,2.580,v2026-04-27
+542694,2026-05-10,Le Havre AC,Olympique de Marseille,FL1,Double Chance,1X (Home or Draw),0.800,,,L,,1,0.235,0.647,0.273,3.349,v2026-04-27
+537737,2026-05-10,FC Twente '65,Sparta Rotterdam,DED,Double Chance,1X (Home or Draw),0.797,,,W,,1,0.765,0.529,0.523,2.277,v2026-04-27
+544551,2026-05-10,Athletic Club,Valencia CF,PD,Over/Under,Under 3.5,0.793,,,W,,1,0.579,0.316,0.300,1.644,v2026-04-27
+554880,2026-05-10,CA Mineiro,Botafogo FR,BSA,Over/Under,Over 1.5,0.783,,,W,,1,0.368,0.421,-0.087,3.419,v2026-04-27
+554882,2026-05-10,SC Corinthians Paulista,São Paulo FC,BSA,Over/Under,Under 3.5,0.770,,,L,,1,0.158,0.842,0.537,1.460,v2026-04-27
+537171,2026-05-10,Parma Calcio 1913,AS Roma,SA,Over/Under,Under 3.5,0.763,,,L,,1,0.368,0.789,0.183,2.078,v2026-04-27
+542701,2026-05-10,Angers SCO,RC Strasbourg Alsace,FL1,Double Chance,X2 (Draw or Away),0.758,,,W,,1,0.294,0.588,-0.490,2.443,v2026-04-27
+537734,2026-05-10,Go Ahead Eagles,PSV,DED,Double Chance,1X (Home or Draw),0.748,,,L,,1,0.412,1.000,0.080,2.871,v2026-04-27
+545991,2026-05-10,AVS,FC Porto,PPL,Over/Under,Under 3.5,0.744,,,L,,1,0.000,1.000,-0.527,1.956,v2026-04-27
+542698,2026-05-10,Toulouse FC,Olympique Lyonnais,FL1,Double Chance,X2 (Draw or Away),0.723,,,L,,1,0.471,0.882,-0.167,1.827,v2026-04-27
+554887,2026-05-10,Clube do Remo,SE Palmeiras,BSA,Over/Under,Under 3.5,0.712,,,W,,1,0.053,1.000,-0.390,2.024,v2026-04-27
+542696,2026-05-10,AS Monaco FC,Lille OSC,FL1,Double Chance,X2 (Draw or Away),0.711,,,W,,1,0.706,0.824,-0.253,2.171,v2026-04-27
+542702,2026-05-10,Stade Rennais FC 1901,Paris FC,FL1,Double Chance,1X (Home or Draw),0.709,,,W,,1,0.765,0.412,0.217,1.695,v2026-04-27
+540697,2026-05-10,Hamburger SV,SC Freiburg,BL1,Over/Under,Under 3.5,0.698,,,L,,1,0.353,0.647,-0.197,1.708,v2026-04-27
+554885,2026-05-10,Grêmio FBPA,CR Flamengo,BSA,Over/Under,Under 3.5,0.676,,,W,,1,0.263,0.947,0.113,2.381,v2026-04-27
+542697,2026-05-10,FC Metz,FC Lorient,FL1,Over/Under,Under 3.5,0.663,,,L,,1,0.000,0.529,-0.117,2.307,v2026-04-27
+537731,2026-05-10,FC Groningen,NEC,DED,Over/Under,Over 1.5,0.642,,,W,,1,0.471,0.882,-0.263,2.490,v2026-04-27
+545988,2026-05-11,Vitória SC,Casa Pia AC,PPL,Over/Under,Over 2.5,0.605,1.98,13.2,L,-1.000,0,0.647,0.118,0.667,3.664,v2026-04-27
+545990,2026-05-11,CD Tondela,Moreirense FC,PPL,Over/Under,Under 2.5,0.550,1.88,12.4,W,0.880,0,0.059,0.588,-0.027,1.820,v2026-04-27
+545989,2026-05-11,Gil Vicente FC,FC Arouca,PPL,1X2,Home Win,0.618,1.75,11.7,L,-1.000,0,0.706,0.412,0.413,2.521,v2026-04-27
+544560,2026-05-11,Rayo Vallecano de Madrid,Girona FC,PD,Over/Under,Under 2.5,0.532,1.98,2.1,W,0.980,0,0.474,0.158,0.493,2.689,v2026-04-27
+538143,2026-05-11,Tottenham Hotspur FC,Leeds United FC,PL,Over/Under,Over 1.5,0.872,,,W,,0,0.158,0.211,-0.200,4.003,v2026-04-27
+537172,2026-05-11,SSC Napoli,Bologna FC 1909,SA,Double Chance,1X (Home or Draw),0.814,,,L,,0,0.947,0.526,0.103,2.732,v2026-04-27
+545996,2026-05-11,Sport Lisboa e Benfica,Sporting Clube de Braga,PPL,Double Chance,1X (Home or Draw),0.792,,,W,,0,0.882,0.824,0.243,2.320,v2026-04-27
+545994,2026-05-11,Rio Ave FC,Sporting Clube de Portugal,PPL,Double Chance,X2 (Draw or Away),0.745,,,W,,0,0.353,0.941,-0.170,1.988,v2026-04-27
+545992,2026-05-11,CF Estrela da Amadora,FC Famalicão,PPL,Over/Under,Under 3.5,0.680,,,W,,0,0.176,0.765,-0.303,2.273,v2026-04-27
+544568,2026-05-14,Valencia CF,Rayo Vallecano de Madrid,PD,Over/Under,Under 2.5,0.592,1.72,7.9,W,0.720,0,0.368,0.474,0.073,2.085,v2026-04-27
+544570,2026-05-14,Real Madrid CF,Real Oviedo,PD,Over/Under,Over 1.5,0.900,,,W,,0,0.947,0.000,0.387,4.579,v2026-04-27
+546002,2026-05-16,CD Nacional,Vitória SC,PPL,Over/Under,Under 2.5,0.522,2.06,14.6,W,1.060,1,0.235,0.647,0.120,2.111,v2026-04-27
+546004,2026-05-16,FC Arouca,CD Tondela,PPL,Over/Under,Over 2.5,0.630,1.90,13.2,W,0.900,1,0.412,0.059,0.173,3.631,v2026-04-27
+554896,2026-05-16,Fluminense FC,São Paulo FC,BSA,1X2,Home Win,0.531,1.86,13.2,W,0.860,1,0.895,0.842,0.377,4.145,v2026-04-27
+554898,2026-05-16,SE Palmeiras,Cruzeiro EC,BSA,1X2,Home Win,0.526,1.86,10.4,L,-1.000,1,1.000,0.474,0.117,2.431,v2026-04-27
+545998,2026-05-16,FC Famalicão,FC Alverca,PPL,1X2,Home Win,0.623,1.64,10.3,W,0.640,1,0.765,0.471,0.373,2.314,v2026-04-27
+554897,2026-05-16,SC Internacional,CR Vasco da Gama,BSA,Over/Under,Under 2.5,0.517,1.78,5.6,L,-1.000,1,0.316,0.632,0.267,2.072,v2026-04-27
+546003,2026-05-16,Casa Pia AC,Rio Ave FC,PPL,Over/Under,Under 3.5,0.829,,,W,,1,0.118,0.294,-0.323,1.264,v2026-04-27
+545999,2026-05-16,Sporting Clube de Portugal,Gil Vicente FC,PPL,Double Chance,1X (Home or Draw),0.829,,,W,,1,0.941,0.706,0.257,3.369,v2026-04-27
+546005,2026-05-16,Sporting Clube de Braga,CF Estrela da Amadora,PPL,Double Chance,1X (Home or Draw),0.816,,,W,,1,0.824,0.176,0.423,2.729,v2026-04-27
+545997,2026-05-16,Moreirense FC,AVS,PPL,Over/Under,Under 3.5,0.798,,,W,,1,0.588,0.000,0.103,1.763,v2026-04-27
+546000,2026-05-16,FC Porto,CD Santa Clara,PPL,Over/Under,Under 3.5,0.766,,,W,,1,1.000,0.353,0.520,1.921,v2026-04-27
+554891,2026-05-16,CA Mineiro,Mirassol FC,BSA,Double Chance,1X (Home or Draw),0.745,,,W,,1,0.368,0.105,0.313,2.368,v2026-04-27
+546001,2026-05-16,GD Estoril Praia,Sport Lisboa e Benfica,PPL,Double Chance,X2 (Draw or Away),0.714,,,W,,1,0.529,0.882,-0.443,2.614,v2026-04-27
+544576,2026-05-17,Rayo Vallecano de Madrid,Villarreal CF,PD,1X2,Home Win,0.428,2.32,13.9,W,1.320,0,0.526,0.895,0.200,2.247,v2026-04-27
+538152,2026-05-17,Manchester United FC,Nottingham Forest FC,PL,Over/Under,Over 3.5,0.546,2.38,13.3,W,1.380,0,0.895,0.211,0.077,4.399,v2026-04-27
+537738,2026-05-17,AZ,NAC Breda,DED,Combo,Home Win + Over 2.5,0.592,1.85,12.9,L,-1.000,0,0.706,0.059,0.610,3.574,v2026-04-27
+537746,2026-05-17,Sparta Rotterdam,SBV Excelsior,DED,Over/Under,Under 2.5,0.419,2.66,12.1,L,-1.000,0,0.471,0.235,-0.077,2.508,v2026-04-27
+554899,2026-05-17,Santos FC,Coritiba FBC,BSA,Over/Under,Over 2.5,0.441,2.26,12.0,W,1.260,0,0.263,0.526,0.403,3.247,v2026-04-27
+538151,2026-05-17,Leeds United FC,Brighton & Hove Albion FC,PL,Over/Under,Under 2.5,0.484,2.17,12.0,W,1.170,0,0.316,0.684,0.167,2.150,v2026-04-27
+544572,2026-05-17,Club Atlético de Madrid,Girona FC,PD,Over/Under,Under 2.5,0.516,2.22,11.7,W,1.220,0,0.842,0.263,0.107,2.363,v2026-04-27
+542708,2026-05-17,Olympique de Marseille,Stade Rennais FC 1901,FL1,Over/Under,Over 2.5,0.726,1.47,11.1,W,0.470,0,0.706,0.765,-0.057,4.516,v2026-04-27
+537739,2026-05-17,FC Utrecht,Fortuna Sittard,DED,Over/Under,Under 3.5,0.571,1.80,10.8,W,0.800,0,0.647,0.412,0.553,2.987,v2026-04-27
+537184,2026-05-17,Udinese Calcio,US Cremonese,SA,1X2,Home Win,0.434,2.58,10.2,L,-1.000,0,0.526,0.105,0.280,1.231,v2026-04-27
+537180,2026-05-17,FC Internazionale Milano,Hellas Verona FC,SA,Over/Under,Under 3.5,0.702,1.63,9.9,W,0.630,0,1.000,0.053,0.613,2.820,v2026-04-27
+542709,2026-05-17,Lille OSC,AJ Auxerre,FL1,Over/Under,Under 2.5,0.501,2.24,9.2,W,1.240,0,0.882,0.176,0.283,2.500,v2026-04-27
+544580,2026-05-17,Sevilla FC,Real Madrid CF,PD,Over/Under,Under 2.5,0.444,2.17,7.7,W,1.170,0,0.421,0.947,0.407,2.390,v2026-04-27
+537175,2026-05-17,AS Roma,SS Lazio,SA,Over/Under,Under 2.5,0.556,1.97,7.4,W,0.970,0,0.789,0.579,0.113,2.190,v2026-04-27
+537181,2026-05-17,Juventus FC,ACF Fiorentina,SA,Over/Under,Under 3.5,0.712,1.55,6.7,W,0.550,0,0.895,0.263,0.260,2.817,v2026-04-27
+538150,2026-05-17,Everton FC,Sunderland AFC,PL,1X2,Home Win,0.562,1.94,5.3,L,-1.000,0,0.526,0.421,-0.033,3.828,v2026-04-27
+538148,2026-05-17,Brentford FC,Crystal Palace FC,PL,Over/Under,Under 2.5,0.480,2.28,2.8,L,-1.000,0,0.632,0.263,0.300,2.577,v2026-04-27
+542703,2026-05-17,FC Lorient,Le Havre AC,FL1,Over/Under,Under 2.5,0.517,2.04,2.8,W,1.040,0,0.529,0.235,0.280,2.806,v2026-04-27
+554890,2026-05-17,CA Paranaense,CR Flamengo,BSA,Over/Under,Under 2.5,0.497,1.78,1.5,W,0.780,0,0.789,0.947,0.017,2.314,v2026-04-27
+537744,2026-05-17,PSV,FC Twente '65,DED,Over/Under,Over 1.5,0.883,,,W,,0,1.000,0.882,0.133,5.029,v2026-04-27
+542711,2026-05-17,Stade Brestois 29,Angers SCO,FL1,Over/Under,Over 1.5,0.880,,,W,,0,0.353,0.294,0.243,4.389,v2026-04-27
+542707,2026-05-17,Olympique Lyonnais,Racing Club de Lens,FL1,Over/Under,Over 1.5,0.877,,,W,,0,0.824,0.941,0.527,4.932,v2026-04-27
+544575,2026-05-17,Levante UD,RCD Mallorca,PD,Double Chance,1X (Home or Draw),0.861,,,W,,0,0.053,0.105,0.680,3.859,v2026-04-27
+537179,2026-05-17,Como 1907,Parma Calcio 1913,SA,Double Chance,1X (Home or Draw),0.861,,,W,,0,0.737,0.421,0.127,2.398,v2026-04-27
+538153,2026-05-17,Newcastle United FC,West Ham United FC,PL,Over/Under,Over 1.5,0.854,,,W,,0,0.368,0.105,0.170,3.627,v2026-04-27
+554894,2026-05-17,RB Bragantino,EC Vitória,BSA,Over/Under,Over 1.5,0.846,,,W,,0,0.579,0.368,0.240,4.137,v2026-04-27
+537183,2026-05-17,US Sassuolo Calcio,US Lecce,SA,Over/Under,Under 3.5,0.844,,,L,,0,0.474,0.158,0.497,1.893,v2026-04-27
+554895,2026-05-17,Chapecoense AF,Clube do Remo,BSA,Over/Under,Over 1.5,0.826,,,W,,0,0.000,0.053,-0.243,3.625,v2026-04-27
+538154,2026-05-17,Wolverhampton Wanderers FC,Fulham FC,PL,Over/Under,Under 3.5,0.814,,,W,,0,0.000,0.474,0.227,1.477,v2026-04-27
+542710,2026-05-17,RC Strasbourg Alsace,AS Monaco FC,FL1,Over/Under,Over 1.5,0.810,,,W,,0,0.588,0.647,-0.300,3.377,v2026-04-27
+554892,2026-05-17,EC Bahia,Grêmio FBPA,BSA,Double Chance,1X (Home or Draw),0.810,,,W,,0,0.737,0.158,0.143,2.721,v2026-04-27
+544573,2026-05-17,FC Barcelona,Real Betis Balompié,PD,Double Chance,1X (Home or Draw),0.805,,,W,,0,1.000,0.789,0.420,3.328,v2026-04-27
+544579,2026-05-17,CA Osasuna,RCD Espanyol de Barcelona,PD,Double Chance,1X (Home or Draw),0.800,,,L,,0,0.368,0.316,0.280,2.669,v2026-04-27
+542706,2026-05-17,OGC Nice,FC Metz,FL1,Over/Under,Over 1.5,0.799,,,L,,0,0.118,0.000,0.070,3.105,v2026-04-27
+544578,2026-05-17,Real Oviedo,Deportivo Alavés,PD,Over/Under,Under 3.5,0.797,,,W,,0,0.000,0.211,0.100,1.801,v2026-04-27
+537177,2026-05-17,Cagliari Calcio,Torino FC,SA,Double Chance,1X (Home or Draw),0.781,,,W,,0,0.211,0.316,0.170,2.418,v2026-04-27
+537182,2026-05-17,AC Pisa 1909,SSC Napoli,SA,Over/Under,Under 3.5,0.770,,,W,,0,0.000,0.947,-0.423,1.762,v2026-04-27
+537742,2026-05-17,NEC,Go Ahead Eagles,DED,Double Chance,1X (Home or Draw),0.760,,,W,,0,0.824,0.353,0.037,1.947,v2026-04-27
+544577,2026-05-17,Real Sociedad de Fútbol,Valencia CF,PD,Over/Under,Under 3.5,0.747,,,L,,0,0.632,0.474,-0.090,2.077,v2026-04-27
+537176,2026-05-17,Atalanta BC,Bologna FC 1909,SA,Over/Under,Over 1.5,0.747,,,L,,0,0.684,0.632,-0.397,2.628,v2026-04-27
+554893,2026-05-17,Botafogo FR,SC Corinthians Paulista,BSA,Over/Under,Over 1.5,0.735,,,W,,0,0.316,0.211,-0.050,2.882,v2026-04-27
+537740,2026-05-17,FC Volendam,Telstar 1963,DED,Over/Under,Under 3.5,0.731,,,W,,0,0.118,0.176,0.073,2.283,v2026-04-27
+537741,2026-05-17,Heracles Almelo,FC Groningen,DED,Double Chance,X2 (Draw or Away),0.693,,,W,,0,0.000,0.529,-0.177,1.716,v2026-04-27
+537743,2026-05-17,PEC Zwolle,Feyenoord Rotterdam,DED,Over/Under,Under 3.5,0.688,,,W,,0,0.294,0.941,0.083,1.780,v2026-04-27
+542705,2026-05-17,Paris FC,Paris Saint-Germain FC,FL1,Double Chance,X2 (Draw or Away),0.629,,,L,,0,0.412,1.000,-0.143,2.387,v2026-04-27
+538147,2026-05-18,Arsenal FC,Burnley FC,PL,Double Chance,1X (Home or Draw),0.869,,,W,,0,1.000,0.053,0.710,2.933,v2026-04-27
+544587,2026-05-23,Real Madrid CF,Athletic Club,PD,Combo,Home Win + Over 2.5,0.571,2.28,28.2,W,1.280,1,0.947,0.421,0.507,4.456,v2026-04-27
+544585,2026-05-23,Getafe CF,CA Osasuna,PD,1X2,Home Win,0.380,2.88,13.1,W,1.880,1,0.684,0.211,0.447,2.366,v2026-04-27
+554903,2026-05-23,CR Flamengo,SE Palmeiras,BSA,Over/Under,Under 2.5,0.528,1.85,8.1,L,-1.000,1,0.947,1.000,0.287,2.262,v2026-04-27
+544583,2026-05-23,RC Celta de Vigo,Sevilla FC,PD,Over/Under,Over 1.5,0.896,,,L,,1,0.737,0.368,-0.033,4.857,v2026-04-27
+544586,2026-05-23,RCD Mallorca,Real Oviedo,PD,Double Chance,1X (Home or Draw),0.864,,,W,,1,0.053,0.000,0.370,4.061,v2026-04-27
+537190,2026-05-23,SS Lazio,AC Pisa 1909,SA,Double Chance,1X (Home or Draw),0.813,,,W,,1,0.579,0.000,-0.137,2.138,v2026-04-27
+544582,2026-05-23,Real Betis Balompié,Levante UD,PD,Double Chance,1X (Home or Draw),0.812,,,W,,1,0.789,0.263,0.287,2.857,v2026-04-27
+537187,2026-05-23,Bologna FC 1909,FC Internazionale Milano,SA,Double Chance,X2 (Draw or Away),0.791,,,W,,1,0.632,1.000,-0.317,2.161,v2026-04-27
+554909,2026-05-23,EC Vitória,SC Internacional,BSA,Double Chance,1X (Home or Draw),0.771,,,W,,1,0.316,0.474,0.277,3.186,v2026-04-27
+554904,2026-05-23,Grêmio FBPA,Santos FC,BSA,Double Chance,1X (Home or Draw),0.750,,,W,,1,0.263,0.211,0.263,2.238,v2026-04-27
+554905,2026-05-23,Mirassol FC,Fluminense FC,BSA,Double Chance,1X (Home or Draw),0.738,,,W,,1,0.053,0.895,0.413,2.348,v2026-04-27
+544584,2026-05-23,RCD Espanyol de Barcelona,Real Sociedad de Fútbol,PD,Over/Under,Under 3.5,0.734,,,W,,1,0.474,0.526,0.187,1.827,v2026-04-27
+544581,2026-05-23,Deportivo Alavés,Rayo Vallecano de Madrid,PD,Over/Under,Under 3.5,0.725,,,W,,1,0.316,0.632,0.203,2.364,v2026-04-27
+544589,2026-05-23,Valencia CF,FC Barcelona,PD,Double Chance,X2 (Draw or Away),0.676,,,L,,1,0.579,1.000,-0.203,2.180,v2026-04-27
+538159,2026-05-24,Fulham FC,Newcastle United FC,PL,1X2,Home Win,0.381,2.85,14.6,W,1.850,3,0.368,0.474,0.300,1.861,v2026-04-27
+554908,2026-05-24,CR Vasco da Gama,RB Bragantino,BSA,1X2,Home Win,0.480,2.04,14.0,L,-1.000,3,0.316,0.737,0.447,2.370,v2026-04-27
+537192,2026-05-24,SSC Napoli,Udinese Calcio,SA,Over/Under,Over 2.5,0.612,1.89,13.9,L,-1.000,3,0.947,0.526,-0.197,4.043,v2026-04-27
+538161,2026-05-24,Manchester City FC,Aston Villa FC,PL,Over/Under,Under 3.5,0.543,2.14,13.2,W,1.140,3,0.947,0.842,0.620,3.442,v2026-04-27
+538155,2026-05-24,Sunderland AFC,Chelsea FC,PL,Over/Under,Under 2.5,0.505,2.14,11.8,L,-1.000,3,0.526,0.632,0.080,2.019,v2026-04-27
+538158,2026-05-24,Burnley FC,Wolverhampton Wanderers FC,PL,1X2,Home Win,0.406,2.58,9.7,L,-1.000,3,0.053,0.000,0.077,1.678,v2026-04-27
+538160,2026-05-24,Liverpool FC,Brentford FC,PL,Over/Under,Under 3.5,0.607,1.80,9.5,W,0.800,3,0.789,0.579,0.300,3.013,v2026-04-27
+554902,2026-05-24,Cruzeiro EC,Chapecoense AF,BSA,Over/Under,Under 2.5,0.466,2.32,7.8,L,-1.000,3,0.263,0.000,0.447,2.702,v2026-04-27
+544588,2026-05-24,Villarreal CF,Club Atlético de Madrid,PD,Over/Under,Over 3.5,0.508,2.12,2.6,W,1.120,3,0.895,0.842,0.150,4.129,v2026-04-27
+538156,2026-05-24,Brighton & Hove Albion FC,Manchester United FC,PL,1X2,Home Win,0.483,1.91,1.5,L,-1.000,3,0.684,0.895,0.297,1.657,v2026-04-27
+537194,2026-05-24,US Lecce,Genoa CFC,SA,Over/Under,Under 3.5,0.852,,,W,,3,0.158,0.263,-0.180,0.847,v2026-04-27
+537186,2026-05-24,AC Milan,Cagliari Calcio,SA,Over/Under,Under 3.5,0.808,,,W,,3,0.895,0.211,0.170,1.884,v2026-04-27
+537193,2026-05-24,US Cremonese,Como 1907,SA,Over/Under,Under 3.5,0.784,,,L,,3,0.105,0.789,-0.373,1.646,v2026-04-27
+554906,2026-05-24,Clube do Remo,CA Paranaense,BSA,Double Chance,1X (Home or Draw),0.773,,,L,,3,0.053,0.789,0.290,2.567,v2026-04-27
+537188,2026-05-24,Torino FC,Juventus FC,SA,Over/Under,Under 3.5,0.761,,,L,,3,0.421,0.737,0.067,2.000,v2026-04-27
+537191,2026-05-24,Parma Calcio 1913,US Sassuolo Calcio,SA,Double Chance,1X (Home or Draw),0.758,,,W,,3,0.368,0.474,0.197,2.313,v2026-04-27
+538164,2026-05-24,West Ham United FC,Leeds United FC,PL,Over/Under,Under 3.5,0.749,,,W,,3,0.105,0.316,0.047,2.053,v2026-04-27
+537189,2026-05-24,Hellas Verona FC,AS Roma,SA,Double Chance,X2 (Draw or Away),0.746,,,W,,3,0.053,0.842,-0.470,2.128,v2026-04-27
+554900,2026-05-24,SC Corinthians Paulista,CA Mineiro,BSA,Double Chance,1X (Home or Draw),0.726,,,W,,3,0.211,0.474,0.433,2.380,v2026-04-27
+538162,2026-05-24,Nottingham Forest FC,AFC Bournemouth,PL,Over/Under,Under 3.5,0.707,,,W,,3,0.211,0.737,-0.400,2.030,v2026-04-27
+554901,2026-05-25,Coritiba FBC,EC Bahia,BSA,Over/Under,Over 2.5,0.477,2.08,6.7,,,2,0.684,0.684,0.143,2.960,v2026-04-27
