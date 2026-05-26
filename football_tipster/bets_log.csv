@@ -394,4 +394,4 @@ match_id,date,home,away,league,market,pick,model_prob,odds_taken,edge,result,roi
 537189,2026-05-24,Hellas Verona FC,AS Roma,SA,Double Chance,X2 (Draw or Away),0.746,,,W,,3,0.053,0.842,-0.470,2.128,v1,
 554900,2026-05-24,SC Corinthians Paulista,CA Mineiro,BSA,Double Chance,1X (Home or Draw),0.726,,,W,,3,0.211,0.474,0.433,2.380,v1,
 538162,2026-05-24,Nottingham Forest FC,AFC Bournemouth,PL,Over/Under,Under 3.5,0.707,,,W,,3,0.211,0.737,-0.400,2.030,v1,
-554901,2026-05-25,Coritiba FBC,EC Bahia,BSA,Over/Under,Over 2.5,0.477,2.08,6.7,,,8,0.684,0.684,0.143,2.960,v1,
+554901,2026-05-25,Coritiba FBC,EC Bahia,BSA,Over/Under,Over 2.5,0.477,2.08,6.7,W,1.080,9,0.684,0.684,0.143,2.960,v1,
