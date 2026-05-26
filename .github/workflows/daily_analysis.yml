@@ -51,9 +51,13 @@ jobs:
           git commit -m "chore: update bets_log [skip ci]"
           # Handle the race where the remote moved between checkout and push
           # (manual commits, prior workflow runs, etc.) — rebase then push.
-          for i in 1 2 3; do
-            git pull --rebase origin master && git push origin master && exit 0
-            echo "Push attempt $i failed, retrying..."
+          # `if`-form keeps `set -e` from killing the loop on a failed attempt.
+          for i in 1 2 3 4 5; do
+            if git pull --rebase origin master && git push origin master; then
+              echo "Push succeeded on attempt $i"
+              exit 0
+            fi
+            echo "Push attempt $i failed, retrying in 5s..."
             sleep 5
           done
           echo "All push attempts failed."
