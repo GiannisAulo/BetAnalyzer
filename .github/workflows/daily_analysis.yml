@@ -2,7 +2,7 @@ name: Daily Bet Analysis
 
 on:
   schedule:
-    - cron: '0 10 * * *'
+    - cron: '0 8 * * *'
   workflow_dispatch:
 
 jobs:
@@ -16,6 +16,7 @@ jobs:
       - name: Checkout repo
         uses: actions/checkout@v4
         with:
+          # Need full history so the rebase below has something to rebase onto.
           fetch-depth: 0
 
       - name: Set up Python
@@ -42,7 +43,18 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git pull --rebase origin master
           git add football_tipster/bets_log.csv
-          git diff --staged --quiet || git commit -m "chore: update bets_log [skip ci]"
-          git push
+          if git diff --staged --quiet; then
+            echo "No changes to bets_log.csv — skipping commit."
+            exit 0
+          fi
+          git commit -m "chore: update bets_log [skip ci]"
+          # Handle the race where the remote moved between checkout and push
+          # (manual commits, prior workflow runs, etc.) — rebase then push.
+          for i in 1 2 3; do
+            git pull --rebase origin master && git push origin master && exit 0
+            echo "Push attempt $i failed, retrying..."
+            sleep 5
+          done
+          echo "All push attempts failed."
+          exit 1
