@@ -927,6 +927,11 @@ def _run_analysis(leagues: list, use_cache: bool, min_edge: float,
 
     if not all_fixtures:
         status.print(f"[yellow]No unplayed fixtures found for today ({today_str}). Check back on a matchday.[/yellow]")
+        if mode_full:
+            from telegram_notifier import send_telegram_message
+            send_telegram_message(
+                f"📭 <b>BetAnalyzer Daily Picks</b>\n\nNo fixtures scheduled for today ({today_str})."
+            )
         return
 
     # Only verified-edge singles count as value picks. Picks without real
