@@ -1,0 +1,110 @@
+{
+  "team": "South Africa",
+  "fifa_ranking": 65,
+  "elo_rating": 1390,
+  "attack_strength": 1.05,
+  "defense_strength": 1.05,
+  "avg_goals_scored": 1.3,
+  "avg_goals_conceded": 1.2,
+  "avg_goals_scored_home": 1.6,
+  "avg_goals_conceded_home": 1.0,
+  "avg_goals_scored_away": 1.0,
+  "avg_goals_conceded_away": 1.4,
+  "form": ["W", "D", "W", "L", "D"],
+  "form_home": ["W", "W", "D"],
+  "form_away": ["D", "L", "W"],
+  "recent_matches": [
+    {
+      "date": "2026-03-25",
+      "opponent": "Nigeria",
+      "home_away": "A",
+      "goals_scored": 1,
+      "goals_conceded": 1,
+      "competition": "Friendly",
+      "weight": 0.8
+    },
+    {
+      "date": "2025-11-18",
+      "opponent": "Rwanda",
+      "home_away": "H",
+      "goals_scored": 3,
+      "goals_conceded": 0,
+      "competition": "WC_Qualifier",
+      "weight": 1.2
+    },
+    {
+      "date": "2025-11-14",
+      "opponent": "Lesotho",
+      "home_away": "A",
+      "goals_scored": 1,
+      "goals_conceded": 1,
+      "competition": "WC_Qualifier",
+      "weight": 1.2
+    },
+    {
+      "date": "2025-10-15",
+      "opponent": "Zimbabwe",
+      "home_away": "H",
+      "goals_scored": 2,
+      "goals_conceded": 1,
+      "competition": "Friendly",
+      "weight": 0.8
+    },
+    {
+      "date": "2025-09-09",
+      "opponent": "Nigeria",
+      "home_away": "H",
+      "goals_scored": 1,
+      "goals_conceded": 0,
+      "competition": "WC_Qualifier",
+      "weight": 1.2
+    },
+    {
+      "date": "2024-02-10",
+      "opponent": "Nigeria",
+      "home_away": "N",
+      "goals_scored": 0,
+      "goals_conceded": 0,
+      "competition": "Africa_Cup",
+      "weight": 1.2
+    }
+  ],
+  "h2h": {
+    "Mexico": {
+      "played": 3,
+      "wins": 0,
+      "draws": 1,
+      "losses": 2,
+      "goals_scored": 2,
+      "goals_conceded": 5,
+      "home_wins": 0,
+      "away_wins": 0
+    },
+    "South Korea": {
+      "played": 2,
+      "wins": 0,
+      "draws": 1,
+      "losses": 1,
+      "goals_scored": 1,
+      "goals_conceded": 3,
+      "home_wins": 0,
+      "away_wins": 0
+    },
+    "Czechia": {
+      "played": 1,
+      "wins": 0,
+      "draws": 0,
+      "losses": 1,
+      "goals_scored": 0,
+      "goals_conceded": 1,
+      "home_wins": 0,
+      "away_wins": 0
+    }
+  },
+  "squad_strength": 6.8,
+  "avg_player_age": 25.9,
+  "key_players_missing": [],
+  "clean_sheets_last5": 2,
+  "failed_to_score_last5": 1,
+  "btts_last5": 2
+}

@@ -1,0 +1,107 @@
+{
+  "group": "D",
+  "matches": [
+    {
+      "match_id": "WC2026_D1",
+      "home_team": "USA",
+      "away_team": "Paraguay",
+      "date": "2026-06-14",
+      "stage": "group",
+      "odds": {
+        "home_win": 2.0,
+        "draw": 3.45,
+        "away_win": 3.85,
+        "over_2_5": 2.15,
+        "under_2_5": 1.72,
+        "btts_yes": 1.88,
+        "btts_no": 1.9
+      },
+      "odds_confidence": 0.6
+    },
+    {
+      "match_id": "WC2026_D2",
+      "home_team": "Australia",
+      "away_team": "Turkey",
+      "date": "2026-06-14",
+      "stage": "group",
+      "odds": {
+        "home_win": 4.7,
+        "draw": 3.65,
+        "away_win": 1.78,
+        "over_2_5": 2.1,
+        "under_2_5": 1.75,
+        "btts_yes": 2.0,
+        "btts_no": 1.8
+      },
+      "odds_confidence": 0.6
+    },
+    {
+      "match_id": "WC2026_D3",
+      "home_team": "USA",
+      "away_team": "Australia",
+      "date": "2026-06-21",
+      "stage": "group",
+      "odds": {
+        "home_win": 1.78,
+        "draw": 3.65,
+        "away_win": 4.75,
+        "over_2_5": 2.05,
+        "under_2_5": 1.8,
+        "btts_yes": 2.15,
+        "btts_no": 1.68
+      },
+      "odds_confidence": 0.6
+    },
+    {
+      "match_id": "WC2026_D4",
+      "home_team": "Turkey",
+      "away_team": "Paraguay",
+      "date": "2026-06-21",
+      "stage": "group",
+      "odds": {
+        "home_win": 2.25,
+        "draw": 3.2,
+        "away_win": 3.4,
+        "over_2_5": 2.1,
+        "under_2_5": 1.75,
+        "btts_yes": 1.88,
+        "btts_no": 1.9
+      },
+      "odds_confidence": 0.6
+    },
+    {
+      "match_id": "WC2026_D5",
+      "home_team": "USA",
+      "away_team": "Turkey",
+      "date": "2026-06-27",
+      "stage": "group",
+      "odds": {
+        "home_win": 1.95,
+        "draw": 3.5,
+        "away_win": 4.3,
+        "over_2_5": 2.05,
+        "under_2_5": 1.8,
+        "btts_yes": 2.05,
+        "btts_no": 1.8
+      },
+      "odds_confidence": 0.6
+    },
+    {
+      "match_id": "WC2026_D6",
+      "home_team": "Paraguay",
+      "away_team": "Australia",
+      "date": "2026-06-27",
+      "stage": "group",
+      "odds": {
+        "home_win": 2.9,
+        "draw": 3.2,
+        "away_win": 2.55,
+        "over_2_5": 2.1,
+        "under_2_5": 1.75,
+        "btts_yes": 1.88,
+        "btts_no": 1.9
+      },
+      "odds_confidence": 0.6
+    }
+  ]
+}

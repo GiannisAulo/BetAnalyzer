@@ -1,0 +1,107 @@
+{
+  "group": "J",
+  "matches": [
+    {
+      "match_id": "WC2026_J1",
+      "home_team": "Argentina",
+      "away_team": "Algeria",
+      "date": "2026-06-14",
+      "stage": "group",
+      "odds": {
+        "home_win": 1.42,
+        "draw": 4.55,
+        "away_win": 7.8,
+        "over_2_5": 2.0,
+        "under_2_5": 1.84,
+        "btts_yes": 2.4,
+        "btts_no": 1.58
+      },
+      "odds_confidence": 0.6
+    },
+    {
+      "match_id": "WC2026_J2",
+      "home_team": "Austria",
+      "away_team": "Jordan",
+      "date": "2026-06-14",
+      "stage": "group",
+      "odds": {
+        "home_win": 1.37,
+        "draw": 5.2,
+        "away_win": 8.0,
+        "over_2_5": 1.95,
+        "under_2_5": 1.87,
+        "btts_yes": 2.6,
+        "btts_no": 1.5
+      },
+      "odds_confidence": 0.6
+    },
+    {
+      "match_id": "WC2026_J3",
+      "home_team": "Argentina",
+      "away_team": "Austria",
+      "date": "2026-06-20",
+      "stage": "group",
+      "odds": {
+        "home_win": 1.7,
+        "draw": 3.7,
+        "away_win": 5.2,
+        "over_2_5": 2.0,
+        "under_2_5": 1.84,
+        "btts_yes": 2.2,
+        "btts_no": 1.67
+      },
+      "odds_confidence": 0.6
+    },
+    {
+      "match_id": "WC2026_J4",
+      "home_team": "Jordan",
+      "away_team": "Algeria",
+      "date": "2026-06-20",
+      "stage": "group",
+      "odds": {
+        "home_win": 5.1,
+        "draw": 3.7,
+        "away_win": 1.7,
+        "over_2_5": 2.05,
+        "under_2_5": 1.8,
+        "btts_yes": 2.25,
+        "btts_no": 1.65
+      },
+      "odds_confidence": 0.6
+    },
+    {
+      "match_id": "WC2026_J5",
+      "home_team": "Argentina",
+      "away_team": "Jordan",
+      "date": "2026-06-26",
+      "stage": "group",
+      "odds": {
+        "home_win": 1.18,
+        "draw": 7.0,
+        "away_win": 20.0,
+        "over_2_5": 1.75,
+        "under_2_5": 2.15,
+        "btts_yes": 3.8,
+        "btts_no": 1.25
+      },
+      "odds_confidence": 0.6
+    },
+    {
+      "match_id": "WC2026_J6",
+      "home_team": "Algeria",
+      "away_team": "Austria",
+      "date": "2026-06-26",
+      "stage": "group",
+      "odds": {
+        "home_win": 2.6,
+        "draw": 3.15,
+        "away_win": 2.8,
+        "over_2_5": 2.1,
+        "under_2_5": 1.75,
+        "btts_yes": 1.88,
+        "btts_no": 1.9
+      },
+      "odds_confidence": 0.6
+    }
+  ]
+}

@@ -1,0 +1,107 @@
+{
+  "group": "E",
+  "matches": [
+    {
+      "match_id": "WC2026_E1",
+      "home_team": "Germany",
+      "away_team": "Curacao",
+      "date": "2026-06-15",
+      "stage": "group",
+      "odds": {
+        "home_win": 1.04,
+        "draw": 14.0,
+        "away_win": 60.0,
+        "over_2_5": 1.62,
+        "under_2_5": 2.3,
+        "btts_yes": 4.5,
+        "btts_no": 1.2
+      },
+      "odds_confidence": 0.6
+    },
+    {
+      "match_id": "WC2026_E2",
+      "home_team": "Ivory Coast",
+      "away_team": "Ecuador",
+      "date": "2026-06-15",
+      "stage": "group",
+      "odds": {
+        "home_win": 3.65,
+        "draw": 2.92,
+        "away_win": 2.32,
+        "over_2_5": 2.1,
+        "under_2_5": 1.75,
+        "btts_yes": 1.82,
+        "btts_no": 1.95
+      },
+      "odds_confidence": 0.6
+    },
+    {
+      "match_id": "WC2026_E3",
+      "home_team": "Germany",
+      "away_team": "Ivory Coast",
+      "date": "2026-06-22",
+      "stage": "group",
+      "odds": {
+        "home_win": 1.6,
+        "draw": 4.2,
+        "away_win": 5.4,
+        "over_2_5": 1.95,
+        "under_2_5": 1.87,
+        "btts_yes": 2.3,
+        "btts_no": 1.62
+      },
+      "odds_confidence": 0.6
+    },
+    {
+      "match_id": "WC2026_E4",
+      "home_team": "Ecuador",
+      "away_team": "Curacao",
+      "date": "2026-06-22",
+      "stage": "group",
+      "odds": {
+        "home_win": 1.27,
+        "draw": 5.6,
+        "away_win": 12.0,
+        "over_2_5": 1.8,
+        "under_2_5": 2.05,
+        "btts_yes": 3.2,
+        "btts_no": 1.38
+      },
+      "odds_confidence": 0.6
+    },
+    {
+      "match_id": "WC2026_E5",
+      "home_team": "Germany",
+      "away_team": "Ecuador",
+      "date": "2026-06-27",
+      "stage": "group",
+      "odds": {
+        "home_win": 1.65,
+        "draw": 3.9,
+        "away_win": 5.5,
+        "over_2_5": 2.0,
+        "under_2_5": 1.84,
+        "btts_yes": 2.2,
+        "btts_no": 1.67
+      },
+      "odds_confidence": 0.6
+    },
+    {
+      "match_id": "WC2026_E6",
+      "home_team": "Curacao",
+      "away_team": "Ivory Coast",
+      "date": "2026-06-27",
+      "stage": "group",
+      "odds": {
+        "home_win": 5.5,
+        "draw": 3.9,
+        "away_win": 1.6,
+        "over_2_5": 2.05,
+        "under_2_5": 1.8,
+        "btts_yes": 2.2,
+        "btts_no": 1.67
+      },
+      "odds_confidence": 0.6
+    }
+  ]
+}

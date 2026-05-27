@@ -1,0 +1,110 @@
+{
+  "team": "Spain",
+  "fifa_ranking": 2,
+  "elo_rating": 1876,
+  "attack_strength": 1.55,
+  "defense_strength": 0.80,
+  "avg_goals_scored": 2.3,
+  "avg_goals_conceded": 0.8,
+  "avg_goals_scored_home": 2.6,
+  "avg_goals_conceded_home": 0.6,
+  "avg_goals_scored_away": 2.0,
+  "avg_goals_conceded_away": 1.0,
+  "form": ["W", "W", "W", "W", "D"],
+  "form_home": ["W", "W", "W"],
+  "form_away": ["W", "D", "W"],
+  "recent_matches": [
+    {
+      "date": "2026-03-26",
+      "opponent": "Netherlands",
+      "home_away": "H",
+      "goals_scored": 3,
+      "goals_conceded": 3,
+      "competition": "Nations_League",
+      "weight": 1.1
+    },
+    {
+      "date": "2026-03-23",
+      "opponent": "Netherlands",
+      "home_away": "A",
+      "goals_scored": 2,
+      "goals_conceded": 2,
+      "competition": "Nations_League",
+      "weight": 1.1
+    },
+    {
+      "date": "2025-11-18",
+      "opponent": "Switzerland",
+      "home_away": "H",
+      "goals_scored": 3,
+      "goals_conceded": 2,
+      "competition": "Nations_League",
+      "weight": 1.1
+    },
+    {
+      "date": "2025-11-15",
+      "opponent": "Denmark",
+      "home_away": "A",
+      "goals_scored": 2,
+      "goals_conceded": 1,
+      "competition": "Nations_League",
+      "weight": 1.1
+    },
+    {
+      "date": "2025-10-12",
+      "opponent": "Serbia",
+      "home_away": "H",
+      "goals_scored": 3,
+      "goals_conceded": 0,
+      "competition": "Nations_League",
+      "weight": 1.1
+    },
+    {
+      "date": "2024-07-14",
+      "opponent": "England",
+      "home_away": "N",
+      "goals_scored": 2,
+      "goals_conceded": 1,
+      "competition": "Euro",
+      "weight": 1.3
+    }
+  ],
+  "h2h": {
+    "France": {
+      "played": 4,
+      "wins": 2,
+      "draws": 1,
+      "losses": 1,
+      "goals_scored": 6,
+      "goals_conceded": 5,
+      "home_wins": 1,
+      "away_wins": 1
+    },
+    "Germany": {
+      "played": 5,
+      "wins": 2,
+      "draws": 1,
+      "losses": 2,
+      "goals_scored": 7,
+      "goals_conceded": 6,
+      "home_wins": 1,
+      "away_wins": 1
+    },
+    "England": {
+      "played": 4,
+      "wins": 2,
+      "draws": 1,
+      "losses": 1,
+      "goals_scored": 6,
+      "goals_conceded": 4,
+      "home_wins": 1,
+      "away_wins": 1
+    }
+  },
+  "squad_strength": 9.4,
+  "avg_player_age": 26.2,
+  "key_players_missing": [],
+  "clean_sheets_last5": 1,
+  "failed_to_score_last5": 0,
+  "btts_last5": 4
+}

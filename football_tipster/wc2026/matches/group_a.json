@@ -1,0 +1,107 @@
+{
+  "group": "A",
+  "matches": [
+    {
+      "match_id": "WC2026_A1",
+      "home_team": "Mexico",
+      "away_team": "South Africa",
+      "date": "2026-06-11",
+      "stage": "group",
+      "odds": {
+        "home_win": 1.55,
+        "draw": 4.15,
+        "away_win": 6.2,
+        "over_2_5": 2.05,
+        "under_2_5": 1.8,
+        "btts_yes": 2.15,
+        "btts_no": 1.68
+      },
+      "odds_confidence": 0.6
+    },
+    {
+      "match_id": "WC2026_A2",
+      "home_team": "South Korea",
+      "away_team": "Czechia",
+      "date": "2026-06-11",
+      "stage": "group",
+      "odds": {
+        "home_win": 2.75,
+        "draw": 3.1,
+        "away_win": 2.75,
+        "over_2_5": 2.2,
+        "under_2_5": 1.68,
+        "btts_yes": 1.78,
+        "btts_no": 2.0
+      },
+      "odds_confidence": 0.6
+    },
+    {
+      "match_id": "WC2026_A3",
+      "home_team": "Mexico",
+      "away_team": "South Korea",
+      "date": "2026-06-19",
+      "stage": "group",
+      "odds": {
+        "home_win": 1.85,
+        "draw": 3.45,
+        "away_win": 4.6,
+        "over_2_5": 2.1,
+        "under_2_5": 1.75,
+        "btts_yes": 2.1,
+        "btts_no": 1.72
+      },
+      "odds_confidence": 0.6
+    },
+    {
+      "match_id": "WC2026_A4",
+      "home_team": "Czechia",
+      "away_team": "South Africa",
+      "date": "2026-06-18",
+      "stage": "group",
+      "odds": {
+        "home_win": 2.05,
+        "draw": 3.25,
+        "away_win": 3.95,
+        "over_2_5": 2.1,
+        "under_2_5": 1.75,
+        "btts_yes": 2.0,
+        "btts_no": 1.8
+      },
+      "odds_confidence": 0.6
+    },
+    {
+      "match_id": "WC2026_A5",
+      "home_team": "Mexico",
+      "away_team": "Czechia",
+      "date": "2026-06-24",
+      "stage": "group",
+      "odds": {
+        "home_win": 1.6,
+        "draw": 3.9,
+        "away_win": 5.5,
+        "over_2_5": 2.0,
+        "under_2_5": 1.84,
+        "btts_yes": 2.2,
+        "btts_no": 1.67
+      },
+      "odds_confidence": 0.6
+    },
+    {
+      "match_id": "WC2026_A6",
+      "home_team": "South Africa",
+      "away_team": "South Korea",
+      "date": "2026-06-24",
+      "stage": "group",
+      "odds": {
+        "home_win": 3.2,
+        "draw": 3.3,
+        "away_win": 2.25,
+        "over_2_5": 2.1,
+        "under_2_5": 1.75,
+        "btts_yes": 1.92,
+        "btts_no": 1.88
+      },
+      "odds_confidence": 0.6
+    }
+  ]
+}

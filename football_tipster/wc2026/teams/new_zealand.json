@@ -1,0 +1,115 @@
+{
+  "team": "New Zealand",
+  "fifa_ranking": 85,
+  "elo_rating": 1340,
+  "attack_strength": 0.9,
+  "defense_strength": 1.2,
+  "avg_goals_scored": 1.1,
+  "avg_goals_conceded": 1.2,
+  "avg_goals_scored_home": 1.3,
+  "avg_goals_conceded_home": 1.1,
+  "avg_goals_scored_away": 0.9,
+  "avg_goals_conceded_away": 1.4,
+  "form": [
+    "L",
+    "L",
+    "D",
+    "L",
+    "W"
+  ],
+  "form_home": [
+    "L",
+    "D",
+    "W"
+  ],
+  "form_away": [
+    "L",
+    "L",
+    "L"
+  ],
+  "recent_matches": [
+    {
+      "date": "2026-03-25",
+      "opponent": "Tahiti",
+      "home_away": "H",
+      "goals_scored": 8,
+      "goals_conceded": 0,
+      "competition": "WC_Qualifier",
+      "weight": 1.2
+    },
+    {
+      "date": "2026-03-21",
+      "opponent": "Vanuatu",
+      "home_away": "A",
+      "goals_scored": 3,
+      "goals_conceded": 0,
+      "competition": "WC_Qualifier",
+      "weight": 1.2
+    },
+    {
+      "date": "2025-11-18",
+      "opponent": "Fiji",
+      "home_away": "H",
+      "goals_scored": 2,
+      "goals_conceded": 1,
+      "competition": "WC_Qualifier",
+      "weight": 1.2
+    },
+    {
+      "date": "2025-11-14",
+      "opponent": "Solomon Islands",
+      "home_away": "A",
+      "goals_scored": 1,
+      "goals_conceded": 0,
+      "competition": "WC_Qualifier",
+      "weight": 1.2
+    },
+    {
+      "date": "2025-10-14",
+      "opponent": "Malaysia",
+      "home_away": "H",
+      "goals_scored": 4,
+      "goals_conceded": 0,
+      "competition": "Friendly",
+      "weight": 0.8
+    }
+  ],
+  "h2h": {
+    "Belgium": {
+      "played": 2,
+      "wins": 0,
+      "draws": 0,
+      "losses": 2,
+      "goals_scored": 0,
+      "goals_conceded": 5,
+      "home_wins": 0,
+      "away_wins": 0
+    },
+    "Egypt": {
+      "played": 3,
+      "wins": 0,
+      "draws": 1,
+      "losses": 2,
+      "goals_scored": 2,
+      "goals_conceded": 5,
+      "home_wins": 0,
+      "away_wins": 0
+    },
+    "Iran": {
+      "played": 2,
+      "wins": 0,
+      "draws": 0,
+      "losses": 2,
+      "goals_scored": 0,
+      "goals_conceded": 5,
+      "home_wins": 0,
+      "away_wins": 0
+    }
+  },
+  "squad_strength": 6.5,
+  "avg_player_age": 26.8,
+  "key_players_missing": [],
+  "clean_sheets_last5": 4,
+  "failed_to_score_last5": 0,
+  "btts_last5": 1
+}

@@ -1,0 +1,107 @@
+{
+  "group": "G",
+  "matches": [
+    {
+      "match_id": "WC2026_G1",
+      "home_team": "Belgium",
+      "away_team": "Egypt",
+      "date": "2026-06-11",
+      "stage": "group",
+      "odds": {
+        "home_win": 1.72,
+        "draw": 3.75,
+        "away_win": 4.85,
+        "over_2_5": 2.05,
+        "under_2_5": 1.8,
+        "btts_yes": 2.25,
+        "btts_no": 1.65
+      },
+      "odds_confidence": 0.6
+    },
+    {
+      "match_id": "WC2026_G2",
+      "home_team": "Iran",
+      "away_team": "New Zealand",
+      "date": "2026-06-11",
+      "stage": "group",
+      "odds": {
+        "home_win": 1.88,
+        "draw": 3.55,
+        "away_win": 4.2,
+        "over_2_5": 2.05,
+        "under_2_5": 1.8,
+        "btts_yes": 2.15,
+        "btts_no": 1.68
+      },
+      "odds_confidence": 0.6
+    },
+    {
+      "match_id": "WC2026_G3",
+      "home_team": "Belgium",
+      "away_team": "Iran",
+      "date": "2026-06-17",
+      "stage": "group",
+      "odds": {
+        "home_win": 1.45,
+        "draw": 4.45,
+        "away_win": 7.2,
+        "over_2_5": 1.95,
+        "under_2_5": 1.87,
+        "btts_yes": 2.5,
+        "btts_no": 1.55
+      },
+      "odds_confidence": 0.6
+    },
+    {
+      "match_id": "WC2026_G4",
+      "home_team": "New Zealand",
+      "away_team": "Egypt",
+      "date": "2026-06-17",
+      "stage": "group",
+      "odds": {
+        "home_win": 5.2,
+        "draw": 3.6,
+        "away_win": 1.72,
+        "over_2_5": 2.0,
+        "under_2_5": 1.84,
+        "btts_yes": 2.3,
+        "btts_no": 1.62
+      },
+      "odds_confidence": 0.6
+    },
+    {
+      "match_id": "WC2026_G5",
+      "home_team": "Belgium",
+      "away_team": "New Zealand",
+      "date": "2026-06-23",
+      "stage": "group",
+      "odds": {
+        "home_win": 1.32,
+        "draw": 5.5,
+        "away_win": 10.0,
+        "over_2_5": 1.78,
+        "under_2_5": 2.08,
+        "btts_yes": 3.5,
+        "btts_no": 1.32
+      },
+      "odds_confidence": 0.6
+    },
+    {
+      "match_id": "WC2026_G6",
+      "home_team": "Egypt",
+      "away_team": "Iran",
+      "date": "2026-06-23",
+      "stage": "group",
+      "odds": {
+        "home_win": 2.75,
+        "draw": 3.1,
+        "away_win": 2.6,
+        "over_2_5": 2.1,
+        "under_2_5": 1.75,
+        "btts_yes": 1.85,
+        "btts_no": 1.95
+      },
+      "odds_confidence": 0.6
+    }
+  ]
+}

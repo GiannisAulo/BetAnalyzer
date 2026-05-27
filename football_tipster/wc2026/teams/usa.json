@@ -1,0 +1,115 @@
+{
+  "team": "USA",
+  "fifa_ranking": 16,
+  "elo_rating": 1673,
+  "attack_strength": 1.25,
+  "defense_strength": 0.95,
+  "avg_goals_scored": 1.6,
+  "avg_goals_conceded": 1.0,
+  "avg_goals_scored_home": 1.9,
+  "avg_goals_conceded_home": 0.9,
+  "avg_goals_scored_away": 1.4,
+  "avg_goals_conceded_away": 1.2,
+  "form": [
+    "L",
+    "L",
+    "W",
+    "W",
+    "W"
+  ],
+  "form_home": [
+    "L",
+    "L",
+    "W"
+  ],
+  "form_away": [
+    "W",
+    "L",
+    "W"
+  ],
+  "recent_matches": [
+    {
+      "date": "2026-03-25",
+      "opponent": "Mexico",
+      "home_away": "A",
+      "goals_scored": 1,
+      "goals_conceded": 2,
+      "competition": "Friendly",
+      "weight": 0.8
+    },
+    {
+      "date": "2026-03-22",
+      "opponent": "Costa Rica",
+      "home_away": "H",
+      "goals_scored": 3,
+      "goals_conceded": 1,
+      "competition": "Friendly",
+      "weight": 0.8
+    },
+    {
+      "date": "2025-11-18",
+      "opponent": "Jamaica",
+      "home_away": "A",
+      "goals_scored": 4,
+      "goals_conceded": 2,
+      "competition": "Nations_League",
+      "weight": 1.1
+    },
+    {
+      "date": "2025-11-14",
+      "opponent": "Jamaica",
+      "home_away": "H",
+      "goals_scored": 1,
+      "goals_conceded": 1,
+      "competition": "Nations_League",
+      "weight": 1.1
+    },
+    {
+      "date": "2025-10-15",
+      "opponent": "Panama",
+      "home_away": "A",
+      "goals_scored": 0,
+      "goals_conceded": 2,
+      "competition": "Friendly",
+      "weight": 0.8
+    }
+  ],
+  "h2h": {
+    "Paraguay": {
+      "played": 2,
+      "wins": 2,
+      "draws": 0,
+      "losses": 0,
+      "goals_scored": 4,
+      "goals_conceded": 1,
+      "home_wins": 1,
+      "away_wins": 1
+    },
+    "Australia": {
+      "played": 2,
+      "wins": 0,
+      "draws": 1,
+      "losses": 1,
+      "goals_scored": 1,
+      "goals_conceded": 4,
+      "home_wins": 0,
+      "away_wins": 0
+    },
+    "Turkey": {
+      "played": 2,
+      "wins": 1,
+      "draws": 0,
+      "losses": 1,
+      "goals_scored": 2,
+      "goals_conceded": 3,
+      "home_wins": 1,
+      "away_wins": 0
+    }
+  },
+  "squad_strength": 8.0,
+  "avg_player_age": 25.8,
+  "key_players_missing": [],
+  "clean_sheets_last5": 0,
+  "failed_to_score_last5": 1,
+  "btts_last5": 4
+}

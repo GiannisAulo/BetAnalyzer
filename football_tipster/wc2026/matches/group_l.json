@@ -1,0 +1,107 @@
+{
+  "group": "L",
+  "matches": [
+    {
+      "match_id": "WC2026_L1",
+      "home_team": "England",
+      "away_team": "Croatia",
+      "date": "2026-06-16",
+      "stage": "group",
+      "odds": {
+        "home_win": 1.78,
+        "draw": 3.7,
+        "away_win": 4.55,
+        "over_2_5": 2.0,
+        "under_2_5": 1.84,
+        "btts_yes": 2.0,
+        "btts_no": 1.84
+      },
+      "odds_confidence": 0.6
+    },
+    {
+      "match_id": "WC2026_L2",
+      "home_team": "Ghana",
+      "away_team": "Panama",
+      "date": "2026-06-16",
+      "stage": "group",
+      "odds": {
+        "home_win": 1.98,
+        "draw": 3.55,
+        "away_win": 3.8,
+        "over_2_5": 2.1,
+        "under_2_5": 1.75,
+        "btts_yes": 1.92,
+        "btts_no": 1.88
+      },
+      "odds_confidence": 0.6
+    },
+    {
+      "match_id": "WC2026_L3",
+      "home_team": "England",
+      "away_team": "Ghana",
+      "date": "2026-06-22",
+      "stage": "group",
+      "odds": {
+        "home_win": 1.31,
+        "draw": 5.2,
+        "away_win": 10.25,
+        "over_2_5": 1.85,
+        "under_2_5": 2.0,
+        "btts_yes": 3.0,
+        "btts_no": 1.42
+      },
+      "odds_confidence": 0.6
+    },
+    {
+      "match_id": "WC2026_L4",
+      "home_team": "Panama",
+      "away_team": "Croatia",
+      "date": "2026-06-22",
+      "stage": "group",
+      "odds": {
+        "home_win": 6.7,
+        "draw": 4.05,
+        "away_win": 1.53,
+        "over_2_5": 1.95,
+        "under_2_5": 1.87,
+        "btts_yes": 2.55,
+        "btts_no": 1.52
+      },
+      "odds_confidence": 0.6
+    },
+    {
+      "match_id": "WC2026_L5",
+      "home_team": "England",
+      "away_team": "Panama",
+      "date": "2026-06-25",
+      "stage": "group",
+      "odds": {
+        "home_win": 1.35,
+        "draw": 5.3,
+        "away_win": 10.0,
+        "over_2_5": 1.8,
+        "under_2_5": 2.05,
+        "btts_yes": 3.2,
+        "btts_no": 1.38
+      },
+      "odds_confidence": 0.6
+    },
+    {
+      "match_id": "WC2026_L6",
+      "home_team": "Croatia",
+      "away_team": "Ghana",
+      "date": "2026-06-25",
+      "stage": "group",
+      "odds": {
+        "home_win": 1.52,
+        "draw": 4.2,
+        "away_win": 7.5,
+        "over_2_5": 1.95,
+        "under_2_5": 1.87,
+        "btts_yes": 2.55,
+        "btts_no": 1.52
+      },
+      "odds_confidence": 0.6
+    }
+  ]
+}

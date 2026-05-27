@@ -1,0 +1,107 @@
+{
+  "group": "H",
+  "matches": [
+    {
+      "match_id": "WC2026_H1",
+      "home_team": "Spain",
+      "away_team": "Cape Verde",
+      "date": "2026-06-12",
+      "stage": "group",
+      "odds": {
+        "home_win": 1.09,
+        "draw": 10.0,
+        "away_win": 30.0,
+        "over_2_5": 1.72,
+        "under_2_5": 2.2,
+        "btts_yes": 4.0,
+        "btts_no": 1.22
+      },
+      "odds_confidence": 0.6
+    },
+    {
+      "match_id": "WC2026_H2",
+      "home_team": "Saudi Arabia",
+      "away_team": "Uruguay",
+      "date": "2026-06-12",
+      "stage": "group",
+      "odds": {
+        "home_win": 6.2,
+        "draw": 4.25,
+        "away_win": 1.53,
+        "over_2_5": 1.95,
+        "under_2_5": 1.87,
+        "btts_yes": 2.45,
+        "btts_no": 1.55
+      },
+      "odds_confidence": 0.6
+    },
+    {
+      "match_id": "WC2026_H3",
+      "home_team": "Spain",
+      "away_team": "Saudi Arabia",
+      "date": "2026-06-18",
+      "stage": "group",
+      "odds": {
+        "home_win": 1.13,
+        "draw": 8.25,
+        "away_win": 24.0,
+        "over_2_5": 1.7,
+        "under_2_5": 2.2,
+        "btts_yes": 3.8,
+        "btts_no": 1.25
+      },
+      "odds_confidence": 0.6
+    },
+    {
+      "match_id": "WC2026_H4",
+      "home_team": "Uruguay",
+      "away_team": "Cape Verde",
+      "date": "2026-06-18",
+      "stage": "group",
+      "odds": {
+        "home_win": 1.47,
+        "draw": 4.35,
+        "away_win": 7.0,
+        "over_2_5": 1.9,
+        "under_2_5": 1.95,
+        "btts_yes": 2.6,
+        "btts_no": 1.5
+      },
+      "odds_confidence": 0.6
+    },
+    {
+      "match_id": "WC2026_H5",
+      "home_team": "Spain",
+      "away_team": "Uruguay",
+      "date": "2026-06-24",
+      "stage": "group",
+      "odds": {
+        "home_win": 1.42,
+        "draw": 4.6,
+        "away_win": 8.2,
+        "over_2_5": 1.9,
+        "under_2_5": 1.95,
+        "btts_yes": 2.5,
+        "btts_no": 1.55
+      },
+      "odds_confidence": 0.6
+    },
+    {
+      "match_id": "WC2026_H6",
+      "home_team": "Cape Verde",
+      "away_team": "Saudi Arabia",
+      "date": "2026-06-24",
+      "stage": "group",
+      "odds": {
+        "home_win": 2.95,
+        "draw": 3.1,
+        "away_win": 2.6,
+        "over_2_5": 2.1,
+        "under_2_5": 1.75,
+        "btts_yes": 1.88,
+        "btts_no": 1.9
+      },
+      "odds_confidence": 0.6
+    }
+  ]
+}
