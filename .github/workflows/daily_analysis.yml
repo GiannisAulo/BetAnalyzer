@@ -1,8 +1,10 @@
 name: Daily Bet Analysis
 
 on:
-  schedule:
-    - cron: '0 8 * * *'
+  # Daily trigger is provided by an external scheduler (cron-job.org) via
+  # repository_dispatch, since GitHub Actions native schedules were not
+  # firing reliably on this repo. workflow_dispatch lets you trigger
+  # manually from the Actions tab.
   workflow_dispatch:
   repository_dispatch:
     types: [run-daily-analysis]
