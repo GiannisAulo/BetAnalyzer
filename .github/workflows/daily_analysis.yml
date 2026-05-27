@@ -2,7 +2,7 @@ name: Daily Bet Analysis
 
 on:
   schedule:
-    - cron: '0 8 * * *'
+    - cron: '35 9 * * *'
   workflow_dispatch:
 
 jobs:
