@@ -2,8 +2,10 @@ name: Daily Bet Analysis
 
 on:
   schedule:
-    - cron: '35 9 * * *'
+    - cron: '0 8 * * *'
   workflow_dispatch:
+  repository_dispatch:
+    types: [run-daily-analysis]
 
 jobs:
   analyze:
