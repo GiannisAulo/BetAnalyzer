@@ -1,115 +1,95 @@
 {
   "team": "Belgium",
+  "api_id": 805,
   "fifa_ranking": 9,
   "elo_rating": 1734,
-  "attack_strength": 1.4,
+  "attack_strength": 1.5,
   "defense_strength": 0.9,
-  "avg_goals_scored": 1.9,
-  "avg_goals_conceded": 1.0,
-  "avg_goals_scored_home": 2.2,
-  "avg_goals_conceded_home": 0.9,
-  "avg_goals_scored_away": 1.6,
-  "avg_goals_conceded_away": 1.1,
+  "avg_goals_scored": 3.7,
+  "avg_goals_conceded": 1.2,
+  "avg_goals_scored_home": 7.0,
+  "avg_goals_conceded_home": 0.0,
+  "avg_goals_scored_away": 2.7,
+  "avg_goals_conceded_away": 1.5,
   "form": [
-    "W",
+    "D",
     "W",
     "W",
     "D",
     "W"
   ],
   "form_home": [
-    "W",
-    "W",
     "W"
   ],
   "form_away": [
+    "D",
     "W",
     "D",
     "W"
   ],
   "recent_matches": [
     {
-      "date": "2026-03-26",
-      "opponent": "Ukraine",
+      "date": "2026-04-01",
+      "opponent": "Mexico",
       "home_away": "A",
-      "goals_scored": 3,
-      "goals_conceded": 0,
+      "goals_scored": 1,
+      "goals_conceded": 1,
       "competition": "Friendly",
       "weight": 0.8
     },
     {
-      "date": "2026-03-22",
-      "opponent": "Ukraine",
-      "home_away": "H",
-      "goals_scored": 3,
-      "goals_conceded": 1,
+      "date": "2026-03-28",
+      "opponent": "USA",
+      "home_away": "A",
+      "goals_scored": 5,
+      "goals_conceded": 2,
       "competition": "Friendly",
       "weight": 0.8
     },
     {
       "date": "2025-11-18",
-      "opponent": "Israel",
-      "home_away": "A",
-      "goals_scored": 1,
+      "opponent": "Liechtenstein",
+      "home_away": "H",
+      "goals_scored": 7,
       "goals_conceded": 0,
-      "competition": "Nations_League",
-      "weight": 1.1
+      "competition": "WC_Qualifier",
+      "weight": 1.2
     },
     {
       "date": "2025-11-15",
-      "opponent": "Italy",
-      "home_away": "H",
-      "goals_scored": 0,
+      "opponent": "Kazakhstan",
+      "home_away": "A",
+      "goals_scored": 1,
       "goals_conceded": 1,
-      "competition": "Nations_League",
-      "weight": 1.1
+      "competition": "WC_Qualifier",
+      "weight": 1.2
     },
     {
-      "date": "2025-10-14",
-      "opponent": "France",
-      "home_away": "H",
-      "goals_scored": 2,
-      "goals_conceded": 1,
-      "competition": "Nations_League",
-      "weight": 1.1
+      "date": "2025-10-13",
+      "opponent": "Wales",
+      "home_away": "A",
+      "goals_scored": 4,
+      "goals_conceded": 2,
+      "competition": "WC_Qualifier",
+      "weight": 1.2
     }
   ],
   "h2h": {
     "Egypt": {
       "played": 4,
-      "wins": 3,
-      "draws": 1,
-      "losses": 0,
-      "goals_scored": 7,
-      "goals_conceded": 2,
-      "home_wins": 1,
-      "away_wins": 2
-    },
-    "Iran": {
-      "played": 3,
       "wins": 1,
       "draws": 0,
-      "losses": 2,
-      "goals_scored": 3,
-      "goals_conceded": 4,
+      "losses": 3,
+      "goals_scored": 4,
+      "goals_conceded": 7,
       "home_wins": 1,
       "away_wins": 0
-    },
-    "New Zealand": {
-      "played": 2,
-      "wins": 2,
-      "draws": 0,
-      "losses": 0,
-      "goals_scored": 4,
-      "goals_conceded": 1,
-      "home_wins": 1,
-      "away_wins": 1
     }
   },
   "squad_strength": 8.6,
-  "avg_player_age": 27.6,
+  "avg_player_age": 28.27,
   "key_players_missing": [],
-  "clean_sheets_last5": 2,
-  "failed_to_score_last5": 1,
-  "btts_last5": 2
+  "clean_sheets_last5": 1,
+  "failed_to_score_last5": 0,
+  "btts_last5": 4
 }

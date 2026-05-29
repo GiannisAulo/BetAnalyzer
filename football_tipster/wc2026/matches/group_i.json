@@ -5,7 +5,7 @@
       "match_id": "WC2026_I1",
       "home_team": "France",
       "away_team": "Senegal",
-      "date": "2026-06-13",
+      "date": "2026-06-16",
       "stage": "group",
       "odds": {
         "home_win": 1.47,
@@ -16,13 +16,16 @@
         "btts_yes": 2.35,
         "btts_no": 1.6
       },
-      "odds_confidence": 0.6
+      "odds_confidence": 0.6,
+      "api_match_id": 537391,
+      "home_team_id": 773,
+      "away_team_id": 804
     },
     {
       "match_id": "WC2026_I2",
       "home_team": "Iraq",
       "away_team": "Norway",
-      "date": "2026-06-13",
+      "date": "2026-06-17",
       "stage": "group",
       "odds": {
         "home_win": 11.0,
@@ -33,13 +36,16 @@
         "btts_yes": 2.8,
         "btts_no": 1.45
       },
-      "odds_confidence": 0.6
+      "odds_confidence": 0.6,
+      "api_match_id": 537392,
+      "home_team_id": 8062,
+      "away_team_id": 8872
     },
     {
       "match_id": "WC2026_I3",
       "home_team": "France",
       "away_team": "Iraq",
-      "date": "2026-06-19",
+      "date": "2026-06-23",
       "stage": "group",
       "odds": {
         "home_win": 1.14,
@@ -50,13 +56,16 @@
         "btts_yes": 4.2,
         "btts_no": 1.22
       },
-      "odds_confidence": 0.6
+      "odds_confidence": 0.6,
+      "api_match_id": 537393,
+      "home_team_id": 773,
+      "away_team_id": 8062
     },
     {
       "match_id": "WC2026_I4",
       "home_team": "Norway",
       "away_team": "Senegal",
-      "date": "2026-06-19",
+      "date": "2026-06-23",
       "stage": "group",
       "odds": {
         "home_win": 2.02,
@@ -67,30 +76,36 @@
         "btts_yes": 1.88,
         "btts_no": 1.9
       },
-      "odds_confidence": 0.6
+      "odds_confidence": 0.6,
+      "api_match_id": 537394,
+      "home_team_id": 8872,
+      "away_team_id": 804
     },
     {
       "match_id": "WC2026_I5",
-      "home_team": "France",
-      "away_team": "Norway",
-      "date": "2026-06-25",
+      "home_team": "Norway",
+      "away_team": "France",
+      "date": "2026-06-26",
       "stage": "group",
       "odds": {
-        "home_win": 1.42,
+        "home_win": 8.0,
         "draw": 4.55,
-        "away_win": 8.0,
+        "away_win": 1.42,
         "over_2_5": 2.0,
         "under_2_5": 1.84,
         "btts_yes": 2.35,
         "btts_no": 1.6
       },
-      "odds_confidence": 0.6
+      "odds_confidence": 0.6,
+      "api_match_id": 537395,
+      "home_team_id": 8872,
+      "away_team_id": 773
     },
     {
       "match_id": "WC2026_I6",
       "home_team": "Senegal",
       "away_team": "Iraq",
-      "date": "2026-06-25",
+      "date": "2026-06-26",
       "stage": "group",
       "odds": {
         "home_win": 1.42,
@@ -101,7 +116,10 @@
         "btts_yes": 2.6,
         "btts_no": 1.5
       },
-      "odds_confidence": 0.6
+      "odds_confidence": 0.6,
+      "api_match_id": 537396,
+      "home_team_id": 804,
+      "away_team_id": 8062
     }
   ]
 }

@@ -5,7 +5,7 @@
       "match_id": "WC2026_K1",
       "home_team": "Portugal",
       "away_team": "Congo DR",
-      "date": "2026-06-15",
+      "date": "2026-06-17",
       "stage": "group",
       "odds": {
         "home_win": 1.28,
@@ -16,13 +16,16 @@
         "btts_yes": 3.2,
         "btts_no": 1.38
       },
-      "odds_confidence": 0.6
+      "odds_confidence": 0.6,
+      "api_match_id": 537403,
+      "home_team_id": 765,
+      "away_team_id": 1934
     },
     {
       "match_id": "WC2026_K2",
       "home_team": "Uzbekistan",
       "away_team": "Colombia",
-      "date": "2026-06-15",
+      "date": "2026-06-18",
       "stage": "group",
       "odds": {
         "home_win": 7.7,
@@ -33,13 +36,16 @@
         "btts_yes": 2.5,
         "btts_no": 1.55
       },
-      "odds_confidence": 0.6
+      "odds_confidence": 0.6,
+      "api_match_id": 537404,
+      "home_team_id": 8070,
+      "away_team_id": 818
     },
     {
       "match_id": "WC2026_K3",
       "home_team": "Portugal",
       "away_team": "Uzbekistan",
-      "date": "2026-06-21",
+      "date": "2026-06-23",
       "stage": "group",
       "odds": {
         "home_win": 1.26,
@@ -50,13 +56,16 @@
         "btts_yes": 3.3,
         "btts_no": 1.36
       },
-      "odds_confidence": 0.6
+      "odds_confidence": 0.6,
+      "api_match_id": 537405,
+      "home_team_id": 765,
+      "away_team_id": 8070
     },
     {
       "match_id": "WC2026_K4",
       "home_team": "Colombia",
       "away_team": "Congo DR",
-      "date": "2026-06-21",
+      "date": "2026-06-24",
       "stage": "group",
       "odds": {
         "home_win": 1.52,
@@ -67,30 +76,36 @@
         "btts_yes": 2.55,
         "btts_no": 1.52
       },
-      "odds_confidence": 0.6
+      "odds_confidence": 0.6,
+      "api_match_id": 537406,
+      "home_team_id": 818,
+      "away_team_id": 1934
     },
     {
       "match_id": "WC2026_K5",
-      "home_team": "Portugal",
-      "away_team": "Colombia",
-      "date": "2026-06-26",
+      "home_team": "Colombia",
+      "away_team": "Portugal",
+      "date": "2026-06-28",
       "stage": "group",
       "odds": {
-        "home_win": 1.75,
+        "home_win": 4.7,
         "draw": 3.7,
-        "away_win": 4.7,
+        "away_win": 1.75,
         "over_2_5": 2.0,
         "under_2_5": 1.84,
         "btts_yes": 2.2,
         "btts_no": 1.67
       },
-      "odds_confidence": 0.6
+      "odds_confidence": 0.6,
+      "api_match_id": 537407,
+      "home_team_id": 818,
+      "away_team_id": 765
     },
     {
       "match_id": "WC2026_K6",
       "home_team": "Congo DR",
       "away_team": "Uzbekistan",
-      "date": "2026-06-26",
+      "date": "2026-06-28",
       "stage": "group",
       "odds": {
         "home_win": 2.4,
@@ -101,7 +116,10 @@
         "btts_yes": 1.9,
         "btts_no": 1.9
       },
-      "odds_confidence": 0.6
+      "odds_confidence": 0.6,
+      "api_match_id": 537408,
+      "home_team_id": 1934,
+      "away_team_id": 8070
     }
   ]
 }

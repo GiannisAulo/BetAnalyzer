@@ -5,6 +5,45 @@ WC2026_DIR = Path(__file__).parent / "wc2026"
 TEAMS_DIR = WC2026_DIR / "teams"
 MATCHES_DIR = WC2026_DIR / "matches"
 
+_API_ID_INDEX: dict[int, Path] | None = None
+
+
+def _build_api_id_index() -> dict[int, Path]:
+    index = {}
+    for path in TEAMS_DIR.glob("*.json"):
+        try:
+            data = json.loads(path.read_text(encoding="utf-8"))
+            api_id = data.get("api_id")
+            if api_id is not None:
+                index[int(api_id)] = path
+        except Exception:
+            pass
+    return index
+
+
+def get_api_id_index() -> dict[int, Path]:
+    global _API_ID_INDEX
+    if _API_ID_INDEX is None:
+        _API_ID_INDEX = _build_api_id_index()
+    return _API_ID_INDEX
+
+
+def load_team_by_api_id(api_id: int) -> dict:
+    index = get_api_id_index()
+    path = index.get(api_id)
+    if path is None:
+        raise FileNotFoundError(f"No team file found for api_id={api_id}")
+    with path.open("r", encoding="utf-8") as f:
+        return json.load(f)
+
+
+def get_team_path_by_api_id(api_id: int) -> Path:
+    index = get_api_id_index()
+    path = index.get(api_id)
+    if path is None:
+        raise FileNotFoundError(f"No team file found for api_id={api_id}")
+    return path
+
 
 def _team_filename(team_name: str) -> str:
     return team_name.strip().lower().replace(" ", "_") + ".json"

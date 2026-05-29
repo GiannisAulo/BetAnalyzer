@@ -16,13 +16,16 @@
         "btts_yes": 2.0,
         "btts_no": 1.8
       },
-      "odds_confidence": 0.6
+      "odds_confidence": 0.6,
+      "api_match_id": 537333,
+      "home_team_id": 828,
+      "away_team_id": 1060
     },
     {
       "match_id": "WC2026_B2",
       "home_team": "Qatar",
       "away_team": "Switzerland",
-      "date": "2026-06-12",
+      "date": "2026-06-13",
       "stage": "group",
       "odds": {
         "home_win": 9.5,
@@ -33,7 +36,10 @@
         "btts_yes": 2.5,
         "btts_no": 1.55
       },
-      "odds_confidence": 0.6
+      "odds_confidence": 0.6,
+      "api_match_id": 537334,
+      "home_team_id": 8030,
+      "away_team_id": 788
     },
     {
       "match_id": "WC2026_B3",
@@ -50,13 +56,16 @@
         "btts_yes": 2.5,
         "btts_no": 1.55
       },
-      "odds_confidence": 0.6
+      "odds_confidence": 0.6,
+      "api_match_id": 537336,
+      "home_team_id": 828,
+      "away_team_id": 8030
     },
     {
       "match_id": "WC2026_B4",
       "home_team": "Switzerland",
       "away_team": "Bosnia-Herzegovina",
-      "date": "2026-06-19",
+      "date": "2026-06-18",
       "stage": "group",
       "odds": {
         "home_win": 1.55,
@@ -67,30 +76,36 @@
         "btts_yes": 2.3,
         "btts_no": 1.62
       },
-      "odds_confidence": 0.6
+      "odds_confidence": 0.6,
+      "api_match_id": 537335,
+      "home_team_id": 788,
+      "away_team_id": 1060
     },
     {
       "match_id": "WC2026_B5",
-      "home_team": "Canada",
-      "away_team": "Switzerland",
-      "date": "2026-06-25",
+      "home_team": "Switzerland",
+      "away_team": "Canada",
+      "date": "2026-06-24",
       "stage": "group",
       "odds": {
-        "home_win": 2.65,
+        "home_win": 2.75,
         "draw": 3.2,
-        "away_win": 2.75,
+        "away_win": 2.65,
         "over_2_5": 2.1,
         "under_2_5": 1.75,
         "btts_yes": 1.9,
         "btts_no": 1.9
       },
-      "odds_confidence": 0.6
+      "odds_confidence": 0.6,
+      "api_match_id": 537337,
+      "home_team_id": 788,
+      "away_team_id": 828
     },
     {
       "match_id": "WC2026_B6",
       "home_team": "Bosnia-Herzegovina",
       "away_team": "Qatar",
-      "date": "2026-06-25",
+      "date": "2026-06-24",
       "stage": "group",
       "odds": {
         "home_win": 2.1,
@@ -101,7 +116,10 @@
         "btts_yes": 1.9,
         "btts_no": 1.9
       },
-      "odds_confidence": 0.6
+      "odds_confidence": 0.6,
+      "api_match_id": 537338,
+      "home_team_id": 1060,
+      "away_team_id": 8030
     }
   ]
 }

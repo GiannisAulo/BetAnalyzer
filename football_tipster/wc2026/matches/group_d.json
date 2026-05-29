@@ -5,7 +5,7 @@
       "match_id": "WC2026_D1",
       "home_team": "USA",
       "away_team": "Paraguay",
-      "date": "2026-06-14",
+      "date": "2026-06-13",
       "stage": "group",
       "odds": {
         "home_win": 2.0,
@@ -16,7 +16,10 @@
         "btts_yes": 1.88,
         "btts_no": 1.9
       },
-      "odds_confidence": 0.6
+      "odds_confidence": 0.6,
+      "api_match_id": 537345,
+      "home_team_id": 771,
+      "away_team_id": 761
     },
     {
       "match_id": "WC2026_D2",
@@ -33,13 +36,16 @@
         "btts_yes": 2.0,
         "btts_no": 1.8
       },
-      "odds_confidence": 0.6
+      "odds_confidence": 0.6,
+      "api_match_id": 537346,
+      "home_team_id": 779,
+      "away_team_id": 803
     },
     {
       "match_id": "WC2026_D3",
       "home_team": "USA",
       "away_team": "Australia",
-      "date": "2026-06-21",
+      "date": "2026-06-19",
       "stage": "group",
       "odds": {
         "home_win": 1.78,
@@ -50,13 +56,16 @@
         "btts_yes": 2.15,
         "btts_no": 1.68
       },
-      "odds_confidence": 0.6
+      "odds_confidence": 0.6,
+      "api_match_id": 537348,
+      "home_team_id": 771,
+      "away_team_id": 779
     },
     {
       "match_id": "WC2026_D4",
       "home_team": "Turkey",
       "away_team": "Paraguay",
-      "date": "2026-06-21",
+      "date": "2026-06-20",
       "stage": "group",
       "odds": {
         "home_win": 2.25,
@@ -67,13 +76,16 @@
         "btts_yes": 1.88,
         "btts_no": 1.9
       },
-      "odds_confidence": 0.6
+      "odds_confidence": 0.6,
+      "api_match_id": 537347,
+      "home_team_id": 803,
+      "away_team_id": 761
     },
     {
       "match_id": "WC2026_D5",
-      "home_team": "USA",
-      "away_team": "Turkey",
-      "date": "2026-06-27",
+      "home_team": "Turkey",
+      "away_team": "USA",
+      "date": "2026-06-26",
       "stage": "group",
       "odds": {
         "home_win": 1.95,
@@ -84,13 +96,16 @@
         "btts_yes": 2.05,
         "btts_no": 1.8
       },
-      "odds_confidence": 0.6
+      "odds_confidence": 0.6,
+      "api_match_id": 537349,
+      "home_team_id": 803,
+      "away_team_id": 771
     },
     {
       "match_id": "WC2026_D6",
       "home_team": "Paraguay",
       "away_team": "Australia",
-      "date": "2026-06-27",
+      "date": "2026-06-26",
       "stage": "group",
       "odds": {
         "home_win": 2.9,
@@ -101,7 +116,10 @@
         "btts_yes": 1.88,
         "btts_no": 1.9
       },
-      "odds_confidence": 0.6
+      "odds_confidence": 0.6,
+      "api_match_id": 537350,
+      "home_team_id": 761,
+      "away_team_id": 779
     }
   ]
 }

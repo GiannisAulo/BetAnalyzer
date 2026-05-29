@@ -16,13 +16,16 @@
         "btts_yes": 2.15,
         "btts_no": 1.68
       },
-      "odds_confidence": 0.6
+      "odds_confidence": 0.6,
+      "api_match_id": 537327,
+      "home_team_id": 769,
+      "away_team_id": 774
     },
     {
       "match_id": "WC2026_A2",
       "home_team": "South Korea",
       "away_team": "Czechia",
-      "date": "2026-06-11",
+      "date": "2026-06-12",
       "stage": "group",
       "odds": {
         "home_win": 2.75,
@@ -33,7 +36,10 @@
         "btts_yes": 1.78,
         "btts_no": 2.0
       },
-      "odds_confidence": 0.6
+      "odds_confidence": 0.6,
+      "api_match_id": 537328,
+      "home_team_id": 772,
+      "away_team_id": 798
     },
     {
       "match_id": "WC2026_A3",
@@ -50,7 +56,10 @@
         "btts_yes": 2.1,
         "btts_no": 1.72
       },
-      "odds_confidence": 0.6
+      "odds_confidence": 0.6,
+      "api_match_id": 537330,
+      "home_team_id": 769,
+      "away_team_id": 772
     },
     {
       "match_id": "WC2026_A4",
@@ -67,13 +76,16 @@
         "btts_yes": 2.0,
         "btts_no": 1.8
       },
-      "odds_confidence": 0.6
+      "odds_confidence": 0.6,
+      "api_match_id": 537329,
+      "home_team_id": 798,
+      "away_team_id": 774
     },
     {
       "match_id": "WC2026_A5",
-      "home_team": "Mexico",
-      "away_team": "Czechia",
-      "date": "2026-06-24",
+      "home_team": "Czechia",
+      "away_team": "Mexico",
+      "date": "2026-06-25",
       "stage": "group",
       "odds": {
         "home_win": 1.6,
@@ -84,13 +96,16 @@
         "btts_yes": 2.2,
         "btts_no": 1.67
       },
-      "odds_confidence": 0.6
+      "odds_confidence": 0.6,
+      "api_match_id": 537331,
+      "home_team_id": 798,
+      "away_team_id": 769
     },
     {
       "match_id": "WC2026_A6",
       "home_team": "South Africa",
       "away_team": "South Korea",
-      "date": "2026-06-24",
+      "date": "2026-06-25",
       "stage": "group",
       "odds": {
         "home_win": 3.2,
@@ -101,7 +116,10 @@
         "btts_yes": 1.92,
         "btts_no": 1.88
       },
-      "odds_confidence": 0.6
+      "odds_confidence": 0.6,
+      "api_match_id": 537332,
+      "home_team_id": 774,
+      "away_team_id": 772
     }
   ]
 }

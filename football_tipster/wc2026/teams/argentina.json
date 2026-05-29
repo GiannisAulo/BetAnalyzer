@@ -1,110 +1,100 @@
 {
   "team": "Argentina",
+  "api_id": 762,
   "fifa_ranking": 3,
   "elo_rating": 1874,
   "attack_strength": 1.55,
-  "defense_strength": 0.80,
-  "avg_goals_scored": 2.2,
-  "avg_goals_conceded": 0.85,
-  "avg_goals_scored_home": 2.5,
-  "avg_goals_conceded_home": 0.7,
-  "avg_goals_scored_away": 1.9,
-  "avg_goals_conceded_away": 1.0,
-  "form": ["W", "W", "D", "W", "W"],
-  "form_home": ["W", "W", "W"],
-  "form_away": ["D", "W", "W"],
+  "defense_strength": 0.75,
+  "avg_goals_scored": 3.2,
+  "avg_goals_conceded": 0.2,
+  "avg_goals_scored_home": 2.7,
+  "avg_goals_conceded_home": 0.3,
+  "avg_goals_scored_away": 4.0,
+  "avg_goals_conceded_away": 0.0,
+  "form": [
+    "W",
+    "W",
+    "W",
+    "W",
+    "W"
+  ],
+  "form_home": [
+    "W",
+    "W",
+    "W"
+  ],
+  "form_away": [
+    "W",
+    "W"
+  ],
   "recent_matches": [
     {
-      "date": "2026-03-26",
-      "opponent": "Uruguay",
-      "home_away": "A",
-      "goals_scored": 1,
+      "date": "2026-04-01",
+      "opponent": "Zambia",
+      "home_away": "H",
+      "goals_scored": 5,
       "goals_conceded": 0,
-      "competition": "WC_Qualifier",
-      "weight": 1.2
+      "competition": "Friendly",
+      "weight": 0.8
     },
     {
-      "date": "2026-03-22",
-      "opponent": "Brazil",
+      "date": "2026-03-28",
+      "opponent": "Mauritania",
       "home_away": "H",
       "goals_scored": 2,
       "goals_conceded": 1,
-      "competition": "WC_Qualifier",
-      "weight": 1.2
-    },
-    {
-      "date": "2025-11-19",
-      "opponent": "Peru",
-      "home_away": "H",
-      "goals_scored": 3,
-      "goals_conceded": 0,
-      "competition": "WC_Qualifier",
-      "weight": 1.2
+      "competition": "Friendly",
+      "weight": 0.8
     },
     {
       "date": "2025-11-14",
-      "opponent": "Paraguay",
-      "home_away": "A",
-      "goals_scored": 1,
-      "goals_conceded": 1,
-      "competition": "WC_Qualifier",
-      "weight": 1.2
-    },
-    {
-      "date": "2025-10-15",
-      "opponent": "Bolivia",
+      "opponent": "Angola",
       "home_away": "A",
       "goals_scored": 2,
       "goals_conceded": 0,
-      "competition": "WC_Qualifier",
-      "weight": 1.2
+      "competition": "Friendly",
+      "weight": 0.8
     },
     {
-      "date": "2024-07-14",
-      "opponent": "Colombia",
-      "home_away": "N",
+      "date": "2025-10-15",
+      "opponent": "Puerto Rico",
+      "home_away": "A",
+      "goals_scored": 6,
+      "goals_conceded": 0,
+      "competition": "Friendly",
+      "weight": 0.8
+    },
+    {
+      "date": "2025-10-11",
+      "opponent": "Venezuela",
+      "home_away": "H",
       "goals_scored": 1,
       "goals_conceded": 0,
-      "competition": "Copa_America",
-      "weight": 1.3
+      "competition": "Friendly",
+      "weight": 0.8
     }
   ],
   "h2h": {
-    "Brazil": {
-      "played": 8,
-      "wins": 4,
-      "draws": 2,
-      "losses": 2,
-      "goals_scored": 10,
-      "goals_conceded": 7,
-      "home_wins": 2,
-      "away_wins": 2
-    },
-    "France": {
-      "played": 3,
+    "Algeria": {
+      "played": 1,
       "wins": 1,
-      "draws": 1,
-      "losses": 1,
-      "goals_scored": 5,
-      "goals_conceded": 5,
-      "home_wins": 0,
-      "away_wins": 0
-    },
-    "Germany": {
-      "played": 5,
-      "wins": 1,
-      "draws": 1,
-      "losses": 3,
-      "goals_scored": 6,
-      "goals_conceded": 8,
+      "draws": 0,
+      "losses": 0,
+      "goals_scored": 4,
+      "goals_conceded": 3,
       "home_wins": 0,
       "away_wins": 1
     }
   },
   "squad_strength": 9.4,
-  "avg_player_age": 27.6,
-  "key_players_missing": [],
-  "clean_sheets_last5": 3,
+  "avg_player_age": 28.91,
+  "key_players_missing": [
+    "Juan Foyth (Out)",
+    "Joaquín Panichelli (Out)",
+    "Cristian Romero (Major doubt)",
+    "Nahuel Molina (Major doubt)"
+  ],
+  "clean_sheets_last5": 4,
   "failed_to_score_last5": 0,
-  "btts_last5": 2
+  "btts_last5": 1
 }

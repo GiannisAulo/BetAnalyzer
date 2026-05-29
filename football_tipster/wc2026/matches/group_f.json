@@ -5,7 +5,7 @@
       "match_id": "WC2026_F1",
       "home_team": "Netherlands",
       "away_team": "Japan",
-      "date": "2026-06-16",
+      "date": "2026-06-14",
       "stage": "group",
       "odds": {
         "home_win": 1.98,
@@ -16,13 +16,16 @@
         "btts_yes": 1.9,
         "btts_no": 1.9
       },
-      "odds_confidence": 0.6
+      "odds_confidence": 0.6,
+      "api_match_id": 537357,
+      "home_team_id": 8601,
+      "away_team_id": 766
     },
     {
       "match_id": "WC2026_F2",
       "home_team": "Sweden",
       "away_team": "Tunisia",
-      "date": "2026-06-16",
+      "date": "2026-06-15",
       "stage": "group",
       "odds": {
         "home_win": 2.02,
@@ -33,13 +36,16 @@
         "btts_yes": 1.95,
         "btts_no": 1.85
       },
-      "odds_confidence": 0.6
+      "odds_confidence": 0.6,
+      "api_match_id": 537358,
+      "home_team_id": 792,
+      "away_team_id": 802
     },
     {
       "match_id": "WC2026_F3",
       "home_team": "Netherlands",
       "away_team": "Sweden",
-      "date": "2026-06-23",
+      "date": "2026-06-20",
       "stage": "group",
       "odds": {
         "home_win": 1.65,
@@ -50,30 +56,36 @@
         "btts_yes": 2.25,
         "btts_no": 1.65
       },
-      "odds_confidence": 0.6
+      "odds_confidence": 0.6,
+      "api_match_id": 537359,
+      "home_team_id": 8601,
+      "away_team_id": 792
     },
     {
       "match_id": "WC2026_F4",
       "home_team": "Tunisia",
       "away_team": "Japan",
-      "date": "2026-06-23",
+      "date": "2026-06-21",
       "stage": "group",
       "odds": {
-        "home_win": 4.6,
+        "home_win": 1.85,
         "draw": 3.4,
-        "away_win": 1.85,
+        "away_win": 4.6,
         "over_2_5": 2.0,
         "under_2_5": 1.84,
         "btts_yes": 2.15,
         "btts_no": 1.68
       },
-      "odds_confidence": 0.6
+      "odds_confidence": 0.6,
+      "api_match_id": 537360,
+      "home_team_id": 802,
+      "away_team_id": 766
     },
     {
       "match_id": "WC2026_F5",
-      "home_team": "Netherlands",
-      "away_team": "Tunisia",
-      "date": "2026-06-27",
+      "home_team": "Tunisia",
+      "away_team": "Netherlands",
+      "date": "2026-06-26",
       "stage": "group",
       "odds": {
         "home_win": 1.42,
@@ -84,13 +96,16 @@
         "btts_yes": 2.6,
         "btts_no": 1.5
       },
-      "odds_confidence": 0.6
+      "odds_confidence": 0.6,
+      "api_match_id": 537361,
+      "home_team_id": 802,
+      "away_team_id": 8601
     },
     {
       "match_id": "WC2026_F6",
       "home_team": "Japan",
       "away_team": "Sweden",
-      "date": "2026-06-27",
+      "date": "2026-06-26",
       "stage": "group",
       "odds": {
         "home_win": 1.72,
@@ -101,7 +116,10 @@
         "btts_yes": 2.15,
         "btts_no": 1.68
       },
-      "odds_confidence": 0.6
+      "odds_confidence": 0.6,
+      "api_match_id": 537362,
+      "home_team_id": 766,
+      "away_team_id": 792
     }
   ]
 }
