@@ -2,7 +2,7 @@
   "team": "Paraguay",
   "api_id": 761,
   "fifa_ranking": 40,
-  "elo_rating": 1475,
+  "elo_rating": 1504,
   "attack_strength": 1.05,
   "defense_strength": 1.05,
   "avg_goals_scored": null,
@@ -16,16 +16,29 @@
   "form_away": [],
   "recent_matches": [],
   "h2h": {
-    "Australia": {
-      "played": 3,
-      "wins": 0,
-      "draws": 1,
-      "losses": 2,
-      "goals_scored": 2,
-      "goals_conceded": 4,
-      "home_wins": 0,
-      "away_wins": 0
-    }
+    "Australia": [
+      {
+        "date": "2010-10-09",
+        "home_away": "A",
+        "goals_scored": 0,
+        "goals_conceded": 1,
+        "competition": "Friendly"
+      },
+      {
+        "date": "2006-10-07",
+        "home_away": "A",
+        "goals_scored": 1,
+        "goals_conceded": 1,
+        "competition": "Friendly"
+      },
+      {
+        "date": "2000-06-14",
+        "home_away": "A",
+        "goals_scored": 1,
+        "goals_conceded": 2,
+        "competition": "Friendly"
+      }
+    ]
   },
   "squad_strength": 57.9,
   "avg_player_age": 28.36,

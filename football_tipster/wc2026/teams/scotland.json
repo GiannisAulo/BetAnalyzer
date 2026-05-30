@@ -1,8 +1,8 @@
 {
   "team": "Scotland",
   "api_id": 8873,
-  "fifa_ranking": 38,
-  "elo_rating": 1485,
+  "fifa_ranking": 43,
+  "elo_rating": 1498,
   "attack_strength": 1.1,
   "defense_strength": 1.05,
   "avg_goals_scored": null,
@@ -16,16 +16,43 @@
   "form_away": [],
   "recent_matches": [],
   "h2h": {
-    "Brazil": {
-      "played": 5,
-      "wins": 0,
-      "draws": 1,
-      "losses": 4,
-      "goals_scored": 2,
-      "goals_conceded": 9,
-      "home_wins": 0,
-      "away_wins": 0
-    }
+    "Brazil": [
+      {
+        "date": "2011-03-27",
+        "home_away": "A",
+        "goals_scored": 0,
+        "goals_conceded": 2,
+        "competition": "Friendly"
+      },
+      {
+        "date": "1998-06-10",
+        "home_away": "A",
+        "goals_scored": 1,
+        "goals_conceded": 2,
+        "competition": "WC"
+      },
+      {
+        "date": "1990-06-20",
+        "home_away": "A",
+        "goals_scored": 0,
+        "goals_conceded": 1,
+        "competition": "WC"
+      },
+      {
+        "date": "1982-06-18",
+        "home_away": "A",
+        "goals_scored": 1,
+        "goals_conceded": 4,
+        "competition": "WC"
+      },
+      {
+        "date": "1974-06-18",
+        "home_away": "H",
+        "goals_scored": 0,
+        "goals_conceded": 0,
+        "competition": "WC"
+      }
+    ]
   },
   "squad_strength": 63.8,
   "avg_player_age": 28.35,

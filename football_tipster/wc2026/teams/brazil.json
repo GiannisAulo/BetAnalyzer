@@ -75,36 +75,82 @@
     }
   ],
   "h2h": {
-    "Morocco": {
-      "played": 2,
-      "wins": 1,
-      "draws": 0,
-      "losses": 1,
-      "goals_scored": 4,
-      "goals_conceded": 2,
-      "home_wins": 1,
-      "away_wins": 0
-    },
-    "Haiti": {
-      "played": 3,
-      "wins": 3,
-      "draws": 0,
-      "losses": 0,
-      "goals_scored": 22,
-      "goals_conceded": 2,
-      "home_wins": 2,
-      "away_wins": 1
-    },
-    "Scotland": {
-      "played": 5,
-      "wins": 4,
-      "draws": 1,
-      "losses": 0,
-      "goals_scored": 9,
-      "goals_conceded": 2,
-      "home_wins": 4,
-      "away_wins": 0
-    }
+    "Morocco": [
+      {
+        "date": "2023-03-26",
+        "home_away": "A",
+        "goals_scored": 1,
+        "goals_conceded": 2,
+        "competition": "Friendly"
+      },
+      {
+        "date": "1998-06-16",
+        "home_away": "H",
+        "goals_scored": 3,
+        "goals_conceded": 0,
+        "competition": "WC"
+      }
+    ],
+    "Haiti": [
+      {
+        "date": "2016-06-09",
+        "home_away": "H",
+        "goals_scored": 7,
+        "goals_conceded": 1,
+        "competition": "Copa_America"
+      },
+      {
+        "date": "2004-08-19",
+        "home_away": "A",
+        "goals_scored": 6,
+        "goals_conceded": 0,
+        "competition": "Friendly"
+      },
+      {
+        "date": "1959-09-02",
+        "home_away": "H",
+        "goals_scored": 9,
+        "goals_conceded": 1,
+        "competition": "PAG"
+      }
+    ],
+    "Scotland": [
+      {
+        "date": "2011-03-27",
+        "home_away": "H",
+        "goals_scored": 2,
+        "goals_conceded": 0,
+        "competition": "Friendly"
+      },
+      {
+        "date": "1998-06-10",
+        "home_away": "H",
+        "goals_scored": 2,
+        "goals_conceded": 1,
+        "competition": "WC"
+      },
+      {
+        "date": "1990-06-20",
+        "home_away": "H",
+        "goals_scored": 1,
+        "goals_conceded": 0,
+        "competition": "WC"
+      },
+      {
+        "date": "1982-06-18",
+        "home_away": "H",
+        "goals_scored": 4,
+        "goals_conceded": 1,
+        "competition": "WC"
+      },
+      {
+        "date": "1974-06-18",
+        "home_away": "A",
+        "goals_scored": 0,
+        "goals_conceded": 0,
+        "competition": "WC"
+      }
+    ]
   },
   "squad_strength": 90.8,
   "avg_player_age": 27.64,

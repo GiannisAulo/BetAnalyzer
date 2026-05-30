@@ -2,7 +2,7 @@
   "team": "Morocco",
   "api_id": 815,
   "fifa_ranking": 8,
-  "elo_rating": 1755,
+  "elo_rating": 1756,
   "attack_strength": 1.3,
   "defense_strength": 0.85,
   "avg_goals_scored": null,
@@ -16,16 +16,22 @@
   "form_away": [],
   "recent_matches": [],
   "h2h": {
-    "Brazil": {
-      "played": 2,
-      "wins": 1,
-      "draws": 0,
-      "losses": 1,
-      "goals_scored": 2,
-      "goals_conceded": 4,
-      "home_wins": 1,
-      "away_wins": 0
-    }
+    "Brazil": [
+      {
+        "date": "2023-03-26",
+        "home_away": "H",
+        "goals_scored": 2,
+        "goals_conceded": 1,
+        "competition": "Friendly"
+      },
+      {
+        "date": "1998-06-16",
+        "home_away": "A",
+        "goals_scored": 0,
+        "goals_conceded": 3,
+        "competition": "WC"
+      }
+    ]
   },
   "squad_strength": 86.5,
   "avg_player_age": 27.42,

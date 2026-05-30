@@ -2,7 +2,7 @@
   "team": "Canada",
   "api_id": 828,
   "fifa_ranking": 30,
-  "elo_rating": 1540,
+  "elo_rating": 1556,
   "attack_strength": 1.0,
   "defense_strength": 0.75,
   "avg_goals_scored": 1.0,
@@ -74,26 +74,24 @@
     }
   ],
   "h2h": {
-    "Qatar": {
-      "played": 1,
-      "wins": 1,
-      "draws": 0,
-      "losses": 0,
-      "goals_scored": 2,
-      "goals_conceded": 0,
-      "home_wins": 1,
-      "away_wins": 0
-    },
-    "Switzerland": {
-      "played": 1,
-      "wins": 1,
-      "draws": 0,
-      "losses": 0,
-      "goals_scored": 3,
-      "goals_conceded": 1,
-      "home_wins": 0,
-      "away_wins": 1
-    }
+    "Qatar": [
+      {
+        "date": "2022-09-23",
+        "home_away": "H",
+        "goals_scored": 2,
+        "goals_conceded": 0,
+        "competition": "Friendly"
+      }
+    ],
+    "Switzerland": [
+      {
+        "date": "2002-05-15",
+        "home_away": "A",
+        "goals_scored": 3,
+        "goals_conceded": 1,
+        "competition": "Friendly"
+      }
+    ]
   },
   "squad_strength": 74.3,
   "avg_player_age": 26.23,

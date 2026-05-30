@@ -2,7 +2,7 @@
   "team": "Algeria",
   "api_id": 778,
   "fifa_ranking": 28,
-  "elo_rating": 1560,
+  "elo_rating": 1564,
   "attack_strength": 1.25,
   "defense_strength": 0.85,
   "avg_goals_scored": 2.0,
@@ -75,36 +75,33 @@
     }
   ],
   "h2h": {
-    "Argentina": {
-      "played": 1,
-      "wins": 0,
-      "draws": 0,
-      "losses": 1,
-      "goals_scored": 3,
-      "goals_conceded": 4,
-      "home_wins": 0,
-      "away_wins": 0
-    },
-    "Jordan": {
-      "played": 1,
-      "wins": 0,
-      "draws": 1,
-      "losses": 0,
-      "goals_scored": 1,
-      "goals_conceded": 1,
-      "home_wins": 0,
-      "away_wins": 0
-    },
-    "Austria": {
-      "played": 1,
-      "wins": 0,
-      "draws": 0,
-      "losses": 1,
-      "goals_scored": 0,
-      "goals_conceded": 2,
-      "home_wins": 0,
-      "away_wins": 0
-    }
+    "Argentina": [
+      {
+        "date": "2007-06-05",
+        "home_away": "H",
+        "goals_scored": 3,
+        "goals_conceded": 4,
+        "competition": "Friendly"
+      }
+    ],
+    "Jordan": [
+      {
+        "date": "2004-05-30",
+        "home_away": "H",
+        "goals_scored": 1,
+        "goals_conceded": 1,
+        "competition": "Friendly"
+      }
+    ],
+    "Austria": [
+      {
+        "date": "1982-06-21",
+        "home_away": "H",
+        "goals_scored": 0,
+        "goals_conceded": 2,
+        "competition": "WC"
+      }
+    ]
   },
   "squad_strength": 73.8,
   "avg_player_age": 25.67,

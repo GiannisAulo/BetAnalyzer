@@ -1,8 +1,8 @@
 {
   "team": "South Korea",
   "api_id": 772,
-  "fifa_ranking": 18,
-  "elo_rating": 1645,
+  "fifa_ranking": 25,
+  "elo_rating": 1589,
   "attack_strength": 1.15,
   "defense_strength": 1.0,
   "avg_goals_scored": 1.0,
@@ -75,16 +75,29 @@
     }
   ],
   "h2h": {
-    "Czechia": {
-      "played": 3,
-      "wins": 1,
-      "draws": 1,
-      "losses": 1,
-      "goals_scored": 4,
-      "goals_conceded": 8,
-      "home_wins": 0,
-      "away_wins": 1
-    }
+    "Czechia": [
+      {
+        "date": "2016-06-05",
+        "home_away": "A",
+        "goals_scored": 2,
+        "goals_conceded": 1,
+        "competition": "Friendly"
+      },
+      {
+        "date": "2001-08-15",
+        "home_away": "A",
+        "goals_scored": 0,
+        "goals_conceded": 5,
+        "competition": "Friendly"
+      },
+      {
+        "date": "1998-05-27",
+        "home_away": "H",
+        "goals_scored": 2,
+        "goals_conceded": 2,
+        "competition": "Friendly"
+      }
+    ]
   },
   "squad_strength": 75.9,
   "avg_player_age": 27.32,

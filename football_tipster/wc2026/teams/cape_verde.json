@@ -1,25 +1,84 @@
 {
   "team": "Cape Verde",
   "api_id": 1930,
-  "fifa_ranking": 60,
-  "elo_rating": 1395,
+  "fifa_ranking": 69,
+  "elo_rating": 1366,
   "attack_strength": 1.0,
   "defense_strength": 1.15,
-  "avg_goals_scored": null,
-  "avg_goals_conceded": null,
-  "avg_goals_scored_home": null,
-  "avg_goals_conceded_home": null,
-  "avg_goals_scored_away": null,
-  "avg_goals_conceded_away": null,
-  "form": [],
-  "form_home": [],
-  "form_away": [],
-  "recent_matches": [],
+  "avg_goals_scored": 1.7,
+  "avg_goals_conceded": 1.5,
+  "avg_goals_scored_home": 2.6,
+  "avg_goals_conceded_home": 0.4,
+  "avg_goals_scored_away": 1.0,
+  "avg_goals_conceded_away": 2.3,
+  "form": [
+    "W",
+    "L",
+    "L",
+    "L",
+    "W"
+  ],
+  "form_home": [
+    "W",
+    "W"
+  ],
+  "form_away": [
+    "L",
+    "L",
+    "L"
+  ],
+  "recent_matches": [
+    {
+      "date": "2026-03-30",
+      "opponent": "Finland",
+      "home_away": "H",
+      "goals_scored": 2,
+      "goals_conceded": 1,
+      "competition": "Friendly",
+      "weight": 0.8
+    },
+    {
+      "date": "2026-03-27",
+      "opponent": "Chile",
+      "home_away": "A",
+      "goals_scored": 2,
+      "goals_conceded": 4,
+      "competition": "Friendly",
+      "weight": 0.8
+    },
+    {
+      "date": "2025-11-17",
+      "opponent": "Egypt",
+      "home_away": "A",
+      "goals_scored": 1,
+      "goals_conceded": 2,
+      "competition": "Friendly",
+      "weight": 0.8
+    },
+    {
+      "date": "2025-11-13",
+      "opponent": "Iran",
+      "home_away": "A",
+      "goals_scored": 0,
+      "goals_conceded": 1,
+      "competition": "Friendly",
+      "weight": 0.8
+    },
+    {
+      "date": "2025-10-13",
+      "opponent": "Eswatini",
+      "home_away": "H",
+      "goals_scored": 3,
+      "goals_conceded": 0,
+      "competition": "WC_Qualifier",
+      "weight": 1.2
+    }
+  ],
   "h2h": {},
   "squad_strength": 56.5,
   "avg_player_age": 27.96,
   "key_players_missing": [],
-  "clean_sheets_last5": 0,
-  "failed_to_score_last5": 0,
-  "btts_last5": 0
+  "clean_sheets_last5": 1,
+  "failed_to_score_last5": 1,
+  "btts_last5": 3
 }

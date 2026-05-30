@@ -16,16 +16,29 @@
   "form_away": [],
   "recent_matches": [],
   "h2h": {
-    "Brazil": {
-      "played": 3,
-      "wins": 0,
-      "draws": 0,
-      "losses": 3,
-      "goals_scored": 2,
-      "goals_conceded": 22,
-      "home_wins": 0,
-      "away_wins": 0
-    }
+    "Brazil": [
+      {
+        "date": "2016-06-09",
+        "home_away": "A",
+        "goals_scored": 1,
+        "goals_conceded": 7,
+        "competition": "Copa_America"
+      },
+      {
+        "date": "2004-08-19",
+        "home_away": "H",
+        "goals_scored": 0,
+        "goals_conceded": 6,
+        "competition": "Friendly"
+      },
+      {
+        "date": "1959-09-02",
+        "home_away": "A",
+        "goals_scored": 1,
+        "goals_conceded": 9,
+        "competition": "PAG"
+      }
+    ]
   },
   "squad_strength": 54.2,
   "avg_player_age": 27.36,

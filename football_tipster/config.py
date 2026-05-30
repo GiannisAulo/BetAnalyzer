@@ -91,16 +91,13 @@ RATE_LIMIT_SLEEP = 6  # seconds between API requests
 # FORM_DECAY_K applies to team rolling stats (last 30 matches).
 #   k=0.5 → a match 30 days ago counts 61%, 90 days ago counts 22%.
 #   Aggressive decay is correct: a team's form from 3 months ago is stale.
-# H2H_DECAY_K applies to head-to-head history (up to 10 meetings, often years apart).
-#   k=0.05 → a meeting 30 days ago counts 95%, 1 year ago counts 83%, 3 years ago counts 60%.
-#   Slow decay is correct: fixture-pair tendencies (tactical matchups, venue effects)
-#   are stable over multiple seasons. Using k=0.5 would make any H2H match >6 months
-#   old near-worthless, destroying the signal.
-# Both constants should be re-evaluated once backtest.py (2.1) is built —
-# sweep k ∈ {0.3, 0.4, 0.5} for form and k ∈ {0.03, 0.05, 0.08} for H2H,
-# pick the values that minimise Brier score per market.
-FORM_DECAY_K = 0.5
-H2H_DECAY_K  = 0.05
+# H2H_DECAY_K applies to head-to-head history.
+#   k=0.35 → 2-year half-life: 1yr=0.70, 2yr=0.50, 3yr=0.35, 5yr=0.17.
+#   H2H matches older than H2H_MAX_AGE_YEARS are excluded entirely — squad
+#   turnover makes pre-cutoff results irrelevant for WC2026 predictions.
+FORM_DECAY_K      = 0.5
+H2H_DECAY_K       = 0.35
+H2H_MAX_AGE_YEARS = 5
 
 # Per-league season configuration for the motivation factor.
 # season_games: total games per team in the regular season.

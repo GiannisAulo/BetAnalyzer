@@ -1,8 +1,8 @@
 {
   "team": "Turkey",
   "api_id": 803,
-  "fifa_ranking": 25,
-  "elo_rating": 1590,
+  "fifa_ranking": 22,
+  "elo_rating": 1599,
   "attack_strength": 1.25,
   "defense_strength": 1.0,
   "avg_goals_scored": null,
@@ -16,16 +16,22 @@
   "form_away": [],
   "recent_matches": [],
   "h2h": {
-    "Australia": {
-      "played": 2,
-      "wins": 2,
-      "draws": 0,
-      "losses": 0,
-      "goals_scored": 4,
-      "goals_conceded": 1,
-      "home_wins": 0,
-      "away_wins": 2
-    }
+    "Australia": [
+      {
+        "date": "2004-05-24",
+        "home_away": "A",
+        "goals_scored": 1,
+        "goals_conceded": 0,
+        "competition": "Friendly"
+      },
+      {
+        "date": "2004-05-21",
+        "home_away": "A",
+        "goals_scored": 3,
+        "goals_conceded": 1,
+        "competition": "Friendly"
+      }
+    ]
   },
   "squad_strength": 77.9,
   "avg_player_age": 27.03,

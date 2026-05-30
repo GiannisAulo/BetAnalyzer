@@ -16,16 +16,22 @@
   "form_away": [],
   "recent_matches": [],
   "h2h": {
-    "Australia": {
-      "played": 2,
-      "wins": 2,
-      "draws": 0,
-      "losses": 0,
-      "goals_scored": 5,
-      "goals_conceded": 2,
-      "home_wins": 2,
-      "away_wins": 0
-    }
+    "Australia": [
+      {
+        "date": "2025-10-15",
+        "home_away": "H",
+        "goals_scored": 2,
+        "goals_conceded": 1,
+        "competition": "Friendly"
+      },
+      {
+        "date": "2010-06-05",
+        "home_away": "H",
+        "goals_scored": 3,
+        "goals_conceded": 1,
+        "competition": "Friendly"
+      }
+    ]
   },
   "squad_strength": 79.5,
   "avg_player_age": 26.0,

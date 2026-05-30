@@ -2,7 +2,7 @@
   "team": "Argentina",
   "api_id": 762,
   "fifa_ranking": 3,
-  "elo_rating": 1874,
+  "elo_rating": 1875,
   "attack_strength": 1.55,
   "defense_strength": 0.75,
   "avg_goals_scored": 3.2,
@@ -75,16 +75,15 @@
     }
   ],
   "h2h": {
-    "Algeria": {
-      "played": 1,
-      "wins": 1,
-      "draws": 0,
-      "losses": 0,
-      "goals_scored": 4,
-      "goals_conceded": 3,
-      "home_wins": 0,
-      "away_wins": 1
-    }
+    "Algeria": [
+      {
+        "date": "2007-06-05",
+        "home_away": "A",
+        "goals_scored": 4,
+        "goals_conceded": 3,
+        "competition": "Friendly"
+      }
+    ]
   },
   "squad_strength": 93.9,
   "avg_player_age": 28.91,

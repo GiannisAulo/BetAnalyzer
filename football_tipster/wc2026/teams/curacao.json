@@ -5,21 +5,79 @@
   "elo_rating": 1320,
   "attack_strength": 0.85,
   "defense_strength": 1.3,
-  "avg_goals_scored": null,
-  "avg_goals_conceded": null,
+  "avg_goals_scored": 2.1,
+  "avg_goals_conceded": 1.8,
   "avg_goals_scored_home": null,
   "avg_goals_conceded_home": null,
-  "avg_goals_scored_away": null,
-  "avg_goals_conceded_away": null,
-  "form": [],
+  "avg_goals_scored_away": 2.1,
+  "avg_goals_conceded_away": 1.8,
+  "form": [
+    "L",
+    "L",
+    "L",
+    "D",
+    "W"
+  ],
   "form_home": [],
-  "form_away": [],
-  "recent_matches": [],
+  "form_away": [
+    "L",
+    "L",
+    "L",
+    "D",
+    "W"
+  ],
+  "recent_matches": [
+    {
+      "date": "2026-05-30",
+      "opponent": "Scotland",
+      "home_away": "A",
+      "goals_scored": 1,
+      "goals_conceded": 4,
+      "competition": "Friendly",
+      "weight": 0.8
+    },
+    {
+      "date": "2026-03-31",
+      "opponent": "Australia",
+      "home_away": "A",
+      "goals_scored": 1,
+      "goals_conceded": 5,
+      "competition": "Friendly",
+      "weight": 0.8
+    },
+    {
+      "date": "2026-03-27",
+      "opponent": "China",
+      "home_away": "A",
+      "goals_scored": 0,
+      "goals_conceded": 2,
+      "competition": "Friendly",
+      "weight": 0.8
+    },
+    {
+      "date": "2025-11-19",
+      "opponent": "Jamaica",
+      "home_away": "A",
+      "goals_scored": 0,
+      "goals_conceded": 0,
+      "competition": "WC_Qualifier",
+      "weight": 1.2
+    },
+    {
+      "date": "2025-11-14",
+      "opponent": "Bermuda",
+      "home_away": "A",
+      "goals_scored": 7,
+      "goals_conceded": 0,
+      "competition": "WC_Qualifier",
+      "weight": 1.2
+    }
+  ],
   "h2h": {},
   "squad_strength": 51.5,
   "avg_player_age": 27.77,
   "key_players_missing": [],
-  "clean_sheets_last5": 0,
-  "failed_to_score_last5": 0,
-  "btts_last5": 0
+  "clean_sheets_last5": 2,
+  "failed_to_score_last5": 2,
+  "btts_last5": 2
 }

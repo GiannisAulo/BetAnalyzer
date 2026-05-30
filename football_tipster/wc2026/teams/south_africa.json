@@ -1,8 +1,8 @@
 {
   "team": "South Africa",
   "api_id": 774,
-  "fifa_ranking": 65,
-  "elo_rating": 1375,
+  "fifa_ranking": 60,
+  "elo_rating": 1430,
   "attack_strength": 0.9,
   "defense_strength": 1.15,
   "avg_goals_scored": 1.2,
@@ -74,7 +74,17 @@
       "weight": 1.2
     }
   ],
-  "h2h": {},
+  "h2h": {
+    "Czechia": [
+      {
+        "date": "1997-12-13",
+        "home_away": "H",
+        "goals_scored": 2,
+        "goals_conceded": 2,
+        "competition": "Confed_Cup"
+      }
+    ]
+  },
   "squad_strength": 62.1,
   "avg_player_age": 26.22,
   "key_players_missing": [],

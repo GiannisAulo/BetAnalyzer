@@ -1,8 +1,8 @@
 {
   "team": "Jordan",
   "api_id": 8049,
-  "fifa_ranking": 62,
-  "elo_rating": 1390,
+  "fifa_ranking": 63,
+  "elo_rating": 1391,
   "attack_strength": 0.95,
   "defense_strength": 1.2,
   "avg_goals_scored": null,
@@ -16,16 +16,15 @@
   "form_away": [],
   "recent_matches": [],
   "h2h": {
-    "Algeria": {
-      "played": 1,
-      "wins": 0,
-      "draws": 1,
-      "losses": 0,
-      "goals_scored": 1,
-      "goals_conceded": 1,
-      "home_wins": 0,
-      "away_wins": 0
-    }
+    "Algeria": [
+      {
+        "date": "2004-05-30",
+        "home_away": "A",
+        "goals_scored": 1,
+        "goals_conceded": 1,
+        "competition": "Friendly"
+      }
+    ]
   },
   "squad_strength": 58.4,
   "avg_player_age": 28.94,

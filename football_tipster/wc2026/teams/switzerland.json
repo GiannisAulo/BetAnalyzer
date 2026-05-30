@@ -16,26 +16,24 @@
   "form_away": [],
   "recent_matches": [],
   "h2h": {
-    "Bosnia-Herzegovina": {
-      "played": 1,
-      "wins": 0,
-      "draws": 0,
-      "losses": 1,
-      "goals_scored": 0,
-      "goals_conceded": 2,
-      "home_wins": 0,
-      "away_wins": 0
-    },
-    "Canada": {
-      "played": 1,
-      "wins": 0,
-      "draws": 0,
-      "losses": 1,
-      "goals_scored": 1,
-      "goals_conceded": 3,
-      "home_wins": 0,
-      "away_wins": 0
-    }
+    "Bosnia-Herzegovina": [
+      {
+        "date": "2016-03-29",
+        "home_away": "H",
+        "goals_scored": 0,
+        "goals_conceded": 2,
+        "competition": "Friendly"
+      }
+    ],
+    "Canada": [
+      {
+        "date": "2002-05-15",
+        "home_away": "H",
+        "goals_scored": 1,
+        "goals_conceded": 3,
+        "competition": "Friendly"
+      }
+    ]
   },
   "squad_strength": 76.5,
   "avg_player_age": 27.54,

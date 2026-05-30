@@ -2,7 +2,7 @@
   "team": "Australia",
   "api_id": 779,
   "fifa_ranking": 27,
-  "elo_rating": 1570,
+  "elo_rating": 1581,
   "attack_strength": 1.1,
   "defense_strength": 1.05,
   "avg_goals_scored": 1.4,
@@ -75,36 +75,61 @@
     }
   ],
   "h2h": {
-    "Turkey": {
-      "played": 2,
-      "wins": 0,
-      "draws": 0,
-      "losses": 2,
-      "goals_scored": 1,
-      "goals_conceded": 4,
-      "home_wins": 0,
-      "away_wins": 0
-    },
-    "USA": {
-      "played": 2,
-      "wins": 0,
-      "draws": 0,
-      "losses": 2,
-      "goals_scored": 2,
-      "goals_conceded": 5,
-      "home_wins": 0,
-      "away_wins": 0
-    },
-    "Paraguay": {
-      "played": 3,
-      "wins": 2,
-      "draws": 1,
-      "losses": 0,
-      "goals_scored": 4,
-      "goals_conceded": 2,
-      "home_wins": 2,
-      "away_wins": 0
-    }
+    "Turkey": [
+      {
+        "date": "2004-05-24",
+        "home_away": "H",
+        "goals_scored": 0,
+        "goals_conceded": 1,
+        "competition": "Friendly"
+      },
+      {
+        "date": "2004-05-21",
+        "home_away": "H",
+        "goals_scored": 1,
+        "goals_conceded": 3,
+        "competition": "Friendly"
+      }
+    ],
+    "USA": [
+      {
+        "date": "2025-10-15",
+        "home_away": "A",
+        "goals_scored": 1,
+        "goals_conceded": 2,
+        "competition": "Friendly"
+      },
+      {
+        "date": "2010-06-05",
+        "home_away": "A",
+        "goals_scored": 1,
+        "goals_conceded": 3,
+        "competition": "Friendly"
+      }
+    ],
+    "Paraguay": [
+      {
+        "date": "2010-10-09",
+        "home_away": "H",
+        "goals_scored": 1,
+        "goals_conceded": 0,
+        "competition": "Friendly"
+      },
+      {
+        "date": "2006-10-07",
+        "home_away": "H",
+        "goals_scored": 1,
+        "goals_conceded": 1,
+        "competition": "Friendly"
+      },
+      {
+        "date": "2000-06-14",
+        "home_away": "H",
+        "goals_scored": 2,
+        "goals_conceded": 1,
+        "competition": "Friendly"
+      }
+    ]
   },
   "squad_strength": 67.5,
   "avg_player_age": 26.23,

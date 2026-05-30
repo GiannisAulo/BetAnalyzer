@@ -2,7 +2,7 @@
   "team": "England",
   "api_id": 770,
   "fifa_ranking": 4,
-  "elo_rating": 1825,
+  "elo_rating": 1826,
   "attack_strength": 1.5,
   "defense_strength": 0.85,
   "avg_goals_scored": null,
@@ -15,7 +15,80 @@
   "form_home": [],
   "form_away": [],
   "recent_matches": [],
-  "h2h": {},
+  "h2h": {
+    "Croatia": [
+      {
+        "date": "2021-06-13",
+        "home_away": "H",
+        "goals_scored": 1,
+        "goals_conceded": 0,
+        "competition": "EURO"
+      },
+      {
+        "date": "2018-11-18",
+        "home_away": "H",
+        "goals_scored": 2,
+        "goals_conceded": 1,
+        "competition": "Nations_League"
+      },
+      {
+        "date": "2018-10-12",
+        "home_away": "A",
+        "goals_scored": 0,
+        "goals_conceded": 0,
+        "competition": "Nations_League"
+      },
+      {
+        "date": "2018-07-11",
+        "home_away": "A",
+        "goals_scored": 1,
+        "goals_conceded": 2,
+        "competition": "WC"
+      },
+      {
+        "date": "2009-09-09",
+        "home_away": "H",
+        "goals_scored": 5,
+        "goals_conceded": 1,
+        "competition": "WC_Qualifier"
+      },
+      {
+        "date": "2008-09-10",
+        "home_away": "A",
+        "goals_scored": 4,
+        "goals_conceded": 1,
+        "competition": "WC_Qualifier"
+      },
+      {
+        "date": "2007-11-21",
+        "home_away": "H",
+        "goals_scored": 2,
+        "goals_conceded": 3,
+        "competition": "EURO_Qualifier"
+      },
+      {
+        "date": "2006-10-11",
+        "home_away": "A",
+        "goals_scored": 0,
+        "goals_conceded": 2,
+        "competition": "EURO_Qualifier"
+      },
+      {
+        "date": "2004-06-21",
+        "home_away": "A",
+        "goals_scored": 4,
+        "goals_conceded": 2,
+        "competition": "EURO"
+      },
+      {
+        "date": "2003-08-20",
+        "home_away": "H",
+        "goals_scored": 3,
+        "goals_conceded": 1,
+        "competition": "Friendly"
+      }
+    ]
+  },
   "squad_strength": 94.2,
   "avg_player_age": 27.0,
   "key_players_missing": [

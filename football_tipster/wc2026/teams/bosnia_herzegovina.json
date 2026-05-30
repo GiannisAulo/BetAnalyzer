@@ -2,7 +2,7 @@
   "team": "Bosnia-Herzegovina",
   "api_id": 1060,
   "fifa_ranking": 65,
-  "elo_rating": 1380,
+  "elo_rating": 1386,
   "attack_strength": 1.15,
   "defense_strength": 1.0,
   "avg_goals_scored": 1.9,
@@ -75,16 +75,15 @@
     }
   ],
   "h2h": {
-    "Switzerland": {
-      "played": 1,
-      "wins": 1,
-      "draws": 0,
-      "losses": 0,
-      "goals_scored": 2,
-      "goals_conceded": 0,
-      "home_wins": 0,
-      "away_wins": 1
-    }
+    "Switzerland": [
+      {
+        "date": "2016-03-29",
+        "home_away": "A",
+        "goals_scored": 2,
+        "goals_conceded": 0,
+        "competition": "Friendly"
+      }
+    ]
   },
   "squad_strength": 59.5,
   "avg_player_age": 26.6,
