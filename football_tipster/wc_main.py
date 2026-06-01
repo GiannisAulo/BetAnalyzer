@@ -9,6 +9,13 @@ Run from the football_tipster directory:
 import sys
 from pathlib import Path
 
+# Windows terminals default to cp1253 here — force UTF-8 so the box-drawing
+# and € characters in the prediction output don't raise UnicodeEncodeError.
+try:
+    sys.stdout.reconfigure(encoding="utf-8")
+except Exception:
+    pass
+
 _HERE = Path(__file__).parent
 sys.path.insert(0, str(_HERE))
 

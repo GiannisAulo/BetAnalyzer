@@ -57,6 +57,10 @@ _ELO_DRAW_SCALE = [(400, 0.40), (300, 0.55), (200, 0.70), (100, 0.85), (0, 1.00)
 
 MODEL_VERSION = "WC_v1"
 
+# Mirrors logger._MAX_SETTLE_ATTEMPTS — specific-game rows are written with this
+# value so the daily auto-settler skips them (no API id to settle against).
+_MAX_SETTLE_ATTEMPTS = 10
+
 NON_WC_ELO: dict[str, int] = {
     "Italy": 1670, "Denmark": 1640, "Serbia": 1480, "Chile": 1520,
     "Ukraine": 1530, "Nigeria": 1460, "Slovakia": 1450, "Romania": 1440,
@@ -140,7 +144,7 @@ def _load_bankroll() -> float:
     try:
         settings = (_HERE / "settings.json")
         if settings.exists():
-            return float(json.loads(settings.read_text()).get("bankroll_eur", 10.0))
+            return float(json.loads(settings.read_text(encoding="utf-8")).get("bankroll_eur", 10.0))
     except Exception:
         pass
     return 10.0
@@ -229,8 +233,11 @@ def _lambdas(home: dict, away: dict, ref_date: date, neutral: bool, wc_index: di
     lam_goals_a = WC_HALF * atk_a * def_b
     lam_goals_b = WC_HALF * atk_b * def_a
 
-    base_a = ELO_WEIGHT * lam_elo_a + GOALS_WEIGHT * lam_goals_a
-    base_b = ELO_WEIGHT * lam_elo_b + GOALS_WEIGHT * lam_goals_b
+    # ELO_WEIGHT + GOALS_WEIGHT < 1 (form is a separate multiplier, not additive),
+    # so normalise here to avoid systematically deflating every lambda.
+    _blend_sum = ELO_WEIGHT + GOALS_WEIGHT
+    base_a = (ELO_WEIGHT * lam_elo_a + GOALS_WEIGHT * lam_goals_a) / _blend_sum
+    base_b = (ELO_WEIGHT * lam_elo_b + GOALS_WEIGHT * lam_goals_b) / _blend_sum
 
     fs_a = _form_signal(home, ref_date, wc_index)
     fs_b = _form_signal(away, ref_date, wc_index)
@@ -255,9 +262,12 @@ def _missing_penalty(home: dict, away: dict, la: float, lb: float):
         total = 0.0
         for s in team.get("key_players_missing", []):
             sl = s.lower()
-            if "out" in sl:         total += MISSING_OUT
-            elif "major" in sl:     total += MISSING_MAJOR
-            elif "doubt" in sl or "minor" in sl: total += MISSING_MINOR
+            # match only the status tag, e.g. "(Out)", "(Major doubt)", "(Minor doubt)"
+            if "major doubt" in sl:        total += MISSING_MAJOR
+            elif "minor doubt" in sl:      total += MISSING_MINOR
+            elif "doubt" in sl:            total += MISSING_MAJOR
+            elif "(out)" in sl or "(out " in sl or sl.endswith("out"): total += MISSING_OUT
+            else:                          total += MISSING_OUT  # bare name = assume out
         return min(total, MISSING_CAP)
     return (
         _clamp(la * (1.0 - pen(home)), 0.1, LAM_HARD_CAP),
@@ -399,27 +409,37 @@ def predict_match(home: dict, away: dict, match_info: dict, wc_index: dict | Non
     odds = match_info.get("odds", {})
     markets: dict[str, dict] = {}
 
-    if all(odds.get(k, 0) > 0 for k in ("home_win", "draw", "away_win")):
-        fh, fd, fa = _devig3(odds["home_win"], odds["draw"], odds["away_win"])
-        markets["home_win"] = dict(model=ph, fair=fh, odds=odds["home_win"],
+    def _od(key: str) -> float:
+        v = odds.get(key)
+        try:
+            return float(v) if v is not None else 0.0
+        except (TypeError, ValueError):
+            return 0.0
+
+    o_h, o_d, o_a = _od("home_win"), _od("draw"), _od("away_win")
+    if o_h > 1 and o_d > 1 and o_a > 1:
+        fh, fd, fa = _devig3(o_h, o_d, o_a)
+        markets["home_win"] = dict(model=ph, fair=fh, odds=o_h,
                                    pick=home.get("team","Home"), edge=(ph-fh)*100)
-        markets["draw"]     = dict(model=pd, fair=fd, odds=odds["draw"],
+        markets["draw"]     = dict(model=pd, fair=fd, odds=o_d,
                                    pick="Draw", edge=(pd-fd)*100)
-        markets["away_win"] = dict(model=pa, fair=fa, odds=odds["away_win"],
+        markets["away_win"] = dict(model=pa, fair=fa, odds=o_a,
                                    pick=away.get("team","Away"), edge=(pa-fa)*100)
 
-    if odds.get("over_2_5",0)>0 and odds.get("under_2_5",0)>0:
-        fo, fu = _devig2(odds["over_2_5"], odds["under_2_5"])
-        markets["over_2_5"]  = dict(model=p["o25"], fair=fo, odds=odds["over_2_5"],
+    o_o, o_u = _od("over_2_5"), _od("under_2_5")
+    if o_o > 1 and o_u > 1:
+        fo, fu = _devig2(o_o, o_u)
+        markets["over_2_5"]  = dict(model=p["o25"], fair=fo, odds=o_o,
                                     pick="Over 2.5", edge=(p["o25"]-fo)*100)
-        markets["under_2_5"] = dict(model=1-p["o25"], fair=fu, odds=odds["under_2_5"],
+        markets["under_2_5"] = dict(model=1-p["o25"], fair=fu, odds=o_u,
                                     pick="Under 2.5", edge=((1-p["o25"])-fu)*100)
 
-    if odds.get("btts_yes",0)>0 and odds.get("btts_no",0)>0:
-        fy, fn = _devig2(odds["btts_yes"], odds["btts_no"])
-        markets["btts_yes"] = dict(model=p["btts"], fair=fy, odds=odds["btts_yes"],
+    o_by, o_bn = _od("btts_yes"), _od("btts_no")
+    if o_by > 1 and o_bn > 1:
+        fy, fn = _devig2(o_by, o_bn)
+        markets["btts_yes"] = dict(model=p["btts"], fair=fy, odds=o_by,
                                    pick="BTTS Yes", edge=(p["btts"]-fy)*100)
-        markets["btts_no"]  = dict(model=1-p["btts"], fair=fn, odds=odds["btts_no"],
+        markets["btts_no"]  = dict(model=1-p["btts"], fair=fn, odds=o_bn,
                                    pick="BTTS No", edge=((1-p["btts"])-fn)*100)
 
     max_edge = max((abs(v["edge"]) for v in markets.values()), default=0.0)
@@ -487,6 +507,28 @@ def print_prediction(r: dict) -> None:
     print(f"\n  xG:  {r['home']} {r['lam_a']:.2f}  vs  {r['away']} {r['lam_b']:.2f}\n")
 
     threshold = EDGE_THRESHOLDS[r["conf_label"]]
+
+    # ── Headline recommendation — the single best value-hunting pick ──────────
+    picks_sorted = sorted(r["value_picks"], key=lambda v: v["edge"], reverse=True)
+    print("  " + "─" * (W - 2))
+    if picks_sorted:
+        best = picks_sorted[0]
+        eur_str = f"  (€{best['eur']:.2f})" if best["eur"] else ""
+        print(f"  ★ BET:  {best['pick']}  @ {best['odds']}")
+        print(f"          edge {best['edge']:+.1f}pp  ·  {best['units']} unit(s){eur_str}  "
+              f"·  conf {r['conf_label']}")
+    else:
+        # No value — still surface the closest market so the read isn't blank
+        best_edge_key = max(r["markets"], key=lambda k: r["markets"][k]["edge"], default=None)
+        if best_edge_key:
+            bm = r["markets"][best_edge_key]
+            print(f"  ✗ NO BET  ·  best edge {bm['pick']} {bm['edge']:+.1f}pp "
+                  f"(< {threshold:.0f}pp {r['conf_label']} threshold)")
+        else:
+            print("  ✗ NO BET  ·  no odds supplied")
+    print("  " + "─" * (W - 2))
+    print()
+
     hdr = f"  {'Market':<18} {'Model':>7} {'Fair':>7} {'Edge':>9}"
     print(hdr)
     print("  " + "─" * (W - 2))
@@ -558,9 +600,11 @@ def log_picks(r: dict) -> None:
                 "model_prob":     round(vp["model_prob"], 4),
                 "odds_taken":     vp["odds"],
                 "edge":           round(vp["edge"], 1),
-                "result":         "",
+                # Pre-mark so the daily auto-settler (which settles only rows with
+                # result=="") skips these — specific/friendly games have no API id.
+                "result":         "MANUAL",
                 "roi":            "",
-                "settle_attempts": "",
+                "settle_attempts": _MAX_SETTLE_ATTEMPTS,
                 "home_position":  "",
                 "away_position":  "",
                 "form_adv":       "",
