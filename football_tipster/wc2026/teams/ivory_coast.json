@@ -15,7 +15,18 @@
   "form_home": [],
   "form_away": [],
   "recent_matches": [],
-  "h2h": {},
+  "h2h": {
+    "Germany": [
+      {
+        "date": "2009-11-18",
+        "home_away": "A",
+        "goals_scored": 2,
+        "goals_conceded": 2,
+        "competition": "Friendly",
+        "weight": 0.8
+      }
+    ]
+  },
   "squad_strength": 73.5,
   "avg_player_age": 25.48,
   "key_players_missing": [],

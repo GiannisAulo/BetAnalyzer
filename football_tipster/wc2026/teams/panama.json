@@ -15,7 +15,18 @@
   "form_home": [],
   "form_away": [],
   "recent_matches": [],
-  "h2h": {},
+  "h2h": {
+    "England": [
+      {
+        "date": "2018-06-24",
+        "home_away": "A",
+        "goals_scored": 1,
+        "goals_conceded": 6,
+        "competition": "WC",
+        "weight": 1.5
+      }
+    ]
+  },
   "squad_strength": 65.4,
   "avg_player_age": 29.52,
   "key_players_missing": [],

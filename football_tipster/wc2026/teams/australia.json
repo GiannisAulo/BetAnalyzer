@@ -81,14 +81,16 @@
         "home_away": "H",
         "goals_scored": 0,
         "goals_conceded": 1,
-        "competition": "Friendly"
+        "competition": "Friendly",
+        "weight": 0.8
       },
       {
         "date": "2004-05-21",
         "home_away": "H",
         "goals_scored": 1,
         "goals_conceded": 3,
-        "competition": "Friendly"
+        "competition": "Friendly",
+        "weight": 0.8
       }
     ],
     "USA": [
@@ -97,14 +99,16 @@
         "home_away": "A",
         "goals_scored": 1,
         "goals_conceded": 2,
-        "competition": "Friendly"
+        "competition": "Friendly",
+        "weight": 0.8
       },
       {
         "date": "2010-06-05",
         "home_away": "A",
         "goals_scored": 1,
         "goals_conceded": 3,
-        "competition": "Friendly"
+        "competition": "Friendly",
+        "weight": 0.8
       }
     ],
     "Paraguay": [
@@ -113,21 +117,24 @@
         "home_away": "H",
         "goals_scored": 1,
         "goals_conceded": 0,
-        "competition": "Friendly"
+        "competition": "Friendly",
+        "weight": 0.8
       },
       {
         "date": "2006-10-07",
         "home_away": "H",
         "goals_scored": 1,
         "goals_conceded": 1,
-        "competition": "Friendly"
+        "competition": "Friendly",
+        "weight": 0.8
       },
       {
         "date": "2000-06-14",
         "home_away": "H",
         "goals_scored": 2,
         "goals_conceded": 1,
-        "competition": "Friendly"
+        "competition": "Friendly",
+        "weight": 0.8
       }
     ]
   },

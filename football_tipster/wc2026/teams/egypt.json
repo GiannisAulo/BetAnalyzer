@@ -5,16 +5,75 @@
   "elo_rating": 1563,
   "attack_strength": 1.15,
   "defense_strength": 1.0,
-  "avg_goals_scored": null,
-  "avg_goals_conceded": null,
-  "avg_goals_scored_home": null,
-  "avg_goals_conceded_home": null,
-  "avg_goals_scored_away": null,
-  "avg_goals_conceded_away": null,
-  "form": [],
-  "form_home": [],
-  "form_away": [],
-  "recent_matches": [],
+  "avg_goals_scored": 0.8,
+  "avg_goals_conceded": 0.5,
+  "avg_goals_scored_home": 0.4,
+  "avg_goals_conceded_home": 0.6,
+  "avg_goals_scored_away": 1.1,
+  "avg_goals_conceded_away": 0.4,
+  "form": [
+    "W",
+    "D",
+    "W",
+    "L",
+    "L"
+  ],
+  "form_home": [
+    "W",
+    "L"
+  ],
+  "form_away": [
+    "D",
+    "W",
+    "L"
+  ],
+  "recent_matches": [
+    {
+      "date": "2026-05-28",
+      "opponent": "Russia",
+      "home_away": "H",
+      "goals_scored": 1,
+      "goals_conceded": 0,
+      "competition": "Friendly",
+      "weight": 0.8
+    },
+    {
+      "date": "2026-03-31",
+      "opponent": "Spain",
+      "home_away": "A",
+      "goals_scored": 0,
+      "goals_conceded": 0,
+      "competition": "Friendly",
+      "weight": 0.8
+    },
+    {
+      "date": "2026-03-27",
+      "opponent": "Saudi Arabia",
+      "home_away": "A",
+      "goals_scored": 4,
+      "goals_conceded": 0,
+      "competition": "Friendly",
+      "weight": 0.8
+    },
+    {
+      "date": "2026-01-17",
+      "opponent": "Nigeria",
+      "home_away": "H",
+      "goals_scored": 0,
+      "goals_conceded": 1,
+      "competition": "AFCON",
+      "weight": 1.2
+    },
+    {
+      "date": "2026-01-14",
+      "opponent": "Senegal",
+      "home_away": "A",
+      "goals_scored": 0,
+      "goals_conceded": 1,
+      "competition": "AFCON",
+      "weight": 1.2
+    }
+  ],
   "h2h": {
     "Belgium": [
       {
@@ -22,35 +81,49 @@
         "home_away": "A",
         "goals_scored": 2,
         "goals_conceded": 1,
-        "competition": "Friendly"
+        "competition": "Friendly",
+        "weight": 0.8
       },
       {
         "date": "2018-06-06",
         "home_away": "A",
         "goals_scored": 0,
         "goals_conceded": 3,
-        "competition": "Friendly"
+        "competition": "Friendly",
+        "weight": 0.8
       },
       {
         "date": "2005-02-09",
         "home_away": "H",
         "goals_scored": 4,
         "goals_conceded": 0,
-        "competition": "Friendly"
+        "competition": "Friendly",
+        "weight": 0.8
       },
       {
         "date": "1999-03-30",
         "home_away": "A",
         "goals_scored": 1,
         "goals_conceded": 0,
-        "competition": "Friendly"
+        "competition": "Friendly",
+        "weight": 0.8
+      }
+    ],
+    "New Zealand": [
+      {
+        "date": "2024-03-22",
+        "home_away": "H",
+        "goals_scored": 1,
+        "goals_conceded": 0,
+        "competition": "Friendly",
+        "weight": 0.8
       }
     ]
   },
   "squad_strength": 69.4,
   "avg_player_age": 28.88,
   "key_players_missing": [],
-  "clean_sheets_last5": 0,
-  "failed_to_score_last5": 0,
+  "clean_sheets_last5": 3,
+  "failed_to_score_last5": 3,
   "btts_last5": 0
 }

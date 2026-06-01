@@ -81,7 +81,8 @@
         "home_away": "H",
         "goals_scored": 2,
         "goals_conceded": 2,
-        "competition": "Confed_Cup"
+        "competition": "Confed_Cup",
+        "weight": 1.1
       }
     ]
   },

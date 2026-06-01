@@ -22,7 +22,8 @@
         "home_away": "H",
         "goals_scored": 0,
         "goals_conceded": 2,
-        "competition": "Friendly"
+        "competition": "Friendly",
+        "weight": 0.8
       }
     ],
     "Canada": [
@@ -31,7 +32,8 @@
         "home_away": "H",
         "goals_scored": 1,
         "goals_conceded": 3,
-        "competition": "Friendly"
+        "competition": "Friendly",
+        "weight": 0.8
       }
     ]
   },

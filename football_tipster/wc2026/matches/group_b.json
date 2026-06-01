@@ -16,7 +16,7 @@
         "btts_yes": 2.0,
         "btts_no": 1.8
       },
-      "odds_confidence": 0.6,
+      "odds_confidence": 0.9,
       "api_match_id": 537333,
       "home_team_id": 828,
       "away_team_id": 1060
@@ -36,7 +36,7 @@
         "btts_yes": 2.5,
         "btts_no": 1.55
       },
-      "odds_confidence": 0.6,
+      "odds_confidence": 0.9,
       "api_match_id": 537334,
       "home_team_id": 8030,
       "away_team_id": 788
@@ -56,7 +56,7 @@
         "btts_yes": 2.5,
         "btts_no": 1.55
       },
-      "odds_confidence": 0.6,
+      "odds_confidence": 0.9,
       "api_match_id": 537336,
       "home_team_id": 828,
       "away_team_id": 8030
@@ -76,7 +76,7 @@
         "btts_yes": 2.3,
         "btts_no": 1.62
       },
-      "odds_confidence": 0.6,
+      "odds_confidence": 0.9,
       "api_match_id": 537335,
       "home_team_id": 788,
       "away_team_id": 1060
@@ -96,7 +96,7 @@
         "btts_yes": 1.9,
         "btts_no": 1.9
       },
-      "odds_confidence": 0.6,
+      "odds_confidence": 0.9,
       "api_match_id": 537337,
       "home_team_id": 788,
       "away_team_id": 828
@@ -116,7 +116,7 @@
         "btts_yes": 1.9,
         "btts_no": 1.9
       },
-      "odds_confidence": 0.6,
+      "odds_confidence": 0.9,
       "api_match_id": 537338,
       "home_team_id": 1060,
       "away_team_id": 8030

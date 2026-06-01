@@ -81,21 +81,24 @@
         "home_away": "H",
         "goals_scored": 1,
         "goals_conceded": 2,
-        "competition": "Friendly"
+        "competition": "Friendly",
+        "weight": 0.8
       },
       {
         "date": "2001-08-15",
         "home_away": "H",
         "goals_scored": 5,
         "goals_conceded": 0,
-        "competition": "Friendly"
+        "competition": "Friendly",
+        "weight": 0.8
       },
       {
         "date": "1998-05-27",
         "home_away": "A",
         "goals_scored": 2,
         "goals_conceded": 2,
-        "competition": "Friendly"
+        "competition": "Friendly",
+        "weight": 0.8
       }
     ],
     "South Africa": [
@@ -104,7 +107,8 @@
         "home_away": "A",
         "goals_scored": 2,
         "goals_conceded": 2,
-        "competition": "Confed_Cup"
+        "competition": "Confed_Cup",
+        "weight": 1.1
       }
     ]
   },

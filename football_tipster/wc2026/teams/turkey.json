@@ -22,14 +22,16 @@
         "home_away": "A",
         "goals_scored": 1,
         "goals_conceded": 0,
-        "competition": "Friendly"
+        "competition": "Friendly",
+        "weight": 0.8
       },
       {
         "date": "2004-05-21",
         "home_away": "A",
         "goals_scored": 3,
         "goals_conceded": 1,
-        "competition": "Friendly"
+        "competition": "Friendly",
+        "weight": 0.8
       }
     ]
   },

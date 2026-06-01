@@ -81,7 +81,8 @@
         "home_away": "A",
         "goals_scored": 2,
         "goals_conceded": 0,
-        "competition": "Friendly"
+        "competition": "Friendly",
+        "weight": 0.8
       }
     ]
   },

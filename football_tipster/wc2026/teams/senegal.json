@@ -15,7 +15,18 @@
   "form_home": [],
   "form_away": [],
   "recent_matches": [],
-  "h2h": {},
+  "h2h": {
+    "France": [
+      {
+        "date": "2002-05-31",
+        "home_away": "A",
+        "goals_scored": 1,
+        "goals_conceded": 0,
+        "competition": "WC",
+        "weight": 1.5
+      }
+    ]
+  },
   "squad_strength": 75.2,
   "avg_player_age": 27.23,
   "key_players_missing": [],

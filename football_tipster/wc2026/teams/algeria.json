@@ -81,7 +81,8 @@
         "home_away": "H",
         "goals_scored": 3,
         "goals_conceded": 4,
-        "competition": "Friendly"
+        "competition": "Friendly",
+        "weight": 0.8
       }
     ],
     "Jordan": [
@@ -90,7 +91,8 @@
         "home_away": "H",
         "goals_scored": 1,
         "goals_conceded": 1,
-        "competition": "Friendly"
+        "competition": "Friendly",
+        "weight": 0.8
       }
     ],
     "Austria": [
@@ -99,7 +101,8 @@
         "home_away": "H",
         "goals_scored": 0,
         "goals_conceded": 2,
-        "competition": "WC"
+        "competition": "WC",
+        "weight": 1.5
       }
     ]
   },

@@ -15,7 +15,18 @@
   "form_home": [],
   "form_away": [],
   "recent_matches": [],
-  "h2h": {},
+  "h2h": {
+    "Egypt": [
+      {
+        "date": "2024-03-22",
+        "home_away": "A",
+        "goals_scored": 0,
+        "goals_conceded": 1,
+        "competition": "Friendly",
+        "weight": 0.8
+      }
+    ]
+  },
   "squad_strength": 53.8,
   "avg_player_age": 27.09,
   "key_players_missing": [],

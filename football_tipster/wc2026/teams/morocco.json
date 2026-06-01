@@ -22,14 +22,16 @@
         "home_away": "H",
         "goals_scored": 2,
         "goals_conceded": 1,
-        "competition": "Friendly"
+        "competition": "Friendly",
+        "weight": 0.8
       },
       {
         "date": "1998-06-16",
         "home_away": "A",
         "goals_scored": 0,
         "goals_conceded": 3,
-        "competition": "WC"
+        "competition": "WC",
+        "weight": 1.5
       }
     ]
   },

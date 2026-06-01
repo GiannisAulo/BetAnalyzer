@@ -22,35 +22,40 @@
         "home_away": "A",
         "goals_scored": 0,
         "goals_conceded": 2,
-        "competition": "Friendly"
+        "competition": "Friendly",
+        "weight": 0.8
       },
       {
         "date": "1998-06-10",
         "home_away": "A",
         "goals_scored": 1,
         "goals_conceded": 2,
-        "competition": "WC"
+        "competition": "WC",
+        "weight": 1.5
       },
       {
         "date": "1990-06-20",
         "home_away": "A",
         "goals_scored": 0,
         "goals_conceded": 1,
-        "competition": "WC"
+        "competition": "WC",
+        "weight": 1.5
       },
       {
         "date": "1982-06-18",
         "home_away": "A",
         "goals_scored": 1,
         "goals_conceded": 4,
-        "competition": "WC"
+        "competition": "WC",
+        "weight": 1.5
       },
       {
         "date": "1974-06-18",
         "home_away": "H",
         "goals_scored": 0,
         "goals_conceded": 0,
-        "competition": "WC"
+        "competition": "WC",
+        "weight": 1.5
       }
     ]
   },

@@ -5,17 +5,86 @@
   "elo_rating": 1346,
   "attack_strength": 1.1,
   "defense_strength": 1.1,
-  "avg_goals_scored": null,
-  "avg_goals_conceded": null,
+  "avg_goals_scored": 0.4,
+  "avg_goals_conceded": 2.4,
   "avg_goals_scored_home": null,
   "avg_goals_conceded_home": null,
-  "avg_goals_scored_away": null,
-  "avg_goals_conceded_away": null,
-  "form": [],
+  "avg_goals_scored_away": 0.4,
+  "avg_goals_conceded_away": 2.4,
+  "form": [
+    "L",
+    "L",
+    "L",
+    "L",
+    "L"
+  ],
   "form_home": [],
-  "form_away": [],
-  "recent_matches": [],
-  "h2h": {},
+  "form_away": [
+    "L",
+    "L",
+    "L",
+    "L",
+    "L"
+  ],
+  "recent_matches": [
+    {
+      "date": "2026-05-23",
+      "opponent": "Mexico",
+      "home_away": "A",
+      "goals_scored": 0,
+      "goals_conceded": 2,
+      "competition": "Friendly",
+      "weight": 0.8
+    },
+    {
+      "date": "2026-03-30",
+      "opponent": "Germany",
+      "home_away": "A",
+      "goals_scored": 1,
+      "goals_conceded": 2,
+      "competition": "Friendly",
+      "weight": 0.8
+    },
+    {
+      "date": "2026-03-27",
+      "opponent": "Austria",
+      "home_away": "A",
+      "goals_scored": 1,
+      "goals_conceded": 5,
+      "competition": "Friendly",
+      "weight": 0.8
+    },
+    {
+      "date": "2025-11-18",
+      "opponent": "South Korea",
+      "home_away": "A",
+      "goals_scored": 0,
+      "goals_conceded": 1,
+      "competition": "Friendly",
+      "weight": 0.8
+    },
+    {
+      "date": "2025-11-14",
+      "opponent": "Japan",
+      "home_away": "A",
+      "goals_scored": 0,
+      "goals_conceded": 2,
+      "competition": "Friendly",
+      "weight": 0.8
+    }
+  ],
+  "h2h": {
+    "England": [
+      {
+        "date": "2011-03-29",
+        "home_away": "A",
+        "goals_scored": 1,
+        "goals_conceded": 1,
+        "competition": "Friendly",
+        "weight": 0.8
+      }
+    ]
+  },
   "squad_strength": 71.9,
   "avg_player_age": 26.62,
   "key_players_missing": [
@@ -23,6 +92,6 @@
     "Mohammed Kudus (Major doubt)"
   ],
   "clean_sheets_last5": 0,
-  "failed_to_score_last5": 0,
-  "btts_last5": 0
+  "failed_to_score_last5": 3,
+  "btts_last5": 2
 }

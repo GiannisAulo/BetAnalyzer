@@ -81,70 +81,80 @@
         "home_away": "A",
         "goals_scored": 0,
         "goals_conceded": 1,
-        "competition": "EURO"
+        "competition": "EURO",
+        "weight": 1.3
       },
       {
         "date": "2018-11-18",
         "home_away": "A",
         "goals_scored": 1,
         "goals_conceded": 2,
-        "competition": "Nations_League"
+        "competition": "Nations_League",
+        "weight": 1.1
       },
       {
         "date": "2018-10-12",
         "home_away": "H",
         "goals_scored": 0,
         "goals_conceded": 0,
-        "competition": "Nations_League"
+        "competition": "Nations_League",
+        "weight": 1.1
       },
       {
         "date": "2018-07-11",
         "home_away": "H",
         "goals_scored": 2,
         "goals_conceded": 1,
-        "competition": "WC"
+        "competition": "WC",
+        "weight": 1.5
       },
       {
         "date": "2009-09-09",
         "home_away": "A",
         "goals_scored": 1,
         "goals_conceded": 5,
-        "competition": "WC_Qualifier"
+        "competition": "WC_Qualifier",
+        "weight": 1.2
       },
       {
         "date": "2008-09-10",
         "home_away": "H",
         "goals_scored": 1,
         "goals_conceded": 4,
-        "competition": "WC_Qualifier"
+        "competition": "WC_Qualifier",
+        "weight": 1.2
       },
       {
         "date": "2007-11-21",
         "home_away": "A",
         "goals_scored": 3,
         "goals_conceded": 2,
-        "competition": "EURO_Qualifier"
+        "competition": "EURO_Qualifier",
+        "weight": 1.0
       },
       {
         "date": "2006-10-11",
         "home_away": "H",
         "goals_scored": 2,
         "goals_conceded": 0,
-        "competition": "EURO_Qualifier"
+        "competition": "EURO_Qualifier",
+        "weight": 1.0
       },
       {
         "date": "2004-06-21",
         "home_away": "H",
         "goals_scored": 2,
         "goals_conceded": 4,
-        "competition": "EURO"
+        "competition": "EURO",
+        "weight": 1.3
       },
       {
         "date": "2003-08-20",
         "home_away": "A",
         "goals_scored": 1,
         "goals_conceded": 3,
-        "competition": "Friendly"
+        "competition": "Friendly",
+        "weight": 0.8
       }
     ]
   },
