@@ -588,7 +588,7 @@ def _load_wc_index() -> dict:
 
 def predict_specific_game(json_path: Path | None = None) -> dict | None:
     if json_path is None:
-        json_path = Path(__file__).parent / "wc2026" / "specific_game.json"
+        json_path = Path(__file__).parent / "specific_game.json"
 
     try:
         data = json.loads(json_path.read_text(encoding="utf-8"))
