@@ -49,8 +49,16 @@ MISSING_MAJOR     = 0.012   # per "Major doubt"
 MISSING_MINOR     = 0.005   # per "Minor doubt"
 MISSING_CAP       = 0.12
 
-EDGE_THRESHOLDS   = {"HIGH": 5.0, "MEDIUM": 8.0, "LOW": 12.0}
-EDGE_ANOMALY      = 25.0
+# Value gate is on EV% (expected return = model_prob × odds − 1), NOT on
+# probability-point edge. pp-edge under-rates longshot value: a +3pp edge at
+# 4.40 odds is +14% EV, while +3pp at 1.20 is barely +0.5%. EV% is the metric
+# that actually drives ROI, so the threshold and anomaly guard both use it.
+EV_THRESHOLDS     = {"HIGH": 3.0, "MEDIUM": 5.0, "LOW": 8.0}   # min EV% to bet
+EV_ANOMALY        = 50.0   # EV% above this ⇒ likely odds/data error, no bet
+# Don't bet outcomes the model rates below this probability. Tail estimates are
+# unreliable — a tiny error there inflates EV on longshots into false value
+# (e.g. an 11% underdog at 13.0 odds). Mirrors main.py's MIN_PROB floors.
+MIN_PICK_PROB     = 0.15
 
 # Draw scale by ELO-difference bucket (descending threshold)
 _ELO_DRAW_SCALE = [(400, 0.40), (300, 0.55), (200, 0.70), (100, 0.85), (0, 1.00)]
@@ -352,7 +360,7 @@ def _devig2(oy: float, on_: float):
 # Confidence
 # ---------------------------------------------------------------------------
 
-def _confidence(home: dict, away: dict, max_edge: float) -> float:
+def _confidence(home: dict, away: dict, max_ev: float) -> float:
     score = 1.0
     fa = len(home.get("recent_matches", [])) >= 3
     fb = len(away.get("recent_matches", [])) >= 3
@@ -365,7 +373,7 @@ def _confidence(home: dict, away: dict, max_edge: float) -> float:
     kp = len(home.get("key_players_missing", [])) + len(away.get("key_players_missing", []))
     if kp >= 3:   score -= 0.12
     elif kp >= 1: score -= 0.04
-    if max_edge > EDGE_ANOMALY:
+    if max_ev > EV_ANOMALY:
         return 0.0
     return max(0.10, min(1.0, score))
 
@@ -416,51 +424,65 @@ def predict_match(home: dict, away: dict, match_info: dict, wc_index: dict | Non
         except (TypeError, ValueError):
             return 0.0
 
+    # Edge is computed vs the RAW implied probability (1/odds), matching
+    # staking.py — this is the true EV gate (model_prob > 1/odds). The de-vigged
+    # "fair" line is kept only as an informational market-consensus reference.
+    def _mkt(model_p: float, odds_v: float, fair_p: float, pick: str) -> dict:
+        implied = 1.0 / odds_v
+        return dict(model=model_p, fair=fair_p, implied=implied, odds=odds_v,
+                    pick=pick, edge=(model_p - implied) * 100,
+                    ev=(model_p * odds_v - 1.0) * 100)
+
     o_h, o_d, o_a = _od("home_win"), _od("draw"), _od("away_win")
     if o_h > 1 and o_d > 1 and o_a > 1:
         fh, fd, fa = _devig3(o_h, o_d, o_a)
-        markets["home_win"] = dict(model=ph, fair=fh, odds=o_h,
-                                   pick=home.get("team","Home"), edge=(ph-fh)*100)
-        markets["draw"]     = dict(model=pd, fair=fd, odds=o_d,
-                                   pick="Draw", edge=(pd-fd)*100)
-        markets["away_win"] = dict(model=pa, fair=fa, odds=o_a,
-                                   pick=away.get("team","Away"), edge=(pa-fa)*100)
+        markets["home_win"] = _mkt(ph, o_h, fh, home.get("team", "Home"))
+        markets["draw"]     = _mkt(pd, o_d, fd, "Draw")
+        markets["away_win"] = _mkt(pa, o_a, fa, away.get("team", "Away"))
 
     o_o, o_u = _od("over_2_5"), _od("under_2_5")
     if o_o > 1 and o_u > 1:
         fo, fu = _devig2(o_o, o_u)
-        markets["over_2_5"]  = dict(model=p["o25"], fair=fo, odds=o_o,
-                                    pick="Over 2.5", edge=(p["o25"]-fo)*100)
-        markets["under_2_5"] = dict(model=1-p["o25"], fair=fu, odds=o_u,
-                                    pick="Under 2.5", edge=((1-p["o25"])-fu)*100)
+        markets["over_2_5"]  = _mkt(p["o25"],     o_o, fo, "Over 2.5")
+        markets["under_2_5"] = _mkt(1 - p["o25"], o_u, fu, "Under 2.5")
 
     o_by, o_bn = _od("btts_yes"), _od("btts_no")
     if o_by > 1 and o_bn > 1:
         fy, fn = _devig2(o_by, o_bn)
-        markets["btts_yes"] = dict(model=p["btts"], fair=fy, odds=o_by,
-                                   pick="BTTS Yes", edge=(p["btts"]-fy)*100)
-        markets["btts_no"]  = dict(model=1-p["btts"], fair=fn, odds=o_bn,
-                                   pick="BTTS No", edge=((1-p["btts"])-fn)*100)
+        markets["btts_yes"] = _mkt(p["btts"],     o_by, fy, "BTTS Yes")
+        markets["btts_no"]  = _mkt(1 - p["btts"], o_bn, fn, "BTTS No")
 
-    max_edge = max((abs(v["edge"]) for v in markets.values()), default=0.0)
-    conf = _confidence(home, away, max_edge)
+    # Anomaly detection considers only reliable outcomes (model prob ≥ floor):
+    # a huge EV on a trustworthy outcome signals a real odds error, whereas a
+    # huge EV on a sub-floor longshot is just tail noise (handled by the floor).
+    max_ev = max((v["ev"] for v in markets.values() if v["model"] >= MIN_PICK_PROB),
+                 default=0.0)
+    conf = _confidence(home, away, max_ev)
     conf_lbl = _conf_label(conf)
-    threshold = EDGE_THRESHOLDS[conf_lbl]
+    threshold = EV_THRESHOLDS[conf_lbl]
 
-    value_picks = []
+    candidates = []
     for mkt_key, mkt in markets.items():
-        if mkt["edge"] >= threshold and max_edge < EDGE_ANOMALY:
+        # Skip unreliable tail outcomes — model probability too low to trust.
+        if mkt["model"] < MIN_PICK_PROB:
+            continue
+        if mkt["ev"] >= threshold and mkt["ev"] < EV_ANOMALY:
             units = _stake_units(mkt["model"], mkt["odds"], mkt["edge"])
             if units:
-                value_picks.append(dict(
+                candidates.append(dict(
                     market_key=mkt_key,
                     pick=mkt["pick"],
                     model_prob=mkt["model"],
                     odds=mkt["odds"],
                     edge=mkt["edge"],
+                    ev=mkt["ev"],
                     units=units,
                     eur=_units_to_eur(units),
                 ))
+    # One single best value bet per match (highest EV) — same as main.py, which
+    # surfaces only the top-edge market per fixture. No dutching two outcomes.
+    candidates.sort(key=lambda v: v["ev"], reverse=True)
+    value_picks = candidates[:1]
 
     return dict(
         match_id     = match_info.get("match_id", "SPECIFIC"),
@@ -483,7 +505,7 @@ def predict_match(home: dict, away: dict, match_info: dict, wc_index: dict | Non
         value_picks  = value_picks,
         confidence   = round(conf, 2),
         conf_label   = conf_lbl,
-        data_anomaly = max_edge > EDGE_ANOMALY,
+        data_anomaly = max_ev > EV_ANOMALY,
     )
 
 # ---------------------------------------------------------------------------
@@ -493,77 +515,22 @@ def predict_match(home: dict, away: dict, match_info: dict, wc_index: dict | Non
 W = 60
 
 def print_prediction(r: dict) -> None:
-    neutral_str = "Neutral" if r["neutral"] else "Home/Away"
     print()
-    print("═" * W)
-    print(f"  {r['home']}  vs  {r['away']}")
-    print(f"  {r['competition']}  │  {r['date']}  │  {neutral_str}")
-    print("═" * W)
+    print(f"  {r['home']} vs {r['away']}  ·  {r['date']}")
 
     if r["data_anomaly"]:
-        print("\n  ⚠  DATA ANOMALY — edge >25pp. Review odds before placing bets.\n")
+        print(f"  ⚠  NO BET — a reliable outcome shows >{EV_ANOMALY:.0f}% EV, "
+              f"which usually means the odds are misaligned with the fixture. "
+              f"Double-check the odds.\n")
         return
 
-    print(f"\n  xG:  {r['home']} {r['lam_a']:.2f}  vs  {r['away']} {r['lam_b']:.2f}\n")
-
-    threshold = EDGE_THRESHOLDS[r["conf_label"]]
-
-    # ── Headline recommendation — the single best value-hunting pick ──────────
-    picks_sorted = sorted(r["value_picks"], key=lambda v: v["edge"], reverse=True)
-    print("  " + "─" * (W - 2))
-    if picks_sorted:
-        best = picks_sorted[0]
-        eur_str = f"  (€{best['eur']:.2f})" if best["eur"] else ""
-        print(f"  ★ BET:  {best['pick']}  @ {best['odds']}")
-        print(f"          edge {best['edge']:+.1f}pp  ·  {best['units']} unit(s){eur_str}  "
-              f"·  conf {r['conf_label']}")
-    else:
-        # No value — still surface the closest market so the read isn't blank
-        best_edge_key = max(r["markets"], key=lambda k: r["markets"][k]["edge"], default=None)
-        if best_edge_key:
-            bm = r["markets"][best_edge_key]
-            print(f"  ✗ NO BET  ·  best edge {bm['pick']} {bm['edge']:+.1f}pp "
-                  f"(< {threshold:.0f}pp {r['conf_label']} threshold)")
-        else:
-            print("  ✗ NO BET  ·  no odds supplied")
-    print("  " + "─" * (W - 2))
-    print()
-
-    hdr = f"  {'Market':<18} {'Model':>7} {'Fair':>7} {'Edge':>9}"
-    print(hdr)
-    print("  " + "─" * (W - 2))
-
-    order = [
-        ("home_win",  f"{r['home']} Win"),
-        ("draw",      "Draw"),
-        ("away_win",  f"{r['away']} Win"),
-        ("over_2_5",  "Over 2.5"),
-        ("under_2_5", "Under 2.5"),
-        ("btts_yes",  "BTTS Yes"),
-        ("btts_no",   "BTTS No"),
-    ]
-    for key, label in order:
-        m = r["markets"].get(key)
-        if not m:
-            continue
-        flag = "  ✓ VALUE" if m["edge"] >= threshold else ""
-        print(f"  {label:<18} {m['model']:>6.1%} {m['fair']:>6.1%} {m['edge']:>+8.1f}pp{flag}")
-
-    print()
     if r["value_picks"]:
-        print(f"  VALUE PICKS  (confidence: {r['conf_label']}  {r['confidence']:.0%})")
-        print("  " + "─" * (W - 2))
         for vp in r["value_picks"]:
-            eur_str = f"  €{vp['eur']:.2f}" if vp["eur"] else ""
-            print(f"  ✓  {vp['pick']:<18} @ {vp['odds']:<6}  "
-                  f"edge {vp['edge']:+.1f}pp  │  {vp['units']} unit(s){eur_str}")
+            eur_str = f" (€{vp['eur']:.2f})" if vp["eur"] else ""
+            print(f"  ★ {vp['pick']} @ {vp['odds']}  "
+                  f"·  +{vp['ev']:.1f}% EV  ·  {vp['units']}u{eur_str}")
     else:
-        print(f"  No value picks  (confidence: {r['conf_label']}, threshold: {threshold:.0f}pp)")
-
-    print()
-    top3_str = "   ".join(f"{t['score']} ({t['prob']:.1%})" for t in r["top3"])
-    print(f"  Top scorelines:  {top3_str}")
-    print("═" * W)
+        print("  ✗ No value bet")
     print()
 
 # ---------------------------------------------------------------------------
@@ -577,42 +544,57 @@ _LOG_FIELDS = [
     "model_version","stake_units",
 ]
 
+def _market_label(key: str) -> str:
+    return {"home_win": "1X2", "draw": "1X2", "away_win": "1X2",
+            "over_2_5": "Over/Under", "under_2_5": "Over/Under",
+            "btts_yes": "BTTS", "btts_no": "BTTS"}.get(key, key)
+
+
 def log_picks(r: dict) -> None:
     if not r["value_picks"] or r["data_anomaly"]:
         return
-    write_header = not BETS_LOG.exists() or BETS_LOG.stat().st_size == 0
-    with BETS_LOG.open("a", newline="", encoding="utf-8") as f:
+
+    # Load existing rows, then drop any with this match_id so re-running the same
+    # fixture overrides its previous picks instead of appending duplicates.
+    existing: list[dict] = []
+    if BETS_LOG.exists() and BETS_LOG.stat().st_size > 0:
+        with BETS_LOG.open("r", newline="", encoding="utf-8") as f:
+            existing = [row for row in csv.DictReader(f)
+                        if row.get("match_id") != r["match_id"]]
+
+    new_rows = []
+    for vp in r["value_picks"]:
+        new_rows.append({
+            "match_id":        r["match_id"],
+            "date":            r["date"],
+            "home":            r["home"],
+            "away":            r["away"],
+            "league":          r["competition"],
+            "market":          _market_label(vp["market_key"]),
+            "pick":            vp["pick"],
+            "model_prob":      round(vp["model_prob"], 4),
+            "odds_taken":      vp["odds"],
+            "edge":            round(vp["edge"], 1),
+            # Pre-mark so the daily auto-settler (which settles only rows with
+            # result=="") skips these — specific/friendly games have no API id.
+            "result":          "MANUAL",
+            "roi":             "",
+            "settle_attempts": _MAX_SETTLE_ATTEMPTS,
+            "home_position":   "",
+            "away_position":   "",
+            "form_adv":        "",
+            "expected_total":  round(r["lam_a"] + r["lam_b"], 2),
+            "model_version":   MODEL_VERSION,
+            "stake_units":     vp["units"],
+        })
+
+    with BETS_LOG.open("w", newline="", encoding="utf-8") as f:
         w = csv.DictWriter(f, fieldnames=_LOG_FIELDS)
-        if write_header:
-            w.writeheader()
-        for vp in r["value_picks"]:
-            mkt = {"home_win":"1X2","draw":"1X2","away_win":"1X2",
-                   "over_2_5":"Over/Under","under_2_5":"Over/Under",
-                   "btts_yes":"BTTS","btts_no":"BTTS"}.get(vp["market_key"], vp["market_key"])
-            w.writerow({
-                "match_id":       r["match_id"],
-                "date":           r["date"],
-                "home":           r["home"],
-                "away":           r["away"],
-                "league":         r["competition"],
-                "market":         mkt,
-                "pick":           vp["pick"],
-                "model_prob":     round(vp["model_prob"], 4),
-                "odds_taken":     vp["odds"],
-                "edge":           round(vp["edge"], 1),
-                # Pre-mark so the daily auto-settler (which settles only rows with
-                # result=="") skips these — specific/friendly games have no API id.
-                "result":         "MANUAL",
-                "roi":            "",
-                "settle_attempts": _MAX_SETTLE_ATTEMPTS,
-                "home_position":  "",
-                "away_position":  "",
-                "form_adv":       "",
-                "expected_total": round(r["lam_a"] + r["lam_b"], 2),
-                "model_version":  MODEL_VERSION,
-                "stake_units":    vp["units"],
-            })
-    print(f"  → {len(r['value_picks'])} pick(s) logged to bets_log.csv")
+        w.writeheader()
+        w.writerows(existing)
+        w.writerows(new_rows)
+
+    print(f"  → {len(new_rows)} pick(s) written to bets_log.csv (match_id {r['match_id']})")
 
 # ---------------------------------------------------------------------------
 # Specific game entry point
