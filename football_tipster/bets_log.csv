@@ -399,3 +399,4 @@ match_id,date,home,away,league,market,pick,model_prob,odds_taken,edge,result,roi
 NOR_SWE_20260601,2026-06-01,Norway,Sweden,Friendly,1X2,Sweden,0.2615,4.74,5.1,MANUAL,,10,,,,2.78,WC_v1,2
 TUR_MKD_20260601,2026-06-01,Turkey,North Macedonia,Friendly,Over/Under,Under 2.5,0.4896,2.27,4.9,MANUAL,,10,,,,2.72,WC_v1,2
 554933,2026-07-26,Cruzeiro EC,Botafogo FR,BSA,Over/Under,Over 2.5,0.561,1.90,3.5,L,-1.000,0,0.632,0.579,0.307,3.591,v2,2
+567263,2026-08-08,CS Marítimo,Casa Pia AC,PPL,Over/Under,Under 2.5,0.627,1.73,4.9,,,0,0.471,0.118,0.000,2.641,v2,3
