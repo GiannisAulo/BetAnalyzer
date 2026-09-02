@@ -418,4 +418,6 @@ TUR_MKD_20260601,2026-06-01,Turkey,North Macedonia,Friendly,Over/Under,Under 2.5
 561786,2026-08-29,Bolton Wanderers FC,Lincoln City FC,ELC,Over/Under,Under 2.5,0.552,1.86,1.5,W,0.860,1,0.696,0.174,0.500,2.026,v2,1
 558622,2026-08-30,SS Lazio,Genoa CFC,SA,Over/Under,Under 2.5,0.664,1.58,3.1,W,0.580,1,0.526,0.211,0.000,2.297,v2,2
 558621,2026-08-31,US Lecce,AS Roma,SA,Over/Under,Under 2.5,0.543,1.87,0.9,L,-1.000,0,0.579,0.684,0.000,2.187,v2,
-561803,2026-09-01,Birmingham City FC,Southampton FC,ELC,Over/Under,Over 2.5,0.572,1.83,2.6,,,0,0.696,0.261,-0.167,3.073,v2,1
+561803,2026-09-01,Birmingham City FC,Southampton FC,ELC,Over/Under,Over 2.5,0.572,1.83,2.6,L,-1.000,0,0.696,0.261,-0.167,3.073,v2,1
+554775,2026-09-02,CR Flamengo,Mirassol FC,BSA,Combo,Home Win + Over 2.5,0.615,1.85,7.6,,,0,0.947,0.211,0.770,4.290,v2,4
+561806,2026-09-02,Millwall FC,Wrexham AFC,ELC,Over/Under,Over 2.5,0.548,2.02,5.3,,,0,0.783,0.174,0.667,2.993,v2,3
