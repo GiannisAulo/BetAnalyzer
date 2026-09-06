@@ -424,6 +424,9 @@ TUR_MKD_20260601,2026-06-01,Turkey,North Macedonia,Friendly,Over/Under,Under 2.5
 564682,2026-09-03,Real Sociedad de Fútbol,RC Celta de Vigo,PD,Over/Under,Under 2.5,0.551,2.00,5.1,W,1.000,1,0.368,0.211,0.667,1.827,v2,3
 559699,2026-09-04,Olympique Lyonnais,AJ Auxerre,FL1,Combo,Home Win + Over 2.5,0.525,2.56,13.5,W,1.560,0,0.824,0.000,-0.167,3.828,v2,6
 567299,2026-09-04,FC Porto,Moreirense FC,PPL,Combo,Home Win + Over 2.5,0.602,1.90,7.4,W,0.900,0,1.000,0.412,0.423,3.660,v2,4
-560569,2026-09-05,Hull City AFC,Aston Villa FC,PL,Over/Under,Under 2.5,0.580,2.02,8.5,,,0,0.895,0.053,0.500,2.783,v2,4
-560571,2026-09-05,Newcastle United FC,AFC Bournemouth,PL,Over/Under,Under 3.5,0.649,1.63,3.6,,,0,0.684,0.316,-0.167,2.400,v2,2
-558614,2026-09-05,FC Internazionale Milano,SSC Napoli,SA,Over/Under,Under 2.5,0.534,1.99,3.2,,,0,0.895,0.526,0.000,2.445,v2,2
+560569,2026-09-05,Hull City AFC,Aston Villa FC,PL,Over/Under,Under 2.5,0.580,2.02,8.5,W,1.020,0,0.895,0.053,0.500,2.783,v2,4
+560571,2026-09-05,Newcastle United FC,AFC Bournemouth,PL,Over/Under,Under 3.5,0.649,1.63,3.6,L,-1.000,0,0.684,0.316,-0.167,2.400,v2,2
+558614,2026-09-05,FC Internazionale Milano,SSC Napoli,SA,Over/Under,Under 2.5,0.534,1.99,3.2,L,-1.000,0,0.895,0.526,0.000,2.445,v2,2
+564666,2026-09-06,Málaga CF,Levante UD,PD,Over/Under,Over 2.5,0.534,2.02,3.9,,,0,0.000,0.526,0.141,3.402,v2,2
+559698,2026-09-06,Angers SCO,Stade Rennais FC 1901,FL1,Over/Under,Over 2.5,0.617,1.69,2.6,,,0,0.412,0.706,0.000,4.078,v2,2
+567301,2026-09-06,Gil Vicente FC,Académico de Viseu FC,PPL,Over/Under,Under 2.5,0.666,1.56,2.5,,,0,0.706,0.176,0.667,1.890,v2,2
