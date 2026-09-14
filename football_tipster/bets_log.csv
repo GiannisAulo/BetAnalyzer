@@ -434,6 +434,7 @@ TUR_MKD_20260601,2026-06-01,Turkey,North Macedonia,Friendly,Over/Under,Under 2.5
 567307,2026-09-12,Casa Pia AC,FC Porto,PPL,Combo,Away Win + Over 2.5,0.548,2.06,6.3,W,1.060,0,0.000,1.000,-0.500,3.682,v2,3
 555003,2026-09-12,Chapecoense AF,SC Internacional,BSA,Over/Under,Over 2.5,0.554,1.95,4.1,W,0.950,0,0.000,0.105,0.277,3.638,v2,2
 ACC:560573+565796,2026-09-12,Liverpool FC / FC Augsburg,(2-leg acca),MULTI,AccaCross,Liverpool FC: Over 2.5 @1.45 + FC Augsburg: Over 2.5 @1.40,0.591,2.03,9.9,L,-1.000,0,,,,,v2,5
-558605,2026-09-13,US Lecce,AC Monza,SA,Over/Under,Over 2.5,0.523,2.35,9.7,,,0,0.316,0.105,0.308,2.949,v2,4
-565799,2026-09-13,RB Leipzig,Hamburger SV,BL1,Combo,Home Win + Over 2.5,0.604,1.78,4.3,,,0,0.353,0.059,0.500,4.200,v2,2
-560578,2026-09-13,Coventry City FC,Brighton & Hove Albion FC,PL,Over/Under,Over 2.5,0.592,1.77,2.7,,,0,0.000,0.421,0.000,3.987,v2,2
+558605,2026-09-13,US Lecce,AC Monza,SA,Over/Under,Over 2.5,0.523,2.35,9.7,W,1.350,0,0.316,0.105,0.308,2.949,v2,4
+565799,2026-09-13,RB Leipzig,Hamburger SV,BL1,Combo,Home Win + Over 2.5,0.604,1.78,4.3,W,0.780,0,0.353,0.059,0.500,4.200,v2,2
+560578,2026-09-13,Coventry City FC,Brighton & Hove Albion FC,PL,Over/Under,Over 2.5,0.592,1.77,2.7,W,0.770,0,0.000,0.421,0.000,3.987,v2,2
+558601,2026-09-14,FC Internazionale Milano,Udinese Calcio,SA,Combo,Home Win + Over 2.5,0.616,1.86,7.7,,,0,0.895,0.368,0.000,4.560,v2,4
