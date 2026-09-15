@@ -437,4 +437,6 @@ ACC:560573+565796,2026-09-12,Liverpool FC / FC Augsburg,(2-leg acca),MULTI,AccaC
 558605,2026-09-13,US Lecce,AC Monza,SA,Over/Under,Over 2.5,0.523,2.35,9.7,W,1.350,0,0.316,0.105,0.308,2.949,v2,4
 565799,2026-09-13,RB Leipzig,Hamburger SV,BL1,Combo,Home Win + Over 2.5,0.604,1.78,4.3,W,0.780,0,0.353,0.059,0.500,4.200,v2,2
 560578,2026-09-13,Coventry City FC,Brighton & Hove Albion FC,PL,Over/Under,Over 2.5,0.592,1.77,2.7,W,0.770,0,0.000,0.421,0.000,3.987,v2,2
-558601,2026-09-14,FC Internazionale Milano,Udinese Calcio,SA,Combo,Home Win + Over 2.5,0.616,1.86,7.7,,,0,0.895,0.368,0.000,4.560,v2,4
+558601,2026-09-14,FC Internazionale Milano,Udinese Calcio,SA,Combo,Home Win + Over 2.5,0.616,1.86,7.7,W,0.860,0,0.895,0.368,0.000,4.560,v2,4
+561825,2026-09-15,Middlesbrough FC,Millwall FC,ELC,Over/Under,Over 2.5,0.643,1.63,3.0,,,0,0.870,0.478,0.743,3.321,v2,2
+564681,2026-09-15,Elche CF,Real Madrid CF,PD,Over/Under,Over 3.5,0.539,1.86,0.1,,,0,0.053,0.947,0.077,4.154,v2,
