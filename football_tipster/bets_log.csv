@@ -465,6 +465,10 @@ ACC:564702+565818,2026-10-10,Real Madrid CF / TSG 1899 Hoffenheim,(2-leg acca),M
 555045,2026-10-18,Fluminense FC,Santos FC,BSA,Over/Under,Over 2.5,0.522,1.96,1.2,W,0.960,0,0.842,0.579,0.000,3.207,v2,1
 575374,2026-10-21,Aston Villa FC,Viking FK,CL,Over/Under,Over 3.5,0.549,1.87,1.4,W,0.870,0,0.914,0.200,-0.050,3.826,v2,1
 564685,2026-10-21,Levante UD,Athletic Club,PD,Over/Under,Under 2.5,0.522,1.92,0.1,L,-1.000,0,0.158,0.474,-0.057,2.222,v2,
-565837,2026-10-24,Borussia Dortmund,Eintracht Frankfurt,BL1,Combo,Home Win + Over 2.5,0.575,2.13,10.5,,,0,0.941,0.412,0.359,4.332,v2,5
-555056,2026-10-24,SE Palmeiras,RB Bragantino,BSA,Over/Under,Over 2.5,0.604,1.78,4.3,,,0,0.947,0.526,0.833,4.158,v2,2
-565832,2026-10-24,RB Leipzig,SV 07 Elversberg,BL1,Combo,Home Win + Over 2.5,0.570,1.88,3.8,,,0,0.647,0.706,0.638,4.456,v2,2
+565837,2026-10-24,Borussia Dortmund,Eintracht Frankfurt,BL1,Combo,Home Win + Over 2.5,0.575,2.13,10.5,,,1,0.941,0.412,0.359,4.332,v2,5
+555056,2026-10-24,SE Palmeiras,RB Bragantino,BSA,Over/Under,Over 2.5,0.604,1.78,4.3,,,1,0.947,0.526,0.833,4.158,v2,2
+565832,2026-10-24,RB Leipzig,SV 07 Elversberg,BL1,Combo,Home Win + Over 2.5,0.570,1.88,3.8,,,1,0.647,0.706,0.638,4.456,v2,2
+558563,2026-10-25,FC Internazionale Milano,ACF Fiorentina,SA,Combo,Home Win + Over 2.5,0.634,1.93,11.6,,,0,0.947,0.105,0.466,4.332,v2,6
+558856,2026-10-25,Sparta Rotterdam,AFC Ajax,DED,Combo,Away Win + Over 2.5,0.575,1.97,6.7,,,0,0.235,0.824,-0.566,4.006,v2,3
+560615,2026-10-25,Manchester United FC,AFC Bournemouth,PL,Over/Under,Over 2.5,0.640,1.71,5.5,,,0,0.263,0.158,0.389,4.083,v2,3
+ACC:564723+558563,2026-10-25,FC Barcelona / FC Internazionale Milano,(2-leg acca),MULTI,AccaCross,FC Barcelona: Over 2.5 @1.22 + FC Internazionale Milano: Over 2.5 @1.40,0.673,1.71,8.8,,,0,,,,,v2,5
