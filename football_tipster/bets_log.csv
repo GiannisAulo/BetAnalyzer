@@ -475,3 +475,7 @@ ACC:564723+558563,2026-10-25,FC Barcelona / FC Internazionale Milano,(2-leg acca
 555062,2026-10-28,RB Bragantino,Chapecoense AF,BSA,Combo,Home Win + Over 2.5,0.603,1.87,6.9,W,0.870,0,0.526,0.000,0.337,4.239,v2,4
 558554,2026-10-28,AC Monza,SSC Napoli,SA,Over/Under,Over 2.5,0.581,1.79,2.2,W,0.790,0,0.263,0.526,0.571,2.768,v2,1
 558551,2026-10-29,ACF Fiorentina,Atalanta BC,SA,Over/Under,Over 2.5,0.651,1.65,4.5,W,0.650,0,0.053,0.421,-0.412,3.432,v2,3
+560629,2026-10-31,Hull City AFC,Ipswich Town FC,PL,Over/Under,Over 2.5,0.585,1.94,6.9,,,0,0.526,0.421,0.221,3.661,v2,4
+564736,2026-10-31,Real Betis Balompié,Málaga CF,PD,Over/Under,Under 3.5,0.648,1.72,6.7,,,0,0.842,0.000,0.608,2.696,v2,4
+560625,2026-10-31,Coventry City FC,Sunderland AFC,PL,Over/Under,Over 2.5,0.530,2.10,5.4,,,0,0.053,0.000,0.193,3.164,v2,3
+ACC:560623+565843,2026-10-31,Manchester City FC / SV Werder Bremen,(2-leg acca),MULTI,AccaCross,Manchester City FC: Over 2.5 @1.45 + SV Werder Bremen: Over 2.5 @1.40,0.601,2.03,10.8,,,0,,,,,v2,5
