@@ -479,7 +479,7 @@ ACC:564723+558563,2026-10-25,FC Barcelona / FC Internazionale Milano,(2-leg acca
 564736,2026-10-31,Real Betis Balompié,Málaga CF,PD,Over/Under,Under 3.5,0.648,1.72,6.7,W,0.720,0,0.842,0.000,0.608,2.696,v2,4
 560625,2026-10-31,Coventry City FC,Sunderland AFC,PL,Over/Under,Over 2.5,0.530,2.10,5.4,W,1.100,0,0.053,0.000,0.193,3.164,v2,3
 ACC:560623+565843,2026-10-31,Manchester City FC / SV Werder Bremen,(2-leg acca),MULTI,AccaCross,Manchester City FC: Over 2.5 @1.45 + SV Werder Bremen: Over 2.5 @1.40,0.601,2.03,10.8,L,-1.000,0,,,,,v2,5
-559640,2026-11-01,Olympique Lyonnais,Angers SCO,FL1,Combo,Home Win + Over 2.5,0.545,2.43,13.4,,,0,0.765,0.235,0.534,3.941,v2,6
-567341,2026-11-01,FC Arouca,CD Nacional,PPL,Over/Under,Over 2.5,0.600,1.92,7.9,,,0,0.765,0.176,0.683,3.371,v2,4
-564728,2026-11-01,Elche CF,Valencia CF,PD,Over/Under,Under 2.5,0.560,1.94,4.4,,,0,0.211,0.053,-0.265,1.840,v2,2
-ACC:564734+559640,2026-11-01,Real Racing Club de Santander / Olympique Lyonnais,(2-leg acca),MULTI,AccaCross,Real Racing Club de Santander: Over 2.5 @1.21 + Olympique Lyonnais: Home Win @1.44,0.691,1.74,11.7,,,0,,,,,v2,7
+559640,2026-11-01,Olympique Lyonnais,Angers SCO,FL1,Combo,Home Win + Over 2.5,0.545,2.43,13.4,L,-1.000,0,0.765,0.235,0.534,3.941,v2,6
+567341,2026-11-01,FC Arouca,CD Nacional,PPL,Over/Under,Over 2.5,0.600,1.92,7.9,L,-1.000,0,0.765,0.176,0.683,3.371,v2,4
+564728,2026-11-01,Elche CF,Valencia CF,PD,Over/Under,Under 2.5,0.560,1.94,4.4,W,0.940,0,0.211,0.053,-0.265,1.840,v2,2
+ACC:564734+559640,2026-11-01,Real Racing Club de Santander / Olympique Lyonnais,(2-leg acca),MULTI,AccaCross,Real Racing Club de Santander: Over 2.5 @1.21 + Olympique Lyonnais: Home Win @1.44,0.691,1.74,11.7,W,0.742,0,,,,,v2,7
