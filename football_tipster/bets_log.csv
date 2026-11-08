@@ -485,6 +485,9 @@ ACC:560623+565843,2026-10-31,Manchester City FC / SV Werder Bremen,(2-leg acca),
 ACC:564734+559640,2026-11-01,Real Racing Club de Santander / Olympique Lyonnais,(2-leg acca),MULTI,AccaCross,Real Racing Club de Santander: Over 2.5 @1.21 + Olympique Lyonnais: Home Win @1.44,0.691,1.74,11.7,W,0.742,0,,,,,v2,7
 555073,2026-11-03,Chapecoense AF,Mirassol FC,BSA,Over/Under,Over 2.5,0.539,1.97,3.2,W,0.970,0,0.000,0.211,0.250,3.504,v2,2
 575387,2026-11-04,Fenerbahçe SK,Liverpool FC,CL,Combo,Away Win + Over 2.5,0.533,2.08,5.3,L,-1.000,0,0.143,0.914,-0.595,3.871,v2,3
-564744,2026-11-07,Málaga CF,Real Racing Club de Santander,PD,Over/Under,Over 2.5,0.652,1.73,7.4,,,0,0.000,0.211,-0.339,3.902,v2,4
-561930,2026-11-07,Cardiff City FC,Burnley FC,ELC,Over/Under,Over 2.5,0.737,1.47,5.7,,,0,0.261,0.087,0.373,4.755,v2,4
-565848,2026-11-07,RB Leipzig,FC Augsburg,BL1,Combo,Home Win + Over 2.5,0.572,1.88,3.9,,,0,0.824,0.412,0.443,4.265,v2,2
+564744,2026-11-07,Málaga CF,Real Racing Club de Santander,PD,Over/Under,Over 2.5,0.652,1.73,7.4,W,0.730,0,0.000,0.211,-0.339,3.902,v2,4
+561930,2026-11-07,Cardiff City FC,Burnley FC,ELC,Over/Under,Over 2.5,0.737,1.47,5.7,W,0.470,0,0.261,0.087,0.373,4.755,v2,4
+565848,2026-11-07,RB Leipzig,FC Augsburg,BL1,Combo,Home Win + Over 2.5,0.572,1.88,3.9,W,0.880,0,0.824,0.412,0.443,4.265,v2,2
+564742,2026-11-08,RC Celta de Vigo,Levante UD,PD,Over/Under,Under 2.5,0.567,1.95,5.4,,,0,0.421,0.105,0.393,1.915,v2,3
+564743,2026-11-08,Real Sociedad de Fútbol,Rayo Vallecano de Madrid,PD,Over/Under,Under 3.5,0.669,1.54,1.9,,,0,0.789,0.316,0.527,2.510,v2,1
+560638,2026-11-08,Brighton & Hove Albion FC,Brentford FC,PL,Over/Under,Under 3.5,0.611,1.64,0.1,,,0,0.895,0.684,0.522,3.481,v2,
