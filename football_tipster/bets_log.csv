@@ -495,7 +495,8 @@ ACC:564734+559640,2026-11-01,Real Racing Club de Santander / Olympique Lyonnais,
 561951,2026-11-21,West Ham United FC,Preston North End FC,ELC,Combo,Home Win + Over 2.5,0.600,1.84,5.7,L,-1.000,0,0.652,0.000,0.000,4.094,v2,3
 560650,2026-11-21,Coventry City FC,Crystal Palace FC,PL,Over/Under,Over 2.5,0.589,1.85,4.9,W,0.850,0,0.158,0.000,0.312,2.890,v2,3
 561948,2026-11-21,Norwich City FC,Cardiff City FC,ELC,Over/Under,Over 3.5,0.566,1.91,4.3,L,-1.000,0,0.522,0.435,0.077,4.300,v2,2
-559625,2026-11-22,Paris FC,Angers SCO,FL1,Combo,Home Win + Over 2.5,0.609,2.01,11.2,,,0,0.882,0.059,0.678,3.911,v2,6
-559629,2026-11-22,Olympique de Marseille,Le Mans FC,FL1,Combo,Home Win + Over 2.5,0.527,2.33,9.6,,,0,0.765,0.118,0.541,3.702,v2,4
-560645,2026-11-22,Liverpool FC,Manchester United FC,PL,Over/Under,Under 3.5,0.649,1.72,6.8,,,0,0.789,0.053,0.387,2.678,v2,4
-ACC:564750+559625,2026-11-22,Real Racing Club de Santander / Paris FC,(2-leg acca),MULTI,AccaCross,Real Racing Club de Santander: Over 2.5 @1.40 + Paris FC: Home Win @1.34,0.690,1.88,15.7,,,0,,,,,v2,8
+559625,2026-11-22,Paris FC,Angers SCO,FL1,Combo,Home Win + Over 2.5,0.609,2.01,11.2,W,1.010,0,0.882,0.059,0.678,3.911,v2,6
+559629,2026-11-22,Olympique de Marseille,Le Mans FC,FL1,Combo,Home Win + Over 2.5,0.527,2.33,9.6,L,-1.000,0,0.765,0.118,0.541,3.702,v2,4
+560645,2026-11-22,Liverpool FC,Manchester United FC,PL,Over/Under,Under 3.5,0.649,1.72,6.8,L,-1.000,0,0.789,0.053,0.387,2.678,v2,4
+ACC:564750+559625,2026-11-22,Real Racing Club de Santander / Paris FC,(2-leg acca),MULTI,AccaCross,Real Racing Club de Santander: Over 2.5 @1.40 + Paris FC: Home Win @1.34,0.690,1.88,15.7,W,0.876,0,,,,,v2,8
+564757,2026-11-23,Levante UD,Elche CF,PD,Over/Under,Over 2.5,0.640,1.73,6.2,,,0,0.105,0.053,-0.211,4.111,v2,4
